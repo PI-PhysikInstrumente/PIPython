@@ -1,0 +1,592 @@
+#! /bin/sh
+#
+#
+
+#**********************************************************************************************************
+#  Physik Instrumente (PI) GmbH & Co. KG (www.pi.ws)
+#**********************************************************************************************************
+#
+#  Description:	  Installs and removes PIPython
+#
+#  Author:        Jens Kapp (JKa)
+#                 SW Engineer
+#                 Physik Instrumente (PI) GmbH & Co. KG
+#                 Auf der Roemerstr. 1
+#                 D-76228 Karlsruhe
+#                 Germany
+#
+#**********************************************************************************************************
+#  Version:	1.0.1
+#**********************************************************************************************************
+
+
+PI_PRODUCT_NAME='PIPython'
+
+PI_COMPONENT_NAME=pi_pipython
+
+
+PI_DESTINATION_PATH=/usr/local/PI
+PI_DESTINATION_ETC_DIR=${PI_DESTINATION_PATH}/etc
+PI_DESTINATION_ETC_SHARED_DIR=${PI_DESTINATION_ETC_DIR}/PI
+PI_DESTINATION_ETC_LDSOCONF_DIR=${PI_DESTINATION_ETC_DIR}/ld.so.conf.d
+PI_DESTINATION_LIB_PATH=${PI_DESTINATION_PATH}/lib32
+PI_DESTINATION_LIB_PATH_OLD=${PI_DESTINATION_PATH}/lib
+PI_DESTINATION_INCLUDE_PATH=${PI_DESTINATION_PATH}/include
+PI_DESTINATION_GCS_TRANSLATOR_PATH=${PI_DESTINATION_PATH}/pi_gcs_translator
+
+PI_SYSTEM_ETC_PI_SHARED_DIR=/etc/PI
+PI_SYSTEM_ETC_LDSOCONF_DIR=/etc/ld.so.conf.d
+PI_SYSTEM_LOCAL_INCLUDE_PATH=/usr/local/include/PI
+PI_SYSTEM_LOCAL_LIB_PATH=/usr/local/lib
+PI_SYSTEM_LOCAL_LIB_PATH_PLATFORM_DEPENDEND=/usr/local/lib32
+PI_SYSTEM_LOCAL_LIB_PATH_COMPATIBLE_PLATFORM_DEPENDEND=/usr/local/lib64
+
+
+PI_PLATTFORM_ALL="all"
+PI_PLATTFORM_i686="i686"
+PI_PLATTFORM_x86_64="x86_64"
+PI_ALL=0
+PI_REMOVE=0
+PI_UPDATE=0
+PI_ANSWER=0
+PI_IGNOR_IF_INVALIDE_PLATFORM=0
+PI_FORCE_PLATTFORM=$PI_PLATTFORM_ALL
+PI_PYTHON_VERSIONS_FOUND=""
+PI_PYTHON_VERSIONS_SELECTED=""
+
+PI_PIPYTHION_VERSION=`unzip -l PIPython.zip  | grep setup.py | rev | cut -f1 -d' ' | rev | cut -f1 -d'/' | cut -f2 -d'-'`
+PI_PYTHON_ALL_PATHS=`file -iL /usr/bin/python* | grep application | cut -f1 -d':' | tr -t '\n' ' '`
+PI_PYTHON_ALL_PATHS=$PI_PYTHON_ALL_PATHS`file -iL /usr/local/bin/python* | grep application | cut -f1 -d':' | tr -t '\n' ' '`
+PI_PYTHON_ALL_REAL_PATHS=""
+PI_PYTHON_BIN_REAL_PATHS=""
+PI_PYTHON_BIN_TO_INSTALL_TO=""
+
+for i in $PI_PYTHON_ALL_PATHS; do
+	PI_PYTHON_ALL_REAL_PATHS=${PI_PYTHON_ALL_REAL_PATHS}" "`realpath $i`
+done
+
+for i in $PI_PYTHON_ALL_REAL_PATHS; do
+	PI_REAL_PYTHON_PATH=$i
+	PI_REAL_PATH_ALLREDY_IN_LIST=0
+
+	for j in $PI_PYTHON_BIN_REAL_PATHS; do
+		if test $j = $PI_REAL_PYTHON_PATH
+		then
+			PI_REAL_PATH_ALLREDY_IN_LIST=1
+		fi
+	done
+
+	if test $PI_REAL_PATH_ALLREDY_IN_LIST -eq 0
+	then
+		PI_PYTHON_BIN_REAL_PATHS=$PI_PYTHON_BIN_REAL_PATHS" "$PI_REAL_PYTHON_PATH
+	fi
+done
+
+
+PiRunPiPythonSetup()
+{
+	PI_PYTHON=$1
+	PI_PYTHON_OPTIONS=$2
+
+
+	$PI_PYTHON -c "import setuptools" 1> /dev/null 2> /dev/null
+	PI_ANSWER=$?
+
+	if test $PI_ANSWER -ne 0
+	then
+		$PI_PYTHON -c "import pip" 1> /dev/null 2> /dev/null
+		PI_ANSWER=$?
+
+		echo ""
+		echo "The python module 'setuptools' is required to install $PI_PRODUCT_NAME,"
+		echo "but it is not installed for $PI_PYTHON."
+
+		if test $PI_ANSWER -ne 0
+		then
+			echo ""
+			echo "To install 'setuptools' the python package manager 'pip' is required,"
+			echo "but 'pip' for $PI_PYTHON is also not installed on your system."
+			echo "Please install 'pip' for $PI_PYTHON an run the installation script again"
+			echo "The installation of $PI_PRODUCT_NAME for $PI_PYTHON will be skipped"
+			return 1
+		
+		fi
+
+		echo "Do you want to install 'setuptools' for $PI_PYTHON now?"
+		echo "If not the installation of $PI_PRODUCT_NAME for $PI_PYTHON will be skipped"
+		echo ""
+		echo -n "Install 'setuptools' now? [yn]: "; read PI_INSTALL_SETUPTOOLS
+
+		if test $PI_INSTALL_SETUPTOOLS = 'n'
+		then
+			return 1
+		fi
+		
+		$PI_PYTHON -m pip install setuptools  1> /dev/null 2> /dev/null
+		PI_ANSWER=$?
+
+		if test $PI_ANSWER -ne 0
+		then
+			echo ""
+			echo "'setuptools' couldn not be installed"
+			echo "The installation of $PI_PRODUCT_NAME for $PI_PYTHON will be skipped"
+			return 1
+		fi
+
+	fi
+
+	$PI_PYTHON setup.py install $PI_PYTHON_OPTIONS 1> /dev/null 2> /dev/null
+	PI_ANSWER=$?
+
+	return $PI_ANSWER
+}
+
+
+PiMakeSharedEntery()
+{
+	if ! mkdir -p $PI_DESTINATION_ETC_SHARED_DIR 1> /dev/null
+	then
+		return 2
+	fi
+
+	if ! mkdir -p $PI_SYSTEM_ETC_PI_SHARED_DIR 1> /dev/null
+	then
+		return 2
+	fi
+
+	echo "$1" | cat >> ${PI_DESTINATION_ETC_SHARED_DIR}/${2}
+
+	ln -s ${PI_DESTINATION_ETC_SHARED_DIR}/${2} ${PI_SYSTEM_ETC_SHARED_DIR}/${2} 1> /dev/null 2> /dev/null
+
+	return 0
+}
+
+PiRemoveSharedEntery()
+{
+	if find ${PI_DESTINATION_ETC_SHARED_DIR}/${2} 1> /dev/null 2> /dev/null
+	then
+		PI_TMP1=`grep -xn "$1" ${PI_DESTINATION_ETC_SHARED_DIR}/${2} | cut -f1 -d: | tail -n1`
+		if ! test -n "$PI_TMP1"
+		then
+			return 1
+		fi
+		head -n`expr $PI_TMP1 - 1` ${PI_DESTINATION_ETC_SHARED_DIR}/${2} > ${PI_DESTINATION_ETC_SHARED_DIR}/${2}_tmp
+		PI_TMP2=`wc -l ${PI_DESTINATION_ETC_SHARED_DIR}/${2} | cut -f1 -d' '`
+
+		if test $PI_TMP2 -gt $PI_TMP1
+		then
+			tail -`expr $PI_TMP2 - $PI_TMP1` ${PI_DESTINATION_ETC_SHARED_DIR}/${2}  | cat >> ${PI_DESTINATION_ETC_SHARED_DIR}/${2}_tmp
+		fi
+
+		cp ${PI_DESTINATION_ETC_SHARED_DIR}/${2}_tmp ${PI_DESTINATION_ETC_SHARED_DIR}/${2}
+		rm ${PI_DESTINATION_ETC_SHARED_DIR}/${2}_tmp
+		
+
+		PI_ANSWER=`cat ${PI_DESTINATION_ETC_SHARED_DIR}/${2} | wc -w`
+		if test $PI_ANSWER -eq 0
+		then
+			rm ${PI_SYSTEM_ETC_SHARED_DIR}/${2}*  1> /dev/null 2> /dev/null
+			rm ${PI_DESTINATION_ETC_DIR}/${2}*  1> /dev/null 2> /dev/null
+			rm ${PI_DESTINATION_ETC_SHARED_DIR}/${2}*  1> /dev/null 2> /dev/null
+			rmdir -p ${PI_DESTINATION_ETC_SHARED_DIR}  1> /dev/null 2> /dev/null
+			rmdir -p ${PI_SYSTEM_ETC_SHARED_DIR}  1> /dev/null 2> /dev/null
+			rmdir -p ${PI_SYSTEM_ETC_DIR}  1> /dev/null 2> /dev/null
+			return 1
+		fi
+
+		PI_TMP1=`grep -xn "$1" ${PI_DESTINATION_ETC_SHARED_DIR}/${2} | cut -f1 -d: | tail -n1`
+		if ! test -n "$PI_TMP1"
+		then
+			return 1
+		fi
+
+	else
+		return 1
+	fi
+	return 0
+}
+
+
+
+PiPythonInstallFiles()
+{
+	#unzip PIPython.zip
+	rm -R "${PI_PRODUCT_NAME}-${PI_PIPYTHION_VERSION}" 1> /dev/null 2> /dev/null
+	unzip PIPython.zip 1> /dev/null	
+	chmod a+wr -R ${PI_PRODUCT_NAME}-${PI_PIPYTHION_VERSION} 1> /dev/null 2> /dev/null
+
+	# Install dpendency
+	PI_PARAMETER=" -a"
+	PI_DIR_COUNTER=1
+	PI_INSTALL_DIRS=`ls -F | grep / | cut -f1 -d/`
+	PI_INSTALL_PATHS=$PI_INSTALL_DIRS
+
+	if test -n "$PI_INSTALL_DIRS"
+	then
+		PI_INSTALL_DIRS=${PI_INSTALL_DIRS}" "
+	fi
+
+	if test -n "$PI_INSTALL_PATHS"
+	then
+		PI_INSTALL_PATHS=${PI_INSTALL_PATHS}" "
+	fi
+
+	PI_INSTALL_DIRS=${PI_INSTALL_DIRS}`cat "./"${PI_DEPENDENCIES_SCRIPT_NAME} | rev | cut -f1 -d/ | rev` 1> /dev/null 2> /dev/null
+	PI_INSTALL_PATHS=${PI_INSTALL_PATHS}`cat "./"${PI_DEPENDENCIES_SCRIPT_NAME}` 1> /dev/null 2> /dev/null
+
+	PI_CUR_INSTALL_DIR=`echo ${PI_INSTALL_DIRS} | cut -f${PI_DIR_COUNTER} -d' ' | tr -d '\n' | tr -d '\r'`
+	PI_CUR_INSTALL_PATH=`echo ${PI_INSTALL_PATHS} | cut -f${PI_DIR_COUNTER} -d' ' | tr -d '\n' | tr -d '\r'`
+
+	if test $PI_UPDATE -eq 1
+	then
+		PI_PARAMETER=" -u"${PI_PARAMETER}
+	fi
+
+	if test $PI_IGNOR_IF_INVALIDE_PLATFORM -eq 1
+	then
+		PI_PARAMETER=" -i"${PI_PARAMETER}
+	fi
+
+	if test $PI_FORCE_PLATTFORM != $PI_PLATTFORM_ALL
+	then
+		PI_PARAMETER=" --"${PI_FORCE_PLATTFORM}${PI_PARAMETER}
+	fi
+
+	while test -n "${PI_CUR_INSTALL_DIR}"
+	do
+		PI_CURRENT_PATH=`pwd`
+		cd "./${PI_CUR_INSTALL_PATH}" 1> /dev/null 2> /dev/null
+
+		./INSTALL.${PI_CUR_INSTALL_DIR}${PI_PARAMETER} 1> /dev/null 2> /dev/null
+		PI_ANSWER=$?
+
+		if test $PI_ANSWER -eq 1
+		then
+			cd "$PI_CURRENT_PATH" 1> /dev/null
+			return $PI_ANSWER
+		fi
+
+		cd "$PI_CURRENT_PATH" 1> /dev/null
+
+		PI_DIR_COUNTER=`expr ${PI_DIR_COUNTER} + 1`
+		PI_CUR_INSTALL_DIR=`echo ${PI_INSTALL_DIRS} | cut -s -f${PI_DIR_COUNTER} -d' ' | tr -d '\n' | tr -d '\r'`
+		PI_CUR_INSTALL_PATH=`echo ${PI_INSTALL_PATHS} | cut -s -f${PI_DIR_COUNTER} -d' ' | tr -d '\n' | tr -d '\r'`
+	done
+
+
+	# Install PIPython
+	PI_CURRENT_PATH=`pwd`
+	cd "${PI_PRODUCT_NAME}-${PI_PIPYTHION_VERSION}" 1> /dev/null
+	for i in $PI_PYTHON_BIN_TO_INSTALL_TO; do
+		PiRunPiPythonSetup $i ""
+		PI_ANSWER=$?
+
+		if test $PI_ANSWER -eq 0 
+		then
+			# Make the shared entery.
+			if test $PI_UPDATE -eq 0
+			then
+				PiMakeSharedEntery "$i" ${PI_COMPONENT_NAME}.shared
+			else
+				if ! find ${PI_DESTINATION_ETC_SHARED_DIR}/${PI_COMPONENT_NAME}.shared 1> /dev/null 2> /dev/null
+				then
+					PiMakeSharedEntery "$i" ${PI_COMPONENT_NAME}.shared
+				fi
+			fi
+		fi
+	done
+	cd "$PI_CURRENT_PATH" 1> /dev/null
+
+
+	return 0
+}
+
+PiPythonInstall()
+{
+	if test $PI_ALL -le 0
+	then
+		echo ""
+		echo "${PI_PRODUCT_NAME}"
+		echo ""
+	fi
+
+	if test `whoami` != "root"
+	then
+		echo "You have to be root to install the ${PI_PRODUCT_NAME}!"
+		echo "Please log in as root and restart this script"
+		echo ""
+		return 1
+	fi
+
+
+
+	PI_PYTHON_BIN_TO_INSTALL_TO=$PI_PYTHON_BIN_REAL_PATHS
+	if test $PI_ALL -gt 0
+	then
+		PiPythonInstallFiles
+		return $?
+	fi
+
+	echo "Install ${PI_PRODUCT_NAME}."
+	echo ""
+	echo "${PI_PRODUCT_NAME} will be installed to all python versions which have been found"
+	echo "in the default linux python directories '/usr/bin/' and '/usr/local/bin/'."
+	echo "If you want to install ${PI_PRODUCT_NAME} to an python which is not in one of those directories,"
+	echo "or in an virtual env. You have to install ${PI_PRODUCT_NAME} manually"
+	echo "To install ${PI_PRODUCT_NAME} manually please see ${PI_PRODUCT_NAME}-${PI_PIPYTHION_VERSION}/readme.rst."
+	echo ""
+	echo "The following python versions have been found on your System:"
+	for i in $PI_PYTHON_BIN_REAL_PATHS; do
+		echo "* $i"
+	done
+	echo ""
+	echo "To install ${PI_PRODUCT_NAME} to these python versions now press 'y'"
+	echo "To skip this option press 'n'"
+	echo "To quit the installation press 'q'"
+	echo ""
+
+	while true
+	do
+		echo -n "Install ${PI_PRODUCT_NAME} now? [ynq]: "; read PI_ANSWER
+
+		case "$PI_ANSWER" in
+			'y'*)
+				PiPythonInstallFiles
+				echo ""
+				return $?
+				break;;
+
+			'n'*)
+				echo ""
+				return 0
+				break;;
+
+			'q'*)
+				echo ""
+				return 1
+				break;;
+		esac	
+	done
+
+	return 0
+
+	return 0
+}
+
+
+PiPythonRemoveFiles()
+{
+	PI_CURRENT_PATH=`pwd`
+	cd "${PI_PRODUCT_NAME}-${PI_PIPYTHION_VERSION}" 1> /dev/null
+	for i in $PI_PYTHON_BIN_TO_INSTALL_TO; do
+		if ! PiRemoveSharedEntery "$i" ${PI_COMPONENT_NAME}.shared
+		then
+			#PiRunPiPythonSetup $i "--record files.txt"
+			#rm -dr $(cat files.txt)
+			PI_CURRENT_PYTHON_USR_LIBS_PATH=`$i -c "import sys; print('\n'.join(sys.path))" | grep $PI_PRODUCT_NAME'-'`
+
+			if test -n "$PI_CURRENT_PYTHON_USR_LIBS_PATH"
+			then
+				rm -rf $PI_CURRENT_PYTHON_USR_LIBS_PATH 1> /dev/null 2> /dev/null
+			fi
+
+			rmdir -p ${PI_SYSTEM_LOCAL_INCLUDE_PATH} 1> /dev/null 2> /dev/null
+			rmdir -p ${PI_DESTINATION_LIB_PATH}  1> /dev/null 2> /dev/null
+			rmdir -p ${PI_DESTINATION_INCLUDE_PATH}  1> /dev/null 2> /dev/null
+			rmdir -p ${PI_DESTINATION_GCS_TRANSLATOR_PATH} 1> /dev/null 2> /dev/null
+			rmdir -p ${PI_DESTINATION_PATH} 1> /dev/null 2> /dev/null
+		fi
+	done
+	cd "$PI_CURRENT_PATH" 1> /dev/null
+
+
+	# Remove dpendencys
+	PI_DIR_COUNTER=1
+	PI_INSTALL_DIRS=`ls -F | grep / | cut -f1 -d/`
+	PI_INSTALL_PATHS=$PI_INSTALL_DIRS
+	PI_PARAMETER=" -r -a"
+
+	if test -n "$PI_INSTALL_DIRS"
+	then
+		PI_INSTALL_DIRS=${PI_INSTALL_DIRS}" "
+	fi
+
+	if test -n "$PI_INSTALL_PATHS"
+	then
+		PI_INSTALL_PATHS=${PI_INSTALL_PATHS}" "
+	fi
+
+	PI_INSTALL_DIRS=${PI_INSTALL_DIRS}`cat "./"${PI_DEPENDENCIES_SCRIPT_NAME} | rev | cut -f1 -d/ | rev` 1> /dev/null 2> /dev/null
+	PI_INSTALL_PATHS=${PI_INSTALL_PATHS}`cat "./"${PI_DEPENDENCIES_SCRIPT_NAME}` 1> /dev/null 2> /dev/null
+
+	PI_CUR_INSTALL_DIR=`echo ${PI_INSTALL_DIRS} | cut -f${PI_DIR_COUNTER} -d' ' | tr -d '\n' | tr -d '\r'`
+	PI_CUR_INSTALL_PATH=`echo ${PI_INSTALL_PATHS} | cut -f${PI_DIR_COUNTER} -d' ' | tr -d '\n' | tr -d '\r'`
+
+	if test $PI_FORCE_PLATTFORM != $PI_PLATTFORM_ALL
+	then
+		PI_PARAMETER=" --"${PI_FORCE_PLATTFORM}${PI_PARAMETER}
+	fi
+
+	while test -n "${PI_CUR_INSTALL_DIR}"
+	do
+		PI_CURRENT_PATH=`pwd`
+		cd "./${PI_CUR_INSTALL_PATH}" 1> /dev/null 2> /dev/null
+
+		./INSTALL.${PI_CUR_INSTALL_DIR}${PI_PARAMETER} 2> /dev/null
+
+		cd "$PI_CURRENT_PATH" 1> /dev/null
+
+		PI_DIR_COUNTER=`expr ${PI_DIR_COUNTER} + 1`
+		PI_CUR_INSTALL_DIR=`echo ${PI_INSTALL_DIRS} | cut -s -f${PI_DIR_COUNTER} -d' ' | tr -d '\n' | tr -d '\r'`
+		PI_CUR_INSTALL_PATH=`echo ${PI_INSTALL_PATHS} | cut -s -f${PI_DIR_COUNTER} -d' ' | tr -d '\n' | tr -d '\r'`
+	done
+
+	return 0
+}
+
+PiPythonUnistall()
+{
+	if test $PI_ALL -le 0
+	then
+		echo ""
+		echo "${PI_PRODUCT_NAME}"
+		echo ""
+	fi
+
+	if test `whoami` != "root"
+	then
+		echo "You have to be root to uninstall the ${PI_PRODUCT_NAME}!"
+		echo "Please log in as root and restart this script"
+		echo ""
+		return 1
+	fi
+
+	PI_PYTHON_BIN_TO_INSTALL_TO=$PI_PYTHON_BIN_REAL_PATHS
+	if test $PI_ALL -gt 0
+	then
+		PiPythonRemoveFiles
+		return $?
+	fi
+
+	echo ""
+	echo "To uninstall ${PI_PRODUCT_NAME} 'y'"
+	echo "To skip this option press 'n'"
+	echo "To quit the installation press 'q'"
+	echo ""
+
+	while true
+	do
+		echo -n "Install ${PI_PRODUCT_NAME} now? [ynq]: "; read PI_ANSWER
+		case "$PI_ANSWER" in
+			'y'*)
+				PiPythonRemoveFiles
+				echo ""
+				return $?
+				break;;
+
+			'n'*)
+				echo ""
+				return 0
+				break;;
+
+			'q'*)
+				echo ""
+				return 1
+				break;;
+		esac	
+	done
+
+	return 0
+}
+
+
+
+PiInstallComponents()
+{
+	PiPythonInstall
+	PI_ANSWER=$?
+	if test $PI_ANSWER -gt 1
+	then
+		PiPythonUnistall
+	fi
+
+	return $PI_ANSWER
+}
+
+
+PiUninstallComponents()
+{
+	PiPythonUnistall
+	return $?
+}
+
+
+while test $# -gt 0
+do
+	case "$1" in
+		-r | --remove)
+			PI_REMOVE=1
+			shift;;
+
+		-a | --all)
+			PI_ALL=1
+			shift;;
+
+		-u | --update)
+			PI_UPDATE=1
+			shift;;
+
+		-i | --ignor_platform)
+			PI_IGNOR_IF_INVALIDE_PLATFORM=1
+			shift;;
+
+		--i686)
+			PI_FORCE_PLATTFORM=$PI_PLATTFORM_i686
+			shift;;
+
+		--x86_64)
+			PI_FORCE_PLATTFORM=$PI_PLATTFORM_x86_64
+			shift;;
+
+		-h | --help)
+			echo ""
+			echo "INSTALL.pi_e712_usb [-r | --remove] [-u | --update]"
+			echo "INSTALL.pi_e712_usb [-h | --help]"
+			echo ""
+			echo ""
+			echo "Description:"
+			echo "	Enables access rights to the ${PI_PRODUCT_NAME} interface for user groups other than root."
+			echo ""
+			echo "	-r, --remove"
+			echo "		Removes access rights to the ${PI_PRODUCT_NAME} interface for all user groups than root"
+			echo ""
+			echo "	-u, --update"
+			echo "		uptate the access rights to the ${PI_PRODUCT_NAME} interface for user groups other than root"
+			echo ""
+			echo "	--i686"
+			echo "		Only install or remove dependencies for ${PI_FORCE_PLATTFORM=$PI_PLATTFORM_i686} plattforms."
+			echo ""
+			echo "	--x86_64"
+			echo "		Only install or remove dependencies for ${PI_FORCE_PLATTFORM=$PI_PLATTFORM_x86_64} plattforms."
+			echo ""
+			echo "	-h, --help"
+			echo "		displays this help."
+			echo ""
+			exit 0;;
+
+		*)
+			shift;;
+	esac
+done
+
+
+if test $PI_REMOVE -gt 0
+then
+	PiUninstallComponents
+	PI_ANSWER=$?
+else
+	PiInstallComponents
+	PI_ANSWER=$?
+fi
+
+exit $PI_ANSWER

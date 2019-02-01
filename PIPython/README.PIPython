@@ -1,0 +1,44 @@
+****************************************************************************
+*                                                                          *
+*  Physik Instrumente (PI) GmbH & Co. KG (www.pi.ws)                       *
+*                                                                          *
+****************************************************************************
+*                                                                          *
+*  Description:	  Howto update, install and remove the access rights to	   *
+*                 use the FTDI virtual com port with PI controllers        *
+*                                                                          *
+*  Author:        Jens Kapp (JKa)                                          *
+*                 SW Engineer                                              *
+*                 Physik Instrumente (PI) GmbH & Co. KG                    *
+*                 Auf der Roemerstr.                                       *
+*                 D-76228 Karlsruhe                                        *
+*                 Germany                                                  *
+*                                                                          *
+****************************************************************************
+
+
+First, login as superuser
+
+>> user:> su
+>> Password:
+>> [root@]#
+
+To update an already existing access rights to use the FTDI virtual com port with PI controllers type:
+>> [root@]# ./INSTALL.pi_ftdi_usb -u
+
+To install the access rights to use the FTDI virtual com port with PI controllers type:
+>> [root@]# ./INSTALL.pi_ftdi_usb
+
+To remove an already existing access rights to use the FTDI virtual com port with PI controllers type:
+>> [root@]# ./INSTALL.pi_ftdi_usb -r
+
+
+
+
+
+To increase our knowledge of different Linux distributions, we are always
+glad to receive feedback about how the software runs on your system.
+Are there any missing libraries or header files, do all scripts work on
+your system, ?...
+Please contact us (support-software@pi.ws) and please do not forget
+to let us know which distribution you are working with.

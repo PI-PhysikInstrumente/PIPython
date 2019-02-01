@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+
+rm -fr `find -mindepth 2 -name "*.tar.bz2" | cut -f1 -d'-'`
+
+find */* -exec chmod a+rw "{}" ";"
+find -name INSTALL* -exec chmod a+x "{}" ";"  -exec fromdos "{}" ";"
+find -name REMOVE* -exec chmod a+x "{}" ";"  -exec fromdos "{}" ";"
+find -name UPDATE* -exec chmod a+x "{}" ";"  -exec fromdos "{}" ";"
+find -name DEPENDENCIES* -exec fromdos "{}" ";"
+
