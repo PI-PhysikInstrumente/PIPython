@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>40</y>
+      <w>240</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;context manager&gt;&gt;
+GCSDevice
+--
+GetError(): int
+TranslateError(errval: int)
+GetAsyncBuffer(): [[float]]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>40</y>
+      <w>240</w>
+      <h>230</h>
+    </coordinates>
+    <panel_attributes>
+GCSCommands
+--
+axes: [str]
+numaxes: int
+devname: str
+isgcs2: bool
+--
+GcsCommandset(tosend: str)
+ReadGCSCommand(tosend: str): str
+ReadGCSData(tosend:str): str
+SetTimeout(value: int): int
+SetErrorCheck(value: bool): bool
+getparam(param:int): int/float/str/bool
+/GCS commands/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>390</x>
+      <y>50</y>
+      <w>80</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>60.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>160</x>
+      <y>710</y>
+      <w>240</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;context manager&gt;&gt;
+GCSDll
+--
+dcid: int
+dllpath: str
+--
+close()
+unload()
+GetAsyncBufferIndex(): int
+GetAsyncBuffer(): [float]
+/GCS connect functions/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>710</y>
+      <w>240</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;context manager&gt;&gt;
+PISocket
+--
+
+--
+close()</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>320</y>
+      <w>240</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>
+GCSMessages
+--
+errcheck(bool): bool
+embederr(bool): bool
+timeout(int): int
+bufstate: bool, float
+bufdata: [[float]]
+locked: bool
+--
+send(tosend: str)
+read(tosend:str, gcsdata: int): str</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>260</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>710</y>
+      <w>240</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>
+GCSCommandsWrapper</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>130</y>
+      <w>150</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;210.0;130.0;210.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>220</x>
+      <y>130</y>
+      <w>30</w>
+      <h>600</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;580.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>450</x>
+      <y>550</y>
+      <w>240</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>
+/PIGateway/
+--
+connectionid: int
+answersize: int
+--
+getanswer(bufsize: int): str
+send(command: str)</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>560</y>
+      <w>200</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;180.0;10.0;180.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>490</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>560</x>
+      <y>660</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>560</y>
+      <w>150</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>130.0;10.0;10.0;10.0;10.0;150.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>40</y>
+      <w>340</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>
+Datarecorder
+--
+servotime(float): float
+numvalues(int): int
+offset(int):int
+maxnumvalues(int): int
+recrate(float): float
+rectables: [int]
+sources([str]): [str]
+options([int]): [int]
+trigsources([int]): [int]
+--
+record()
+wait(timeout: float)
+read(offset: int, numvalues: int): {header}, [[data]]
+getdata(timeout, offset, numvalues): {header}, [[data]]</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>680</x>
+      <y>50</y>
+      <w>80</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=1</panel_attributes>
+    <additional_attributes>10.0;10.0;60.0;10.0</additional_attributes>
+  </element>
+</diagram>

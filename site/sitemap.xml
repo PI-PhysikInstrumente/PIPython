@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+     <loc>/index.html</loc>
+     <lastmod>2019-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/connect/index.html</loc>
+     <lastmod>2019-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/datarecorder/index.html</loc>
+     <lastmod>2019-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/history/index.html</loc>
+     <lastmod>2019-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/structure/index.html</loc>
+     <lastmod>2019-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>/eula/index.html</loc>
+     <lastmod>2019-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+</urlset>

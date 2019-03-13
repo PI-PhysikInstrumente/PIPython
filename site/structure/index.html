@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Structure - PIPython</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Structure";
+    var mkdocs_page_input_path = "structure.md";
+    var mkdocs_page_url = "/structure/index.html";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> PIPython</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../index.html">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../connect/index.html">Device Connection</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../datarecorder/index.html">Datarecorder</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../history/index.html">History</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="index.html">Structure</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#package-overview">Package overview</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#diagram-of-pipython">Diagram of PIPython</a></li>
+        
+            <li><a class="toctree-l3" href="#layers">Layers</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../eula/index.html">EULA</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">PIPython</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Structure</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="package-overview">Package overview</h1>
+<h2 id="diagram-of-pipython">Diagram of PIPython</h2>
+<p>PIPython is made of three layers. The commands layer provides GCS commands, the
+message layer handles GCS messages and the communication layer connects the device.</p>
+<p>The following diagram only shows the public items of the classes.</p>
+<p><img alt="Diagram of PIPython" src="../pipython.png" /></p>
+<h2 id="layers">Layers</h2>
+<h3 id="commands-layer">Commands layer</h3>
+<p>Modules: pipython.gcscommands, pipython.gcsdevice</p>
+<p>A <em>GCSCommands</em> instance provides functions for the GCS commands and properties of
+the connected device and stages. For each GCS function there is an according "Has"
+function which returns True if the connected device supports this command.</p>
+<p>A <em>GCSDevice</em> instance inherits from <em>GCSCommands</em> and provides access to some
+properties and methods of the <em>GCSDll</em>, too. It needs a <em>GCSDll</em> instance and
+does not work with <em>PISocket</em>. <em>GCSDevice</em> is a context manager that will
+unload the <em>GCSDll</em>.</p>
+<h3 id="message-layer">Message layer</h3>
+<p>Modules: pipython.gcsmessages</p>
+<p>A <em>GCSMessage</em> instance connects a communication gateway and a <em>GCSCommands</em> instance.</p>
+<p>It delivers the command string from a GCS command to the gateway. A proper line 
+ending is made. For query commands it returns the answer from the gateway when it 
+has received a GCS conforming end of message signature. Then optionally the error 
+state is queried from the gateway. A background thread to read out big GCS data 
+is provided.</p>
+<h3 id="comunication-layer">Comunication layer</h3>
+<p>Modules: pipython.interfaces.pigateway, pipython.interfaces.gcsdll,
+pipython.interfaces.pisocket</p>
+<p>This is the gateway to a device. A connection to the device is established
+automatically, by provided commands or the device is already connected. </p>
+<p>Usually you will use an <em>GCSDll</em> instance which will be able to connect a GCS device
+over RS-232, USB, TCP/IP, GPIB, PCI and daisy chain. On platforms where no GCS DLL
+is available you can use the <em>PISocket</em> over TCP/IP. The <em>GCSCommandsWrapper</em> is for
+internal use only.</p>
+<p>The socket module is called <em>pisocket</em> to not interfere with the builtin module. But
+it is a plain python socket without any GCS implementations.</p>
+<p>Inherit from the interface (in terms of "base class") <em>PIGateway</em> when implementing
+other gateways.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../eula/index.html" class="btn btn-neutral float-right" title="EULA">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../history/index.html" class="btn btn-neutral" title="History"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../history/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../eula/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

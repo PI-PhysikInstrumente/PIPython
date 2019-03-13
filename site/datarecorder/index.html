@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Datarecorder - PIPython</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Datarecorder";
+    var mkdocs_page_input_path = "datarecorder.md";
+    var mkdocs_page_url = "/datarecorder/index.html";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="icon icon-home"> PIPython</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../index.html">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../connect/index.html">Device Connection</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="index.html">Datarecorder</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#data-recorder">Data recorder</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#prepare-the-data-recorder">Prepare the data recorder</a></li>
+        
+            <li><a class="toctree-l3" href="#get-the-data">Get the data</a></li>
+        
+            <li><a class="toctree-l3" href="#appendix">Appendix</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../history/index.html">History</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../structure/index.html">Structure</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../eula/index.html">EULA</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">PIPython</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Datarecorder</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="data-recorder">Data recorder</h1>
+<p>A PI device has one or more record tables that can be filled with
+float values (i.e. numbers). The typical workflow is as following.</p>
+<ul>
+<li>Set the record rate.</li>
+<li>Configure the data to be recorded.</li>
+<li>Configure the trigger event that starts the recorder.</li>
+<li>Perform the action that should be recorded.</li>
+<li>Wait until the action is finished.</li>
+<li>Wait until the data has been recorded.</li>
+<li>Start reading out the data from the controller.</li>
+<li>Wait until all data has been read out from the device.</li>
+<li>Process the data.</li>
+</ul>
+<p>Please find an according sample in <code>samples/datarecorder.py</code>.</p>
+<h2 id="prepare-the-data-recorder">Prepare the data recorder</h2>
+<h3 id="set-the-record-rate">Set the record rate</h3>
+<p>With the GCS command <code>RTR</code> you can set the record rate in multiples of
+the device specific servo loop time. Hence the higher the RTR rate is the
+slower the data is recorded. For your convenience the Datarecorder() class
+takes a record rate in Hertz and seconds, too.</p>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+# drec.samplerate = 1  # servo cycles
+# drec.sampletime = 1E-5  # seconds
+drec.samplefrequ = 1000  # Hertz
+print('data recorder rate: {:d} servo cycles'.format(drec.samplerate))
+print('data recorder rate: {:.g} seconds'.format(drec.sampletime))
+print('data recorder rate: {:.2f} Hertz'.format(drec.samplefrequ))
+</code></pre>
+
+<h3 id="set-the-record-time">Set the record time</h3>
+<p>By default the entire data recorder memory is used to record the data.
+You can reduce the number of points with the <code>numvalues</code> property. Or
+you set the time to record in seconds with <code>rectime</code> which adjusts
+<code>numvalues</code> accordingly. The <code>rectimemax</code> property will use the entire
+data recorder memory and will adjust the <code>samplerate</code> accordingly.</p>
+<p>Further on <code>pidevice</code> is referred as instance of pipython.GCSDevice and <code>drec</code>
+is referred as instance of pipython.datarectools.Datarecorder.</p>
+<h3 id="configure-data-recorder">Configure data recorder</h3>
+<p>With the GCS command <code>DRC</code> you can configure which measurement
+(the <em>record option</em>) of which <em>record source</em> (e.g. an axis
+or channel) is recorded in a specified <em>record table</em>.</p>
+<p>There is an enumeration <code>pipython.datarectools.RecordOptions</code> available.</p>
+<p>The function <code>Datarecorder.record()</code> takes one
+or more <em>axes</em>, one or more <em>record options</em> and one or more
+<em>trigger options</em>. If you call it with a single axis and several
+<em>record options</em> it will take the given axis for all recordings.
+And vice versa it will take a single <em>record option</em> for several
+given <em>axes</em>. When you omit the <em>axes</em> argument all connected
+axes are taken. If you omit the <em>record option</em> then
+<code>RecordOptions.ACTUAL_POSITION_2</code> is taken.
+It will return a list of record table IDs where the desired data
+will be stored. See the example code below.</p>
+<h3 id="configure-the-trigger-event">Configure the trigger event</h3>
+<p>With the GCS command <code>DRT</code> you can configure when the recording will
+start, e.g. <em>immediately</em> or with the <em>next command that changes a
+position</em>, i.e. that makes a motion.</p>
+<p>There is an enumeration <code>pipython.datarectools.TriggerSources</code> available.</p>
+<p>If you call the function Datarecorder.record() with
+a single value as <em>trigger option</em> it will use the <code>DRT</code> command
+with the record table "0". If it is called with a list as argument it
+will use <code>DRT</code> with the according record table IDs. See the controller
+user manual which is the appropriate way for your device.
+If you omit the <em>trigger options</em> argument then
+<code>TriggerSources.NEXT_COMMAND_WITH_RESET_2</code> is taken.
+If <code>TriggerSources.NEXT_COMMAND_WITH_RESET_2</code> is used then the error
+check will be disabled automatically.</p>
+<p>The following sample will configure two recordings of one axis
+triggered by a position changing command and arm the data recorder.</p>
+<pre><code class="python">drec.options = (datarectools.RecordOptions.ACTUAL_POSITION_2,
+                datarectools.RecordOptions.COMMANDED_POSITION_1)
+drec.sources = pidevice.axes[0]
+drec.trigsources = datarectools.TriggerSources.POSITION_CHANGING_COMMAND_1
+drec.arm()
+</code></pre>
+
+<p>The following sample will configure two recordings of two axes.</p>
+<pre><code class="python">drec.options = datarectools.RecordOptions.ACTUAL_POSITION_2
+drec.sources = ['X', 'Y']
+drec.trigsources = datarectools.TriggerSources.POSITION_CHANGING_COMMAND_1
+drec.arm()
+</code></pre>
+
+<p>The following sample will configure four recordings of two analog inputs
+and two measurements regarding axis X.</p>
+<pre><code class="python">drec.sources = [1, 2, 'X', 'X']
+drec.options = [datarectools.RecordOptions.ANALOG_INPUT_81,
+                datarectools.RecordOptions.ANALOG_INPUT_81,
+                datarectools.RecordOptions.MOTOR_OUTPUT_73,
+                datarectools.RecordOptions.COMMANDED_POSITION_1]
+drec.trigsources = datarectools.TriggerSources.POSITION_CHANGING_COMMAND_1
+drec.arm()
+</code></pre>
+
+<h3 id="get-options-from-string">Get options from string</h3>
+<p>If you read the desired options for example from an INI file there
+are helper functions getrecopt() and gettrigsources() to translate a
+descriptive string into the according option value. The following
+example will set <code>trigsources</code> to <code>POSITION_CHANGING_COMMAND_1</code>.</p>
+<pre><code class="python">readout = 'pos_chg_cmd'  # e.g. from an INI file
+drec.trigsources = datarectools.gettrigsources(readout)
+</code></pre>
+
+<p>The first exact or abbreviated match of all parts of an option
+(i.e. in the example "POSITION", "CHANGING" and "COMMAND")
+is returned. The descriptive string is case insensitive.
+Use "_" as separator. The trailing number in the option name
+is not required for a match. Abbreviations must start with the
+first letter of the according part of an option.</p>
+<h2 id="get-the-data">Get the data</h2>
+<h3 id="wait-for-the-motion-to-finish">Wait for the motion to finish</h3>
+<p>After you started the triggering event (for example a motion) you
+can wait until the motion has finished with the "wait" helper
+functions in <code>pipython.pitools</code>.</p>
+<pre><code class="python">pidevice.MVR(axis, 1.0)
+pitools.waitontarget(pidevice, axis)
+</code></pre>
+
+<h3 id="get-the-data-recorder-data">Get the data recorder data</h3>
+<p>Finally you will read out the recorded data from the device with
+the GCS command <code>qDRR</code>. This command returns immediately with the
+<em>GCS header</em> containing information about the data recorder data.
+Then it starts a background task that keeps on storing the data
+still coming from the controller in an internal buffer. Check the
+current state of this buffer with the <code>bufstate</code> property. It will
+turn <code>True</code> when the task has finshed. Prior to that it is a float
+value in the range 0..1 indicating the progress of the data
+transfer. Hence end a loop with <code>while bufstate is not True</code> and
+not with <code>while not bufstate</code>.</p>
+<pre><code class="python">header = pidevice.qDRR(rectables, offset, numvalues)
+while pidevice.bufstate is not True:
+    print('read data {:.1f}%...'.format(pidevice.bufstate * 100))
+    sleep(0.1)
+</code></pre>
+
+<p>Remember that the task running in the background will lock the
+communication to the device. Hence your application indeed is
+able to continue after the <code>qDRR</code> command but when you try to
+communicate to the device during data readout this will result
+in a deadlock! To prevent this always check the
+<code>GCSDevice.locked</code> property.</p>
+<p>For your convenience you can use Datarecorder.getdata() instead.
+It will wait until the desired data has been recorded and will
+then return the header and the data as two-dimensional list
+where the first index indicates the record table and the second
+index indicates the value in this record table.</p>
+<pre><code class="python">header, data = drec.getdata()
+</code></pre>
+
+<h3 id="process-data">Process data</h3>
+<p>The sample below shows how to use the <em>header</em> and the <em>data</em> from
+a recording of two tables to create a plot. (This requires matplotlib.)</p>
+<pre><code class="python">    timescale = [header['SAMPLE_TIME'] * i for i in range(len(data[0]))]
+    pyplot.plot(timescale, data[0], color='red')
+    pyplot.plot(timescale, data[1], color='blue')
+    pyplot.xlabel('time (s)')
+    pyplot.ylabel(', '.join((header['NAME0'], header['NAME1'])))
+    pyplot.title('Datarecorder data over time')
+    pyplot.grid(True)
+    pyplot.show()
+</code></pre>
+
+<p>If you are used to NumPy you can easily convert the datarecorder data
+into a NumPy array.</p>
+<pre><code class="python">import numpy as np
+...
+header, data = drec.getdata()
+npdata = np.array(data)
+</code></pre>
+
+<h2 id="appendix">Appendix</h2>
+<h3 id="wait-for-recording">Wait for recording</h3>
+<p>To wait for the data recording to finish you can use <code>wait()</code> and <code>read()</code> instead
+of <code>getdata()</code></p>
+<pre><code class="python">drec.arm()
+drec.wait()
+# recording is now finished
+header, data = drec.read()
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../history/index.html" class="btn btn-neutral float-right" title="History">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../connect/index.html" class="btn btn-neutral" title="Device Connection"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../connect/index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../history/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/require.js"></script>
+      <script src="../search/search.js"></script>
+
+</body>
+</html>

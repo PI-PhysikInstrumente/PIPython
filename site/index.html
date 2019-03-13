@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="None">
+  <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
+  <link rel="shortcut icon" href="./img/favicon.ico">
+  <title>Home - PIPython</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Home";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/index.html";
+  </script>
+  
+  <script src="./js/jquery-2.1.1.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> PIPython</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="index.html">Home</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#pipython">PIPython</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#quickstart">Quickstart</a></li>
+        
+            <li><a class="toctree-l3" href="#requirements">Requirements</a></li>
+        
+            <li><a class="toctree-l3" href="#arguments">Arguments</a></li>
+        
+            <li><a class="toctree-l3" href="#return-values">Return values</a></li>
+        
+            <li><a class="toctree-l3" href="#some-hints">Some hints...</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="connect/index.html">Device Connection</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="datarecorder/index.html">Datarecorder</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="history/index.html">History</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="structure/index.html">Structure</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="eula/index.html">EULA</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PIPython</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Home</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="pipython">PIPython</h1>
+<p>PIPython is a collection of Python modules to access a PI device and process
+GCS data. It can be used with Python 2.7+ and 3.4+ on Windows, Linux and OS X
+and without the GCS DLL also on any other platform.</p>
+<h2 id="quickstart">Quickstart</h2>
+<p>Communicate to a PI device via <code>GCSDevice</code> which wraps the GCS DLL functions
+and provides methods to connect to the device. Call <code>GCSDevice</code> with the
+controller name as argument.</p>
+<pre><code class="python">from pipython import GCSDevice
+pidevice = GCSDevice('C-884')
+pidevice.InterfaceSetupDlg()
+print pidevice.qIDN()
+pidevice.CloseConnection()
+</code></pre>
+
+<p><code>GCSDevice</code> is a context manager which closes the connection if an exception
+raises inside the <code>with</code> statement.</p>
+<pre><code class="python">from pipython import GCSDevice
+with GCSDevice('C-884') as pidevice:
+    pidevice.InterfaceSetupDlg()
+    print(pidevice.qIDN())
+</code></pre>
+
+<p>See also the provided samples in the <code>samples</code> subdirectory. Start with <code>quickstart.py</code>.</p>
+<h2 id="requirements">Requirements</h2>
+<p>There are no dependencies to additional packages.</p>
+<p>With pipython.interfaces.piusb you can connect a USB device without using the GCS DLL.
+This works only with Linux and requires LibUSB which usually is provided by the OS.</p>
+<h2 id="arguments">Arguments</h2>
+<p>From now on <code>pidevice</code> refers to a connected <code>GCSDevice</code> instance.</p>
+<p>You can call a setter function with:</p>
+<ul>
+<li>a dictionary of axes/channels and values</li>
+<li>a list for axes/channels and a list of the values</li>
+<li>a single item for axis/channel and a single value</li>
+</ul>
+<pre><code class="python">pidevice.MOV({'X': 1.23, 'Y': 2.34})
+pidevice.MOV(['X', 'Y'], [1.23, 2.34])
+pidevice.MOV('X', 1.23)
+</code></pre>
+
+<p>For channels and numeric axis names you can omit the quotes.</p>
+<pre><code class="python">pidevice.MOV({1: 1.23, 2: 2.34})
+pidevice.MOV([1, 2], [1.23, 2.34])
+pidevice.MOV(1, 1.23)
+</code></pre>
+
+<p>Getter commands can be called with:</p>
+<ul>
+<li>a list of axes/channels</li>
+<li>a single item for axis/channel, without quotes if numeric</li>
+<li>without any arguments which will return the answer for all available axes/channels</li>
+</ul>
+<pre><code class="python">pidevice.qPOS(['X', 'Y'])
+pidevice.qPOS('X')
+pidevice.qPOS(1)
+pidevice.qPOS()
+</code></pre>
+
+<h2 id="return-values">Return values</h2>
+<p>Axes or channel related answers are returned as (ordered) dictionary.</p>
+<pre><code class="python">pidevice.qPOS()
+&gt;&gt;&gt;{'X': 1.23, 'Y': 2.34}
+</code></pre>
+
+<p>If you provide arguments their types are preserved and you can use these as keys.</p>
+<pre><code class="python">pos = pidevice.qPOS([1, 2, 3])
+print(pos[1])
+</code></pre>
+
+<p>If you do not provide arguments you always have to use strings as keys.</p>
+<pre><code class="python">pos = pidevice.qPOS()
+print(pos['1'])
+</code></pre>
+
+<p>The following sample will move all <code>axes</code> to <code>targets</code> and waits until the motion has finished.
+It shows how to use only the values from the returned dictionary.</p>
+<pre><code class="python">from time import sleep
+...
+pidevice.MOV(axes, targets)
+while not all(list(pidevice.qONT(axes).values())):
+    sleep(0.1)
+</code></pre>
+
+<h2 id="some-hints">Some hints...</h2>
+<h3 id="helpers">Helpers</h3>
+<p>In <code>pipython.pitools</code> you will find some helper funtions for your convenience. See the provided
+samples for how to use them. The sample above can then be written as:</p>
+<pre><code class="python">from pipython import pitools
+...
+pidevice.MOV(axes, targets)
+pitools.waitontarget(pidevice, axes)
+</code></pre>
+
+<h3 id="enable-debug-logging">Enable debug logging</h3>
+<p>To log debug messages on the console just enter these lines prior to calling <code>GCSDevice</code>.</p>
+<pre><code class="python">from logging import basicConfig, DEBUG
+basicConfig(level=DEBUG)
+</code></pre>
+
+<h3 id="gcserror-and-error-check">GCSError and error check</h3>
+<p>By default an "ERR?" command is sent after each command to query if an error
+occurred on the device which then will be raised as <code>GCSError</code> exception. If communication
+speed is an issue you can disable error checking.</p>
+<pre><code class="python">pidevice.errcheck = False
+</code></pre>
+
+<p>To handle a catched <code>GCSError</code> exception you can use the defines provided by
+<code>gcserror</code> instead of pure numeric values. Remember the difference between <code>GCSError</code> which
+is the exception class and <code>gcserror</code> which is the according module.</p>
+<pre><code class="python">from pipython import GCSDevice, GCSError, gcserror
+with GCSDevice('C-884') as pidevice:
+    try:
+        pidevice.MOV('X', 1.23)
+    except GCSError as exc:
+        if exc == gcserror.E_1024_PI_MOTION_ERROR:
+            print('There was a motion error, please check the mechanics.')
+        else:
+            raise
+</code></pre>
+
+<p>The exception class <code>GCSError</code> will translate the error code into a readable message.</p>
+<pre><code class="python">from pipython import GCSError, gcserror
+raise GCSError(gcserror.E_1024_PI_MOTION_ERROR)
+&gt;&gt;&gt;GCSError: Motion error: position error too large, servo is switched off automatically (-1024)
+</code></pre>
+
+<h3 id="big-data">Big data</h3>
+<p>Commands like <code>qDRR()</code> which read a large amount of GCS data return immediately with
+the header dictionary containing information about the data. Then they will start
+a background task that carries on reading data from the device into an internal buffer. The
+<code>bufstate</code> property returns the progress of the reading as floating point number in the range
+0 to 1 and turns to <code>True</code> when reading has finished. Hence, when using it in a loop check for
+<code>is not True</code>. (Remember, this is not the same as <code>!= True</code>.)</p>
+<pre><code class="python">header = pidevice.qDRR(1, 1, 8192)
+while pidevice.bufstate is not True:
+    print('read data {:.1f}%...'.format(pidevice.bufstate * 100))
+    sleep(0.1)
+data = pidevice.bufdata
+</code></pre>
+
+<h3 id="textual-interface">Textual interface</h3>
+<p>Besides the functions implemented in GCSCommands you can send GCS commands as strings to the
+controller. Use <code>read()</code> for commands returning an answer, <code>read_gcsdata()</code> for commands returning
+GCS data and <code>send()</code> for non-answering commands.</p>
+<pre><code class="python">print(pidevice.read('POS?'))
+print(pidevice.read_gcsdata('DRR? 1 100 1'))
+pidevice.send('MOV X 1.23')
+</code></pre>
+
+<p>They return the raw string or GCS data from the controller. If <code>errorcheck</code> is enabled the
+error state is queried from the device automatically. We recommend to use the provided
+functions instead of sending raw strings.</p>
+<p>In line with the C++ GCS DLL the functions <code>ReadGCSCommand()</code> and <code>GcsCommandset()</code> are also
+available. They will never query an error from the device.</p>
+<pre><code class="python">print(pidevice.ReadGCSCommand('POS?'))
+pidevice.GcsCommandset('MOV X 1.23')
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="connect/index.html" class="btn btn-neutral float-right" title="Device Connection">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+        <span style="margin-left: 15px"><a href="connect/index.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="./js/theme.js"></script>
+      <script src="./search/require.js"></script>
+      <script src="./search/search.js"></script>
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.17.5
+Build Date UTC : 2019-03-13 12:37:45
+-->
