@@ -71,6 +71,8 @@
     
         <ul>
         
+            <li><a class="toctree-l3" href="#pipython-210">PIPython 2.1.0</a></li>
+        
             <li><a class="toctree-l3" href="#pipython-200">PIPython 2.0.0</a></li>
         
             <li><a class="toctree-l3" href="#pipython-152">PIPython 1.5.2</a></li>
@@ -146,6 +148,13 @@
             <div class="section">
               
                 <h1 id="feature-version-history">Feature Version History</h1>
+<h3 id="pipython-210">PIPython 2.1.0</h3>
+<ul>
+<li>pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number 
+  of data recorder points from the 'HDR?' answer.</li>
+<li>fix pipython.pitools.pitoopls.itemstostr. If 'data' is an integer of 0 or a float of 0.0 
+  'itemstostr' now returns the string '0' or '0.0' instead of 'None'</li>
+</ul>
 <h3 id="pipython-200">PIPython 2.0.0</h3>
 <ul>
 <li>New package structure</li>

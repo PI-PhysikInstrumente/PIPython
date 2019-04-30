@@ -1,6 +1,13 @@
 # Feature Version History
 
 
+### PIPython 2.1.0
+- pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number 
+  of data recorder points from the 'HDR?' answer.
+- fix pipython.pitools.pitoopls.itemstostr. If 'data' is an integer of 0 or a float of 0.0 
+  'itemstostr' now returns the string '0' or '0.0' instead of 'None'
+
+
 ### PIPython 2.0.0
 - New package structure
 - support for WriteConfigurationFromDatabaseToControllerAndSave()
