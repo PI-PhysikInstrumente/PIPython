@@ -1,6 +1,10 @@
 # Feature Version History
 
 
+### PIPython 2.1.1
+- fix timing probles while reading the data recorder with pythom3
+
+
 ### PIPython 2.1.0
 - pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number 
   of data recorder points from the 'HDR?' answer.
