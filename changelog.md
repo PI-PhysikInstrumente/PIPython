@@ -1,6 +1,11 @@
 # Feature Version History
 
 
+
+### PIPython 2.2.0
+- Support for PI_SetConnectTimeout() and PI_EnableBaudRateScan()
+
+
 ### PIPython 2.1.1
 - fix timing probles while reading the data recorder with pythom3
 

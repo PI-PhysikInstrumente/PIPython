@@ -5,10 +5,10 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="None">
+  
   <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
   <link rel="shortcut icon" href="img/favicon.ico">
-  <title>Home - PIPython</title>
+  <title>Mainpage - PIPython</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Home";
-    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_name = "Mainpage";
+    var mkdocs_page_input_path = "mainpage.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -48,29 +48,9 @@
 	<ul class="current">
 	  
           
-            <li class="toctree-l1 current">
+            <li class="toctree-l1">
 		
-    <a class="current" href="index.html">Home</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#pipython">PIPython</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l3" href="#quickstart">Quickstart</a></li>
-        
-            <li><a class="toctree-l3" href="#requirements">Requirements</a></li>
-        
-            <li><a class="toctree-l3" href="#arguments">Arguments</a></li>
-        
-            <li><a class="toctree-l3" href="#return-values">Return values</a></li>
-        
-            <li><a class="toctree-l3" href="#some-hints">Some hints...</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="index.html">Home</a>
 	    </li>
           
             <li class="toctree-l1">
@@ -120,7 +100,7 @@
     
       
     
-    <li>Home</li>
+    <li>Mainpage</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -130,78 +110,84 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="pipython">PIPython</h1>
-<p>PIPython is a collection of Python modules to access a PI device and process
-GCS data. It can be used with Python 2.7+ and 3.4+ on Windows, Linux and OS X
-and without the GCS DLL also on any other platform.</p>
+                <p>PIPython is a collection of Python modules to access a PI device and process
+GCS data. It can be used with Python 2.7+ and 3.4+ on Windows, Linux and OSX
+and without the use of the GCS DLL also on any other platform.</p>
 <h2 id="quickstart">Quickstart</h2>
 <p>Communicate to a PI device via <code>GCSDevice</code> which wraps the GCS DLL functions
-and provides methods to connect to the device. Call <code>GCSDevice</code> with the
-controller name as argument.</p>
+and provides methods to connect to the device. Usually you call <code>GCSDevice</code>
+without an argument.</p>
 <pre><code class="python">from pipython import GCSDevice
-pidevice = GCSDevice('C-884')
-pidevice.InterfaceSetupDlg()
-print pidevice.qIDN()
-pidevice.CloseConnection()
+gcs = GCSDevice()
+gcs.ConnectTCPIP('192.168.90.112')  # you may change the IP address
+# gcs.ConnectUSB('1234567890')      # you may change the serial number
+# gcs.ConnectRS232(1, 115200)       # you may change the COM port and baudrate
+print(gcs.qIDN())
+gcs.CloseConnection()
 </code></pre>
 
-<p><code>GCSDevice</code> is a context manager which closes the connection if an exception
-raises inside the <code>with</code> statement.</p>
+<p>Only for some older controllers that do not use the
+PI_GCS2_DLL you have to pass the controller name as argument.</p>
 <pre><code class="python">from pipython import GCSDevice
-with GCSDevice('C-884') as pidevice:
-    pidevice.InterfaceSetupDlg()
-    print(pidevice.qIDN())
+gcs = GCSDevice('C-843')
+gcs.ConnectPciBoard(1)              # you may change the PCI board number
+print(gcs.qIDN())
+gcs.CloseConnection()
+</code></pre>
+
+<p>It's recommended to use <code>GCSDevice</code> as a context manager which closes the
+connection if an exception raises inside the <code>with</code> statement.</p>
+<pre><code class="python">from pipython import GCSDevice
+with GCSDevice() as gcs:
+    gcs.InterfaceSetupDlg()         # interactive dialog to choose the interface
+    print(gcs.qIDN())
 </code></pre>
 
 <p>See also the provided samples in the <code>samples</code> subdirectory. Start with <code>quickstart.py</code>.</p>
 <h2 id="requirements">Requirements</h2>
 <p>There are no dependencies to additional packages.</p>
 <p>With pipython.interfaces.piusb you can connect a USB device without using the GCS DLL.
-This works only with Linux and requires LibUSB which usually is provided by the OS.</p>
+This works only on Linux systems and requires <code>LibUSB</code> which usually is provided by the OS.</p>
 <h2 id="arguments">Arguments</h2>
-<p>From now on <code>pidevice</code> refers to a connected <code>GCSDevice</code> instance.</p>
-<p>You can call a setter function with:</p>
-<ul>
-<li>a dictionary of axes/channels and values</li>
-<li>a list for axes/channels and a list of the values</li>
-<li>a single item for axis/channel and a single value</li>
-</ul>
-<pre><code class="python">pidevice.MOV({'X': 1.23, 'Y': 2.34})
-pidevice.MOV(['X', 'Y'], [1.23, 2.34])
-pidevice.MOV('X', 1.23)
+<p>From now on <code>gcs</code> refers to a connected <code>GCSDevice</code> instance.</p>
+<p>Usually you can call a setter function with
+- a dictionary of axes/channels and values
+- a list for axes/channels and a list of the values
+- a single item for axis/channel and a single value</p>
+<pre><code class="python">gcs.MOV({'X': 1.23, 'Y': 2.34})
+gcs.MOV(['X', 'Y'], [1.23, 2.34])
+gcs.MOV('X', 1.23)
 </code></pre>
 
 <p>For channels and numeric axis names you can omit the quotes.</p>
-<pre><code class="python">pidevice.MOV({1: 1.23, 2: 2.34})
-pidevice.MOV([1, 2], [1.23, 2.34])
-pidevice.MOV(1, 1.23)
+<pre><code class="python">gcs.MOV({1: 1.23, 2: 2.34})
+gcs.MOV([1, 2], [1.23, 2.34])
+gcs.MOV(1, 1.23)
 </code></pre>
 
-<p>Getter commands can be called with:</p>
-<ul>
-<li>a list of axes/channels</li>
-<li>a single item for axis/channel, without quotes if numeric</li>
-<li>without any arguments which will return the answer for all available axes/channels</li>
-</ul>
-<pre><code class="python">pidevice.qPOS(['X', 'Y'])
-pidevice.qPOS('X')
-pidevice.qPOS(1)
-pidevice.qPOS()
+<p>Usually getter commands can be called with
+- a list of axes/channels
+- a single item for axis/channel, without quotes if numeric
+- without any arguments which will return the answer for all available axes/channels</p>
+<pre><code class="python">gcs.qPOS(['X', 'Y'])
+gcs.qPOS('X')
+gcs.qPOS(1)
+gcs.qPOS()
 </code></pre>
 
 <h2 id="return-values">Return values</h2>
 <p>Axes or channel related answers are returned as (ordered) dictionary.</p>
-<pre><code class="python">pidevice.qPOS()
+<pre><code class="python">gcs.qPOS()
 &gt;&gt;&gt;{'X': 1.23, 'Y': 2.34}
 </code></pre>
 
 <p>If you provide arguments their types are preserved and you can use these as keys.</p>
-<pre><code class="python">pos = pidevice.qPOS([1, 2, 3])
+<pre><code class="python">pos = gcs.qPOS([1, 2, 3])
 print(pos[1])
 </code></pre>
 
 <p>If you do not provide arguments you always have to use strings as keys.</p>
-<pre><code class="python">pos = pidevice.qPOS()
+<pre><code class="python">pos = gcs.qPOS()
 print(pos['1'])
 </code></pre>
 
@@ -209,19 +195,19 @@ print(pos['1'])
 It shows how to use only the values from the returned dictionary.</p>
 <pre><code class="python">from time import sleep
 ...
-pidevice.MOV(axes, targets)
-while not all(list(pidevice.qONT(axes).values())):
+gcs.MOV(axes, targets)
+while not all(gcs.qONT(axes).values()):
     sleep(0.1)
 </code></pre>
 
 <h2 id="some-hints">Some hints...</h2>
 <h3 id="helpers">Helpers</h3>
-<p>In <code>pipython.pitools</code> you will find some helper funtions for your convenience. See the provided
-samples for how to use them. The sample above can then be written as:</p>
-<pre><code class="python">from pipython import pitools
+<p>In <code>pipython.pitools</code> you will find some helper funtions for your convenience. See the docstrings
+and the provided samples for how to use them. The sample above can then be written as:</p>
+<pre><code class="python">import pipython.pitools as pi
 ...
-pidevice.MOV(axes, targets)
-pitools.waitontarget(pidevice, axes)
+gcs.MOV(axes, targets)
+pi.waitontarget(gcs, axes)
 </code></pre>
 
 <h3 id="enable-debug-logging">Enable debug logging</h3>
@@ -230,23 +216,27 @@ pitools.waitontarget(pidevice, axes)
 basicConfig(level=DEBUG)
 </code></pre>
 
+<p>There is also a property to log the communication data to a text file.</p>
+<pre><code class="python">gcs.logfile = 'commandlog.txt'
+</code></pre>
+
 <h3 id="gcserror-and-error-check">GCSError and error check</h3>
 <p>By default an "ERR?" command is sent after each command to query if an error
 occurred on the device which then will be raised as <code>GCSError</code> exception. If communication
 speed is an issue you can disable error checking.</p>
-<pre><code class="python">pidevice.errcheck = False
+<pre><code class="python">gcs.errcheck = False
 </code></pre>
 
 <p>To handle a catched <code>GCSError</code> exception you can use the defines provided by
 <code>gcserror</code> instead of pure numeric values. Remember the difference between <code>GCSError</code> which
 is the exception class and <code>gcserror</code> which is the according module.</p>
 <pre><code class="python">from pipython import GCSDevice, GCSError, gcserror
-with GCSDevice('C-884') as pidevice:
+with GCSDevice() as gcs:
     try:
-        pidevice.MOV('X', 1.23)
+        gcs.MOV('X', 1.23)
     except GCSError as exc:
         if exc == gcserror.E_1024_PI_MOTION_ERROR:
-            print('There was a motion error, please check the mechanics.')
+            print 'There was a motion error, please check the mechanics.'
         else:
             raise
 </code></pre>
@@ -257,6 +247,9 @@ raise GCSError(gcserror.E_1024_PI_MOTION_ERROR)
 &gt;&gt;&gt;GCSError: Motion error: position error too large, servo is switched off automatically (-1024)
 </code></pre>
 
+<p>With the property <code>GCSDevice.embederr</code> you can embed the error querying command into a GCS set
+command. Hence only one package needs to be sent to the device which also can improve
+communication performance.</p>
 <h3 id="big-data">Big data</h3>
 <p>Commands like <code>qDRR()</code> which read a large amount of GCS data return immediately with
 the header dictionary containing information about the data. Then they will start
@@ -264,41 +257,34 @@ a background task that carries on reading data from the device into an internal 
 <code>bufstate</code> property returns the progress of the reading as floating point number in the range
 0 to 1 and turns to <code>True</code> when reading has finished. Hence, when using it in a loop check for
 <code>is not True</code>. (Remember, this is not the same as <code>!= True</code>.)</p>
-<pre><code class="python">header = pidevice.qDRR(1, 1, 8192)
-while pidevice.bufstate is not True:
-    print('read data {:.1f}%...'.format(pidevice.bufstate * 100))
+<pre><code class="python">header = gcs.qDRR(tables=1, offset=1, numvalues=8192)
+while gcs.bufstate is not True:
+    print('read data {:.1f}%...'.format(gcs.bufstate * 100))
     sleep(0.1)
-data = pidevice.bufdata
+data = gcs.bufdata
 </code></pre>
 
 <h3 id="textual-interface">Textual interface</h3>
 <p>Besides the functions implemented in GCSCommands you can send GCS commands as strings to the
 controller. Use <code>read()</code> for commands returning an answer, <code>read_gcsdata()</code> for commands returning
 GCS data and <code>send()</code> for non-answering commands.</p>
-<pre><code class="python">print(pidevice.read('POS?'))
-print(pidevice.read_gcsdata('DRR? 1 100 1'))
-pidevice.send('MOV X 1.23')
+<pre><code class="python">print gcs.read('POS?')
+print gcs.read_gcsdata('DRR? 1 100 1')
+gcs.send('MOV X 1.23')
 </code></pre>
 
 <p>They return the raw string or GCS data from the controller. If <code>errorcheck</code> is enabled the
-error state is queried from the device automatically. We recommend to use the provided
+error state is queried from the device automatically. It's recommended to use the provided
 functions instead of sending raw strings.</p>
 <p>In line with the C++ GCS DLL the functions <code>ReadGCSCommand()</code> and <code>GcsCommandset()</code> are also
 available. They will never query an error from the device.</p>
-<pre><code class="python">print(pidevice.ReadGCSCommand('POS?'))
-pidevice.GcsCommandset('MOV X 1.23')
+<pre><code class="python">print gcs.ReadGCSCommand('POS?')
+gcs.GcsCommandset('MOV X 1.23')
 </code></pre>
               
             </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="connect.html" class="btn btn-neutral float-right" title="Device Connection">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-    </div>
   
 
   <hr/>
@@ -323,8 +309,6 @@ pidevice.GcsCommandset('MOV X 1.23')
       
       
       
-        <span style="margin-left: 15px"><a href="connect.html" style="color: #fcfcfc">Next &raquo;</a></span>
-      
     </span>
 </div>
     <script>var base_url = '.';</script>
@@ -333,8 +317,3 @@ pidevice.GcsCommandset('MOV X 1.23')
 
 </body>
 </html>
-
-<!--
-MkDocs version : 1.0.4
-Build Date UTC : 2019-10-07 09:50:53
--->
