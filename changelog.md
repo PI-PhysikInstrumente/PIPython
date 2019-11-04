@@ -2,6 +2,14 @@
 
 
 
+### PIPython 2.2.2
+- fix: No module named gcs21.gcs21commands_helpers
+
+
+### PIPython 2.2.1
+- fix missing argument in isgcs21
+
+
 ### PIPython 2.2.0
 - Support for PI_SetConnectTimeout() and PI_EnableBaudRateScan()
 
