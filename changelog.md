@@ -2,6 +2,10 @@
 
 
 
+### PIPython 2.3.0
+- Internal refactoring
+
+
 ### PIPython 2.2.2
 - fix: No module named gcs21.gcs21commands_helpers
 
