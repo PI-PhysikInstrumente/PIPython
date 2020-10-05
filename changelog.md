@@ -7,7 +7,6 @@
 - add GCSCommands.SPV()
 - add GCSCommands.qSPV()
 - add GCSCommands.CPA()
-- add GCSCommands.qUSG()
 - add GCSCommands.UCL()
 - add GCSCommands.qUCL()
 - add GCSCommands.REC_STAT()
