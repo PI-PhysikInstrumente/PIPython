@@ -2,6 +2,29 @@
 
 
 
+### PIPython 2.4.0
+- add GCSCommands.qUSG()
+- add GCSCommands.SPV()
+- add GCSCommands.qSPV()
+- add GCSCommands.CPA()
+- add GCSCommands.qUSG()
+- add GCSCommands.UCL()
+- add GCSCommands.qUCL()
+- add GCSCommands.REC_STAT()
+- add GCSCommands.qREC_STAT()
+- add GCSCommands.REC_TRACE()
+- add GCSCommands.qREC_TRACE()
+- add GCSCommands.REC_TRG()
+- add GCSCommands.qREC_TRG()
+- add GCSCommands.REC_RATE()
+- add GCSCommands.qREC_RATE()
+- add GCSCommands.REC_START()
+- add GCSCommands.REC_STOP()
+- add GCSCommands.qREC_NUM()
+- add GCSCommands.qREC_DAT()
+- add GCSCommands.qLOG()
+
+
 ### PIPython 2.3.0
 - Internal refactoring
 
