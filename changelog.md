@@ -1,6 +1,9 @@
 # Feature Version History
 
 
+### PIPython 2.5.0
+- Support for GCS21 UMF Controllers
+
 
 ### PIPython 2.4.0
 - add GCSCommands.qUSG()
