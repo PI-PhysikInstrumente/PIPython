@@ -1,6 +1,10 @@
 # Feature Version History
 
 
+### PIPython 2.5.1
+- fix: Missing files in pitools
+
+
 ### PIPython 2.5.0
 - Support for GCS21 UMF Controllers
 
