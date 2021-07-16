@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
+  <link rel="shortcut icon" href="img/favicon.ico">
+  <title>Datarecorder GCS 2.1 - PIPython</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Datarecorder GCS 2.1";
+    var mkdocs_page_input_path = "datarecorder21.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="js/jquery-2.1.1.min.js" defer></script>
+  <script src="js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="index.html" class="icon icon-home"> PIPython</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="index.html">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="connect.html">Device Connection</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="datarecorder20.html">Datarecorder GCS 2.0</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="datarecorder21.html">Datarecorder GCS 2.1</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#data-recorder-gcs-21">Data recorder GCS 2.1</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#preliminary">Preliminary</a></li>
+        
+            <li><a class="toctree-l3" href="#prepare-the-data-recorder">Prepare the data recorder</a></li>
+        
+            <li><a class="toctree-l3" href="#start-the-data-recorder">Start the data recorder</a></li>
+        
+            <li><a class="toctree-l3" href="#get-the-data">Get the data</a></li>
+        
+            <li><a class="toctree-l3" href="#examples">Examples</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="history.html">History</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="structure.html">Structure</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="eula.html">EULA</a>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">PIPython</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Datarecorder GCS 2.1</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="data-recorder-gcs-21">Data recorder GCS 2.1</h1>
+<p>A PI device has one or more data recorder(s) with one ore more trace(s) that can be filled with data (i.e. values). The typical workflow is as follows.</p>
+<ul>
+<li>Set the record rate.</li>
+<li>Configure the data to be recorded.</li>
+<li>Configure the trigger event that starts the recording.</li>
+<li>Perform the action that should be recorded.</li>
+<li>Wait until the action is finished.</li>
+<li>Wait until the data has been recorded.</li>
+<li>Start reading out the data from the device.</li>
+<li>Wait until all data has been read out from the device.</li>
+<li>Process the data.</li>
+</ul>
+<p>Please find an according sample in <code>samples/datarecorder_gcs21.py</code>.</p>
+<h2 id="preliminary">Preliminary</h2>
+<p>Call <code>qREC_STATE</code> to get the current state of a data recorder. Possible states:</p>
+<ul>
+<li>Configuration (<code>CFG</code>): Configuration of the data recorder is only possible in this state. Call <code>REC_STOP</code>
+  to set the data recorder to the configuration state.</li>
+<li>Waiting (<code>WAIT</code>): In this state the data recorder waits for the occurrence<br />
+  of a trigger which starts the recording. Call <code>REC_START</code> to set the data recorder
+  from the configuration state to the waiting state.</li>
+<li>Running (<code>RUN</code>): In this state the data recorder is recording signals according to the configuration settings.</li>
+</ul>
+<p>PIPython supports data recorder tools (pipython.datarectools) which simplify the work with the
+data recorder. The following description assumes that these data recorder tools will be used.</p>
+<h2 id="prepare-the-data-recorder">Prepare the data recorder</h2>
+<h3 id="set-the-record-rate">Set the record rate</h3>
+<p>With the property <code>record_rate</code> you can configure the record rate in multiples of
+the device-specific servo cycle time. The higher the record rate, the
+slower the data is recorded.</p>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+drec.record_rate = 1  # servo cycles
+</code></pre>
+
+<h3 id="configure-data-recorder">Configure data recorder</h3>
+<p>With the <code>traces</code> property you can configure which signal
+is recorded in a specified <em>trace</em>.</p>
+<p>In the following sample the recording of signals <code>0x102</code> (the target position)
+and <code>0x103</code> (the current position) of <code>AXIS_1</code> is configured for traces <code>1</code> and <code>2</code>.</p>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+...
+#             {&lt;trace_id&gt;: [&lt;container unit&gt;, &lt;function_unit&gt;, &lt;parameter&gt;], }
+drec.traces = { 1: [ 'AXIS_1', '-', '0x102' ], 2: [ 'AXIS_1', '-', '0x103' ]}
+</code></pre>
+
+<h3 id="configure-the-trigger-event">Configure the trigger event</h3>
+<p>With the <code>trigger</code> property you can configure the start of the recording, e.g. <em>immediately</em> or with the <em>next command that changes a
+position</em>, i.e. that causes a motion.</p>
+<p>In the following sample the recording ist triggered by the next <code>MOV</code> command
+on <code>AXIS_1</code></p>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+...
+#              [&lt;triggge_name&gt;, &lt;option_1&gt;, &lt;optino_2&gt;]
+drec.trigger = [ 'MOV', 'AXIS_1', '0' ] # Trigger on next MOV command of AXIS_1
+</code></pre>
+
+<h2 id="start-the-data-recorder">Start the data recorder</h2>
+<p>Call the <code>arm()</code> method to start the data recorder.
+This includes the following steps:</p>
+<ul>
+<li>Checks if the data recorder is in configuration state <code>CFG</code> (by querying <code>qREC_STATE</code>)</li>
+<li>If it is not in configuration state, <code>REC_STOP</code> is sent to set it to the configuration state</li>
+<li>Sends the record rate configuration to the device using <code>REC_RATE</code></li>
+<li>Sends the trace configuration to the device  using <code>REC_TRACE</code></li>
+<li>Sends the trigger configuration to the device using <code>REC_TRG</code></li>
+<li>Calls <code>REC_START</code> to set the data recorder to the waiting state <code>WAIT</code>. In this
+  state it waits until the occurrence of a trigger. After receiving the trigger, 
+  the data recorder changes to the running state <code>RUN</code> and starts recording.</li>
+</ul>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+...
+drec.arm()
+</code></pre>
+
+<h2 id="get-the-data">Get the data</h2>
+<h3 id="wait-for-the-motion-to-finish">Wait for the motion to finish</h3>
+<p>After the trigger occurrence (for example, start of a motion) you
+can wait until the motion has finished with the "wait" helper
+functions in <code>pipython.pitools</code>.</p>
+<pre><code class="python">pidevice.MOV('AXIS_1', 1.0)
+pitools.waitontarget(pidevice, 'AXIS_1')
+</code></pre>
+
+<h3 id="read-the-data-using-the-data-recorder-tools">Read the data using the data recorder tools</h3>
+<p>The first time you read the <code>header</code> or <code>data</code> property, <code>qREC_DAT</code> is sent to the device, which starts the reading of the data.
+By default this reads the maximum possible number of data values starting with the first value. 
+To limit the number of data values to read, you can set the <code>number_of_values</code> property. 
+You can also set the <code>offset</code> property to start the reading with a specific offset
+in the trace. </p>
+<p>In the following sample 1000 data values are read, starting with the 100th value in the trace.
+This will read the values 100 to 1100 from the trace.</p>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+...
+drec.number_of_values = 1000 # read 1000 values
+drec.offset = 100 # start reading with offset 100 
+data = drec.data # start reading the values and wait until 1000 values have been read
+</code></pre>
+
+<h3 id="process-data">Process data</h3>
+<p>The sample below shows how to create a plot using the <em>header</em> and the <em>data</em> from
+a recording that comprises two traces. (This requires matplotlib.)</p>
+<pre><code class="python">    pyplot.plot(drec.timescale, drec.data[0], color='red')
+    pyplot.plot(drec.timescale, drec.data[1], color='blue')
+    pyplot.xlabel('time (s)')
+    pyplot.ylabel(', '.join((drec.header['NAME0'], drec.header['NAME1'])))
+    pyplot.title('Datarecorder data over time')
+    pyplot.grid(True)
+    pyplot.show()
+    print('save GCSArray to file &quot;gcsarray.dat&quot;')
+    pitools.savegcsarray('gcsarray.dat', drec.header, drec.data)
+</code></pre>
+
+<p>If you are used to NumPy you can easily convert the recorded data
+into a NumPy array.</p>
+<pre><code class="python">import numpy as np
+...
+header, data = drec.getdata()
+npdata = np.array(data)
+</code></pre>
+
+<h3 id="get-the-recorded-data-without-the-data-recorder-tools">Get the recorded data without the data recorder tools</h3>
+<p>Read out the recorded data from the device with <code>qREC_DAT</code>. This returns immediately with the
+<em>GCS header</em> containing information on the recorded data.
+Then it starts a background task that keeps on storing the data
+still coming from the device in an internal buffer. Check the
+current state of this buffer with the <code>bufstate</code> property. It will
+turn <code>True</code> when the task has finished. Prior to that it is a float
+value in the range 0..1 indicating the progress of the data
+transfer. Hence end a loop with <code>while bufstate is not True</code> and
+not with <code>while not bufstate</code>.</p>
+<pre><code class="python">header = pidevice.qREC_DAT('REC_1', 'ASCII', [1, 2], 100, 1000)
+while pidevice.bufstate is not True:
+    print('read data {:.1f}%...'.format(pidevice.bufstate * 100))
+    sleep(0.1)
+</code></pre>
+
+<p>Remember that the task running in the background will lock the
+communication to the device. Hence your application indeed is
+able to continue after calling <code>qREC_DAT</code>, but when you try to
+communicate to the device during data readout this will result
+in a deadlock! To prevent this always check the
+<code>GCSDevice.locked</code> property.</p>
+<h2 id="examples">Examples</h2>
+<p>The following sample will configure two traces for the same axis, set the <code>MOV</code> command trigger, and arm the data recorder.</p>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+
+# Configure the data recorder
+drec.record_rate = 1
+drec.traces = { 1: [ 'AXIS_1', '-', '0x102' ], 2: [ 'AXIS_1', '-', '0x103' ]}
+drec.trigger = [ 'MOV', 'AXIS_1', '0' ] # Trigger on next MOV command on AXIS_1
+drec.arm()
+
+# Trigger the recording and wait until the motion has finished
+pidevice.MOV('AXIS_1', 1.0)
+pitools.waitontarget(pidevice, 'AXIS_1')
+
+# Read the recorded values and the header
+data = drec.data
+header = drec.header
+</code></pre>
+
+<p>The following sample will configure two traces for different axes, set the <code>MOV</code> command trigger on <code>AXIS_1</code>, and arm the data recorder.</p>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+
+# Configure the data recorder
+drec.record_rate = 1
+drec.traces = { 1: [ 'AXIS_1', '-', '0x102' ], 2: [ 'AXIS_2', '-', '0x103' ]}
+drec.trigger = [ 'MOV', 'AXIS_1', '0' ]
+drec.arm()
+
+# Trigger the recording and wait until the motion has finished
+pidevice.MOV('AXIS_1', 1.0)
+pitools.waitontarget(pidevice, 'AXIS_1')
+
+# Read the recorded values and the header
+data = drec.data
+header = drec.header
+</code></pre>
+
+<p>The following sample will configure four traces for two analog inputs and two axes. Furthermore, it will set the 'NOW' trigger which triggers immediately after starting the data recorder.</p>
+<pre><code class="python">from pipython import GCSDevice
+from pipython import datarectools, pitools
+pidevice = GCSDevice()
+pidevice.InterfaceSetupDlg()
+...
+drec = datarectools.Datarecorder(pidevice)
+drec.record_rate = 1
+drec.traces = { 1: [ 'CON_1', 'SENS_1', '0x1021 ], 2: [ 'CON_2', 'SENS_1', '0x101' ]
+                3: [ 'AXIS_1', '-', '0x102' ], 4: [ 'AXIS_2', '-', '0x103' ]}
+drec.trigger = [ 'NOW', '0', '0' ]
+drec.arm()
+
+# No specific trigger is required, because the data recorder triggers itself
+# automatically after `REC_START`, which ist called within the `arm()` method.
+
+# Read the recorded values and the header
+data = drec.data
+header = drec.header
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="history.html" class="btn btn-neutral float-right" title="History">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="datarecorder20.html" class="btn btn-neutral" title="Datarecorder GCS 2.0"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="datarecorder20.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="history.html" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '.';</script>
+    <script src="js/theme.js" defer></script>
+      <script src="search/main.js" defer></script>
+
+</body>
+</html>

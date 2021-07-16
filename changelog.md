@@ -1,6 +1,11 @@
 # Feature Version History
 
 
+### PIPython 2.6.0
+- add: Support for GCS 2.1 controllers
+- add: Data recorder tools for controllers with GCS 2.1 syntax 
+
+
 ### PIPython 2.5.1
 - fix: Missing files in pitools
 
