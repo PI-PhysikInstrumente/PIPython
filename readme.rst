@@ -5,7 +5,7 @@ PIPython is a collection of Python modules to access a PI device and process
 GCS data. It can be used with Python 3.6+ on Windows, Linux and OS X
 and without the GCS DLL also on any other platform.
 
-Version: 2.6.0.1
+Version: 2.6.1.1
 
 
 Quickstart
@@ -18,7 +18,7 @@ controller name as argument::
     from pipython.pidevice import GCSDevice
     gcs = GCSDevice('C-884')
     gcs.InterfaceSetupDlg()
-    print gcs.qIDN()
+    print(gcs.qIDN())
     gcs.CloseConnection()
 
 
