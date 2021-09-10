@@ -1,10 +1,12 @@
 #!/bin/sh
 #
-# pi_make_release <controller_name> <package_version>
+# pi_make_install_package <package_version>
 #
 # z.B.:
-# pi_make_release E754 1.0.0
+# pi_make_install_package 1.0.0
 #
+
+mv PIPython-*-INSTALL.tar.bz2 ./OldVersions/
 
 ./pi_set_install_file_settings
 tar -cjf PIPython-$1-INSTALL.tar.bz2 PIPython
