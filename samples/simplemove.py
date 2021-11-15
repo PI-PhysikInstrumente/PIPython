@@ -1,9 +1,8 @@
-__signature__ = 0x59b6d589fbcaf327eedc4f70f9f539cc
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """This example helps you to get used to PIPython."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,9 +14,9 @@ __signature__ = 0x59b6d589fbcaf327eedc4f70f9f539cc
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
-
 from pipython import GCSDevice, pitools
+
+__signature__ = 0xd910cbe29557203d93d42a48cf4e67a1
 
 CONTROLLERNAME = 'C-884.DB'  # 'C-884' will also work
 STAGES = ['M-111.1DG', 'M-122.2DD', 'NOSTAGE', 'NOSTAGE']
@@ -89,7 +88,7 @@ def main():
         curpos = pidevice.qPOS()
 
         # The GCS commands qTMN() and qTMX() used above are query commands.
-        # They don't need an argument and will then return all availabe
+        # They don't need an argument and will then return all available
         # information, e.g. the limits for _all_ axes. With setter commands
         # however you have to specify the axes/channels. GCSDevice provides
         # a property "axes" which returns the names of all connected axes.

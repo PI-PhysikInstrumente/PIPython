@@ -1,9 +1,8 @@
-__signature__ = 0x12fc3196359278cda0827e2589c00345
 # !/usr/bin/python
 # -*- coding: utf-8 -*-
 """Move all axes to targets read from CSV file 'DATAFILE'."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,16 +14,17 @@ __signature__ = 0x12fc3196359278cda0827e2589c00345
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
 from time import sleep
 
 from pipython import GCSDevice, pitools
 
-CONTROLLERNAME = 'C-863.11'
-STAGES = ['M-111.1DG', ]  # connect stages to axes
-REFMODES = ['FNL', ]  # reference the connected stages
+__signature__ = 0x1921baa9b0ef0bea18dda089c505f632
 
-DATAFILE = 'targets_from_csv.csv'
+CONTROLLERNAME = 'C-884'
+STAGES = ['M-110K078', ]  # connect stages to axes
+REFMODES = ['FRF', ]  # reference the connected stages
+
+DATAFILE = 'targets_from_csv.csv' # Enter the absolute path to this file (targets_from_csv.csv)
 RELAXTIME = 200  # time in ms to wait after each motion command or 0 to wait for on target state
 SEPARATOR = ','
 
@@ -32,7 +32,7 @@ SEPARATOR = ','
 def main():
     """Connect controller, setup stages and move all axes to targets read from CSV file 'DATAFILE'."""
     with GCSDevice(CONTROLLERNAME) as pidevice:
-        pidevice.ConnectTCPIP(ipaddress='192.168.178.42')
+        pidevice.ConnectTCPIP(ipaddress='172.16.244.33')
         # pidevice.ConnectUSB(serialnum='123456789')
         # pidevice.ConnectRS232(comport=1, baudrate=115200)
         print('connected: {}'.format(pidevice.qIDN().strip()))
@@ -46,7 +46,7 @@ def movetotargets(pidevice):
     Add further columns if there are more than 6 axes connected.
     @type pidevice : pipython.gcscommands.GCSCommands
     """
-    with open(DATAFILE, 'rb') as fobj:
+    with open(DATAFILE, 'r') as fobj:
         for line in fobj:
             targets = line.split(SEPARATOR)[:pidevice.numaxes]
             print('targets: {}'.format(', '.join(targets)))

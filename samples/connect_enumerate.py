@@ -1,9 +1,8 @@
-__signature__ = 0x8a454394b6c512a1a437c92962192176
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """This example shows how to search for controllers."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,26 +14,26 @@ __signature__ = 0x8a454394b6c512a1a437c92962192176
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
-
 from pipython import GCSDevice
 
+__signature__ = 0x5196c043c21197de53b38744bc5bb341
 
 def main():
     """Search controllers on interface, show dialog and connect a controller."""
     with GCSDevice() as pidevice:
         print('search for controllers...')
-        devices = pidevice.EnumerateTCPIPDevices()
-        # devices = EnumerateUSBDevices()
+        #devices = pidevice.EnumerateTCPIPDevices()
+        devices = pidevice.EnumerateUSB()
         for i, device in enumerate(devices):
             print('{} - {}'.format(i, device))
         item = int(input('select device to connect: '))
-        pidevice.ConnectTCPIPByDescription(devices[item])
-        # ConnectUSB(devices[item])
+        #pidevice.ConnectTCPIPByDescription(devices[item])
+        pidevice.ConnectUSB(devices[item])
         print('connected: {}'.format(pidevice.qIDN().strip()))
 
 
 if __name__ == '__main__':
+
     # import logging
     # logging.basicConfig(level=logging.DEBUG)
     main()

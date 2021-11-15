@@ -1,13 +1,17 @@
-__signature__ = 0xb2f61ebd9dc547be14efeb7465a0f974
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
 from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.pisocket import PISocket
 from pipython.pidevice.interfaces.piusb import PIUSB
 
+__signature__ = 0xc2c1a0a44938c888c9ce69d225bc7c82
+
 
 # TCP/IP Connect
 # >>>>>>>>>>>>>>>>>>>>>
-gateway = PISocket(host='192.168.90.2')
+gateway = PISocket(host='192.168.90.116')
 # <<<<<<<<<<<<<<<<<<<<<
 
 # USB Connect
@@ -28,12 +32,12 @@ gcs = GCSCommands(messages)
 # to send a GCS String
 
 # PIPython function
-print gcs.qIDN()
+print(gcs.qIDN())
 # answer e.g:
 # '(c)2015 - 2018 Physik Instrumente (PI) GmbH & Co. KG, C-885.M1 TCP-IP Master,987654321,1.0.1.0'
 
 # GCS String
-print gcs.read('*IDN?')
+print(gcs.read('*IDN?'))
 # answer e.g:
 # '(c)2015 - 2018 Physik Instrumente (PI) GmbH & Co. KG, C-885.M1 TCP-IP Master,987654321,1.0.1.0'
 
@@ -44,7 +48,7 @@ axes_of_master = gcs.qSAI()
 # 1
 # 3
 
-print gcs.qPOS(axes_of_master)
+print(gcs.qPOS(axes_of_master))
 # answer e.g:
 # 1=-0.0004680
 # 3=-2.2942890
@@ -59,7 +63,7 @@ print gcs.qPOS(axes_of_master)
 # The address of the sub module has to precede the GCS command.
 # In the answer you will find a preceding '0' and the number of the sub module form where the answer
 # comes from.
-print gcs.read('2 *IDN?')
+print(gcs.read('2 *IDN?'))
 # answer e.g:
 # '0 2 (c)2016 Physik Instrumente (PI) GmbH & Co. KG, E-873.10C885, 117007101, 02.016'
 
@@ -81,11 +85,11 @@ axes_of_sub_module_3 = gcs.read('3 SAI?').split(' ')[2].replace('\n' , '')
 # The following commands are reading the position form the same physically axes as the
 # C-855 motion master sample above (gcs.read('POS? 1 3')).
 
-print gcs.read('2 POS? %s' % axes_of_sub_module_2)
+print(gcs.read('2 POS? %s' % axes_of_sub_module_2))
 # answer e.g:
 # 0 2 X=-0.0004680
 
-print gcs.read('3 POS? %s' % axes_of_sub_module_3)
+print(gcs.read('3 POS? %s' % axes_of_sub_module_3))
 # answer e.g:
 # 0 3 X=-2.2942890
 
@@ -105,7 +109,7 @@ while not ontarget:
 
 gcs.send('2 DFH %s' % axes_of_sub_module_2)
 
-print gcs.read('2 POS? %s' % axes_of_sub_module_2)
+print(gcs.read('2 POS? %s' % axes_of_sub_module_2))
 
 gcs.send('2 VEL %s 6.5' % axes_of_sub_module_2)
 
@@ -116,7 +120,7 @@ ontarget=0
 while not ontarget:
     ontarget=int(gcs.read('2 ONT? %s' % axes_of_sub_module_2).split('=')[1].replace('\n' , ''))
 
-print gcs.read('2 TMX? %s' % axes_of_sub_module_2)
+print(gcs.read('2 TMX? %s' % axes_of_sub_module_2))
 
 # The Command FNL is not supported by the controller. Call TMN and mov to the the returned position instead.
 min_position= gcs.read('2 TMN? %s' % axes_of_sub_module_2).split('=')[1].replace('\n' , '')
@@ -125,32 +129,32 @@ ontarget=0
 while not ontarget:
     ontarget=int(gcs.read('2 ONT? %s' % axes_of_sub_module_2).split('=')[1].replace('\n' , ''))
 
-print gcs.read('2 TMN? %s' % axes_of_sub_module_2)
+print(gcs.read('2 TMN? %s' % axes_of_sub_module_2))
 
 gcs.send('2 GOH %s' % axes_of_sub_module_2)
 ontarget=0
 while not ontarget:
     ontarget=int(gcs.read('2 ONT? %s' % axes_of_sub_module_2).split('=')[1].replace('\n' , ''))
 
-print gcs.read('2 POS? %s' % axes_of_sub_module_2)
+print(gcs.read('2 POS? %s' % axes_of_sub_module_2))
 
-print gcs.read('2 ERR?')
+print(gcs.read('2 ERR?'))
 
 
 #
 #2.Move Macros is simple, Check the error status, current position, and move to target position and check
 # the move status and report error code
 #
-print gcs.read('2 ERR?')
-print gcs.read('2 POS? %s' % axes_of_sub_module_2)
+print(gcs.read('2 ERR?'))
+print(gcs.read('2 POS? %s' % axes_of_sub_module_2))
 
 gcs.send('2 MOV %s 5' % axes_of_sub_module_2)
 ontarget=0
 while not ontarget:
     ontarget=int(gcs.read('2 ONT? %s' % axes_of_sub_module_2).split('=')[1].replace('\n' , ''))
 
-print gcs.read('2 POS? %s' % axes_of_sub_module_2)
-print gcs.read('2 ERR?')
+print(gcs.read('2 POS? %s' % axes_of_sub_module_2))
+print(gcs.read('2 ERR?'))
 
 
 

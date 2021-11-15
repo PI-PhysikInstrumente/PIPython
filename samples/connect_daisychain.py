@@ -1,9 +1,8 @@
-__signature__ = 0xc2e37caa0830ab8487bbc408d8c90792
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """This example shows how to connect three controllers on a daisy chain."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,10 +14,9 @@ __signature__ = 0xc2e37caa0830ab8487bbc408d8c90792
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
-
 from pipython import GCSDevice
 
+__signature__ = 0x757f86ad5b1a4d98f6f34bcb70f348a1
 
 # C-863 controller with device ID 3, this is the master device
 # E-861 controller with device ID 7

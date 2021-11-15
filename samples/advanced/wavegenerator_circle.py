@@ -1,9 +1,8 @@
-__signature__ = 0xdcb05d1beb5fa4c6d4636397b624d18f
 # !/usr/bin/python
 # -*- coding: utf-8 -*-
 """This example shows how to realize a cyclic circular motion with the wave generator."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,12 +14,13 @@ __signature__ = 0xdcb05d1beb5fa4c6d4636397b624d18f
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
 from time import sleep
 
 from pipython import GCSDevice, pitools
 
-CONTROLLERNAME = 'C-887'
+__signature__ = 0xa3a66a73421a07d3ea6324fe72b9e4fd
+
+CONTROLLERNAME = 'C-887' # This sample ist only valid vor C-887 controller
 STAGES = None  # set something like ('M-122.2DD', 'M-122.2DD') if your stages need CST
 REFMODES = ['FRF', ]  # reference first axis or hexapod
 
@@ -35,7 +35,7 @@ def main():
     """Connect controller, setup stages and start wave generator."""
     with GCSDevice(CONTROLLERNAME) as pidevice:
         pidevice.ConnectTCPIP(ipaddress='192.168.178.42')
-        # pidevice.ConnectUSB(serialnum='123456789')
+        # pidevice.ConnectUSB(serialnum='108014631')
         # pidevice.ConnectRS232(comport=1, baudrate=115200)
         print('connected: {}'.format(pidevice.qIDN().strip()))
         print('initialize connected stages...')

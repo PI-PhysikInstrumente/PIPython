@@ -1,9 +1,8 @@
-__signature__ = 0xe8995ecfdc4b06fb86286300058193aa
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """This example shows how to connect PIPython via socket."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,11 +14,11 @@ __signature__ = 0xe8995ecfdc4b06fb86286300058193aa
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
-
 from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.pisocket import PISocket
+
+__signature__ = 0x1f9b73c00ccd8c8dc4936ee10892a380
 
 IPADDR = '192.168.90.166'
 

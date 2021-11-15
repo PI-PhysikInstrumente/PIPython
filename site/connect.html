@@ -7,13 +7,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
+  
   <link rel="shortcut icon" href="img/favicon.ico">
   <title>Device Connection - PIPython</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
-  <link rel="stylesheet" href="css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  <link rel="stylesheet" href="css/theme.css" />
+  <link rel="stylesheet" href="css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
   
   <script>
     // Current page data
@@ -24,9 +25,8 @@
   
   <script src="js/jquery-2.1.1.min.js" defer></script>
   <script src="js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script> 
-  
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -35,75 +35,73 @@
 
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
         <a href="index.html" class="icon icon-home"> PIPython</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="index.html">Home</a>
-	    </li>
-          
-            <li class="toctree-l1 current">
-		
-    <a class="current" href="connect.html">Device Connection</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l2"><a href="#device-connection">Device connection</a></li>
-    
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="index.html">Home</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="connect.html">Device Connection</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#connect-a-single-device-via-the-gcs-dll">Connect a single device via the GCS DLL</a>
         <ul>
-        
-            <li><a class="toctree-l3" href="#connect-a-single-device-via-the-gcs-dll">Connect a single device via the GCS DLL</a></li>
-        
-            <li><a class="toctree-l3" href="#connect-daisy-chain-devices">Connect daisy chain devices</a></li>
-        
-            <li><a class="toctree-l3" href="#low-level-interface">Low level interface</a></li>
-        
-            <li><a class="toctree-l3" href="#unknown-devices">Unknown devices</a></li>
-        
+    <li class="toctree-l3"><a class="reference internal" href="#by-a-dialog">By a dialog</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#by-a-dedicated-interface">By a dedicated interface</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#by-the-device-identification">By the device identification</a>
+    </li>
         </ul>
-    
-
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#connect-daisy-chain-devices">Connect daisy chain devices</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#low-level-interface">Low level interface</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#by-pisocket">By PISocket:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#by-piserial">By PISerial:</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#by-piusb">By PIUSB:</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#unknown-devices">Unknown devices</a>
+    </li>
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="datarecorder20.html">Datarecorder GCS 2.0</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="datarecorder21.html">Datarecorder GCS 2.1</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="history.html">History</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="structure.html">Structure</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="eula.html">EULA</a>
-	    </li>
-          
-        </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="datarecorder20.html">Datarecorder GCS 2.0</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="datarecorder30.html">Datarecorder GCS 3.0</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="history.html">History</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="structure.html">Structure</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="eula.html">EULA</a>
+                    </li>
+                </ul>
       </div>
-      &nbsp;
+    </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
@@ -128,8 +126,10 @@
       
     </li>
   </ul>
+  
   <hr/>
 </div>
+
           <div role="main">
             <div class="section">
               
@@ -138,19 +138,17 @@
 <h2 id="connect-a-single-device-via-the-gcs-dll">Connect a single device via the GCS DLL</h2>
 <h3 id="by-a-dialog">By a dialog</h3>
 <p>On Windows systems the GCS DLL provides a graphical user interface to select the interface and parameters.</p>
-<pre><code class="python">from pipython import GCSDevice
+<pre><code class="language-python">from pipython import GCSDevice
 with GCSDevice() as pidevice:
     pidevice.InterfaceSetupDlg()
     print('connected: {}'.format(pidevice.qIDN().strip()))
 </code></pre>
-
 <p>If you pass an optional <code>key</code> as arbitrary string to the <code>InterfaceSetupDlg</code> method, the DLL remembers the settings in the Windows registry and will recall them the next time you connect with the same key.</p>
-<pre><code class="python">from pipython import GCSDevice
+<pre><code class="language-python">from pipython import GCSDevice
 with GCSDevice() as pidevice:
     pidevice.InterfaceSetupDlg('MyTest')
     print('connected: {}'.format(pidevice.qIDN().strip()))
 </code></pre>
-
 <h3 id="by-a-dedicated-interface">By a dedicated interface</h3>
 <p>You can connect via these interfaces with the according methods.</p>
 <ul>
@@ -161,12 +159,11 @@ with GCSDevice() as pidevice:
 <li>NI GPIB: <code>ConnectNIgpib(board, device)</code></li>
 <li>PCI board: <code>ConnectPciBoard(board)</code></li>
 </ul>
-<pre><code class="python">from pipython import GCSDevice
+<pre><code class="language-python">from pipython import GCSDevice
 with GCSDevice() as pidevice:
     pidevice.ConnectTCPIP('192.168.178.42')
     print('connected: {}'.format(pidevice.qIDN().strip()))
 </code></pre>
-
 <p>The parameter <code>serialnum</code> can be the serial number of the device as string or the device
 identification returned by <code>EnumerateUSB</code>. For TCP/IP <code>ConnectTCPIP</code> connects by given
 IP address where <code>ConnectTCPIPByDescription</code> uses the string from <code>EnumerateTCPIPDevices</code>.</p>
@@ -178,7 +175,7 @@ IP address where <code>ConnectTCPIPByDescription</code> uses the string from <co
 </ul>
 <p>Use the <code>mask</code> to limit the number of found devices. It is a string that must
 be part of the identification string - see <code>qIDN</code> - returned by the devices.</p>
-<pre><code class="python">from pipython import GCSDevice
+<pre><code class="language-python">from pipython import GCSDevice
 with GCSDevice() as pidevice:
     devices = pidevice.EnumerateTCPIPDevices(mask='C-884.4DB')
     for i, device in enumerate(devices):
@@ -187,7 +184,6 @@ with GCSDevice() as pidevice:
     pidevice.ConnectTCPIPByDescription(devices[item])
     print('connected: {}'.format(pidevice.qIDN().strip()))
 </code></pre>
-
 <h2 id="connect-daisy-chain-devices">Connect daisy chain devices</h2>
 <p>You have to open the interface once and than you connect all devices to this interface. Each
 device must have a unique ID on the daisy chain (see controller manual). There must be one
@@ -200,7 +196,7 @@ example for 3 devices on an RS-232 daisy chain.</p>
 </ul>
 <p>There is no need to close the connections. This is done automatically because <code>GCSDevice</code>
 is used as context manager.</p>
-<pre><code class="python">from pipython import GCSDevice
+<pre><code class="language-python">from pipython import GCSDevice
 with GCSDevice() as c863:
     c863.OpenRS232DaisyChain(comport=1, baudrate=115200)
     # c863.OpenUSBDaisyChain(description='1234567890')
@@ -215,12 +211,11 @@ with GCSDevice() as c863:
             print('\n{}:\n{}'.format(e861.GetInterfaceDescription(), e861.qIDN()))
             print('\n{}:\n{}'.format(c867.GetInterfaceDescription(), c867.qIDN()))
 </code></pre>
-
 <h2 id="low-level-interface">Low level interface</h2>
 <p>Usually you connect with <code>GCSDevice</code> via the GCS DLL. But on platforms where the GCS DLL is
 not available you are still able to connect.</p>
 <h3 id="by-pisocket">By PISocket:</h3>
-<pre><code class="python">from pipython.pidevice.gcscommands import GCSCommands
+<pre><code class="language-python">from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.pisocket import PISocket
 with PISocket(host='192.168.178.42', port=50000) as gateway:
@@ -228,9 +223,8 @@ with PISocket(host='192.168.178.42', port=50000) as gateway:
     pidevice = GCSCommands(messages)
     print(pidevice.qIDN())
 </code></pre>
-
 <h3 id="by-piserial">By PISerial:</h3>
-<pre><code class="python">from pipython.pidevice.gcscommands import GCSCommands
+<pre><code class="language-python">from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.piserial import PISerial
 with PISerial(port=1, baudrate=115200) as gateway:
@@ -238,11 +232,10 @@ with PISerial(port=1, baudrate=115200) as gateway:
     pidevice = GCSCommands(messages)
     print(pidevice.qIDN())
 </code></pre>
-
 <h3 id="by-piusb">By PIUSB:</h3>
 <p>This interface requires LibUSB which usually is only available on Linux like operation systems.
 Hint: Run <code>pip install pyusb</code>.</p>
-<pre><code class="python">from pipython.pidevice.gcscommands import GCSCommands
+<pre><code class="language-python">from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.piusb import PIUSB
 with PIUSB() as gateway:
@@ -251,11 +244,10 @@ with PIUSB() as gateway:
     pidevice = GCSCommands(messages)
     print(pidevice.qIDN())
 </code></pre>
-
 <h2 id="unknown-devices">Unknown devices</h2>
 <p>When you call <code>GCSDevice</code> with the controller name the according GCS DLL is chosen automatically.
 For unknown devices you can specify a dedicated GCS DLL instead.</p>
-<pre><code class="python">from pipython import GCSDevice
+<pre><code class="language-python">from pipython import GCSDevice
 with GCSDevice(gcsdll='PI_GCS2_DLL.dll') as pidevice:
     pidevice.InterfaceSetupDlg()
 </code></pre>
@@ -281,7 +273,7 @@ with GCSDevice(gcsdll='PI_GCS2_DLL.dll') as pidevice:
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
       
         </div>
@@ -291,20 +283,26 @@ with GCSDevice(gcsdll='PI_GCS2_DLL.dll') as pidevice:
 
   </div>
 
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="index.html" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="datarecorder20.html" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="index.html" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="datarecorder20.html" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
 </div>
     <script>var base_url = '.';</script>
+    <script src="js/theme_extra.js" defer></script>
     <script src="js/theme.js" defer></script>
       <script src="search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
 
 </body>
 </html>

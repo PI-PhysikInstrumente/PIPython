@@ -1,9 +1,8 @@
-__signature__ = 0x8740c0656306defbfde1bad09b3bc066
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """This example helps you to define arbitrary waveforms read out from a file."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,12 +14,13 @@ __signature__ = 0x8740c0656306defbfde1bad09b3bc066
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
 from time import sleep
 
 from pipython import GCSDevice, pitools
 
-CONTROLLERNAME = 'E-712'
+__signature__ = 0x3ab103c4a60af7eca14f060008b3a6f5
+
+CONTROLLERNAME = 'C-887'  # This sample ist only valid vor C-887 controller
 STAGES = None  # connect stages to axes
 REFMODES = None  # reference the connected stages
 
@@ -33,7 +33,7 @@ def main():
     """Connect controller, setup wave generator, move axes to startpoint and start wave generator."""
     with GCSDevice(CONTROLLERNAME) as pidevice:
         pidevice.ConnectTCPIP(ipaddress='192.168.178.42')
-        # pidevice.ConnectUSB(serialnum='123456789')
+        # pidevice.ConnectUSB(serialnum='000000004')
         # pidevice.ConnectRS232(comport=1, baudrate=115200)
         print('connected: %s' % pidevice.qIDN().strip())
         print('initialize connected stages...')

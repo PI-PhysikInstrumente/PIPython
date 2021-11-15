@@ -1,9 +1,8 @@
-__signature__ = 0x3de195de202ecebe89850d7c4e34e893
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """This example shows how to use the data recorder and plot and save the data."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,14 +14,14 @@ __signature__ = 0x3de195de202ecebe89850d7c4e34e893
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
-
 try:
     from matplotlib import pyplot
 except ImportError:
     pyplot = None
 
 from pipython import GCSDevice, datarectools, pitools
+
+__signature__ = 0x71af67147b3f6545c1bedcd9aa58f723
 
 CONTROLLERNAME = 'C-884'
 STAGES = ['M-111.1DG', ]  # connect stages to axes

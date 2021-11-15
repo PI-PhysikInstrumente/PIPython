@@ -1,17 +1,22 @@
 # Feature Version History
 
 
+### PIPython 2.7.0
+- add GCSCommands.qIPR()
+- add GCSCommands.RES()
+
+
 ### PIPython 2.6.0
-- add: Support for GCS 2.1 controllers
-- add: Data recorder tools for controllers with GCS 2.1 syntax 
+- add support for GCS 3.0 controllers
+- add data recorder tools for controllers with GCS 3.0 syntax 
 
 
 ### PIPython 2.5.1
-- fix: Missing files in pitools
+- fix missing files in pitools
 
 
 ### PIPython 2.5.0
-- Support for GCS21 UMF Controllers
+- Support for GCS30 UMF Controllers
 
 
 ### PIPython 2.4.0
@@ -41,11 +46,11 @@
 
 
 ### PIPython 2.2.2
-- fix: No module named gcs21.gcs21commands_helpers
+- fix: No module named gcs30.gcs30commands_helpers
 
 
 ### PIPython 2.2.1
-- fix missing argument in isgcs21
+- fix missing argument in isgcs30
 
 
 ### PIPython 2.2.0

@@ -1,9 +1,8 @@
-__signature__ = 0xc46658a4dcc6d7c296503291ac846c24
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 """This example shows how to connect PIPython via serial port."""
 
-# (c)2016-2020 Physik Instrumente (PI) GmbH & Co. KG
+# (c)2016 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
 # General Software License Agreement of Physik Instrumente (PI) GmbH & Co. KG
 # and may incorporate and/or make use of third-party software components.
@@ -15,13 +14,13 @@ __signature__ = 0xc46658a4dcc6d7c296503291ac846c24
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
 
 
-from __future__ import print_function
 import sys
 
 from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.piserial import PISerial
 
+__signature__ = 0x46d87cad175abd907f6d9936826e2916
 
 
 def main():
