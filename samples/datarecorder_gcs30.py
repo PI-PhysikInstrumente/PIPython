@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-"""This example shows how to use the data recorder and plot and save the data."""
+"""This example shows how to use the data recorder and how to plot and save the data."""
 
 # (c) 2021 Physik Instrumente (PI) GmbH & Co. KG
 # Software products that are provided by PI are subject to the
@@ -13,6 +13,8 @@
 # http://www.physikinstrumente.com/download/EULA_PhysikInstrumenteGmbH_Co_KG.pdf
 # Third Party Software Note:
 # http://www.physikinstrumente.com/download/TPSWNote_PhysikInstrumenteGmbH_Co_KG.pdf
+
+"""This sample requires the python package matplotlib to work"""
 
 from pipython import GCSDevice, datarectools, pitools
 
@@ -120,6 +122,6 @@ def processdata(drec):
 
 
 if __name__ == '__main__':
-    # import logging
-    # logging.basicConfig(level=logging.DEBUG)
+    # from pipython import PIlogger, DEBUG, INFO, WARNING, ERROR, CRITICAL
+    # PIlogger.setLevel(DEBUG)
     main()

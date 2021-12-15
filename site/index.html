@@ -178,7 +178,12 @@ with GCSDevice('C-884') as pidevice:
 </code></pre>
 <p>See also the provided samples in the <code>samples</code> subdirectory. Start with <code>quickstart.py</code>.</p>
 <h2 id="requirements">Requirements</h2>
-<p>There are no dependencies to additional packages.</p>
+<p>Download these python packages with pip install: </p>
+<ul>
+<li>PyUSB</li>
+<li>PySocket</li>
+<li>PySerial</li>
+</ul>
 <p>With pipython.interfaces.piusb you can connect a USB device without using the GCS DLL.
 This works only with Linux and requires LibUSB which usually is provided by the OS.</p>
 <h2 id="arguments">Arguments</h2>
@@ -257,8 +262,9 @@ pitools.waitontarget(pidevice, axes)
 </code></pre>
 <h3 id="enable-debug-logging">Enable debug logging</h3>
 <p>To log debug messages on the console just enter these lines prior to calling <code>GCSDevice</code>.</p>
-<pre><code class="language-python">from logging import basicConfig, DEBUG
-basicConfig(level=DEBUG)
+<pre><code class="language-python">from pipython import PILogger, DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+PILogger.setLevel(DEBUG)
 </code></pre>
 <h3 id="gcserror-and-error-check">GCSError and error check</h3>
 <p>By default an "ERR?" command is sent after each command to query if an error
@@ -376,5 +382,5 @@ pidevice.GcsCommandset('MOV X 1.23')
 
 <!--
 MkDocs version : 1.2.2
-Build Date UTC : 2021-11-29 13:02:04.380763+00:00
+Build Date UTC : 2021-12-15 12:51:17.723906+00:00
 -->

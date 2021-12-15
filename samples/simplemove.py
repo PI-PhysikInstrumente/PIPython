@@ -87,6 +87,12 @@ def main():
         rangemax = pidevice.qTMX()
         curpos = pidevice.qPOS()
 
+        for axis in pidevice.axes:
+            if curpos[axis] > rangemax[axis]:
+                curpos[axis] = rangemax[axis]
+            elif curpos[axis] < rangemin[axis]:
+                curpos[axis] = rangemin[axis]
+
         # The GCS commands qTMN() and qTMX() used above are query commands.
         # They don't need an argument and will then return all available
         # information, e.g. the limits for _all_ axes. With setter commands
@@ -122,6 +128,6 @@ if __name__ == '__main__':
     # two hashtags. Then debug messages are shown. This can be helpful if
     # there are any issues.
 
-    # import logging
-    # logging.basicConfig(level=logging.DEBUG)
+    # from pipython import PIlogger, DEBUG, INFO, WARNING, ERROR, CRITICAL
+    # PIlogger.setLevel(DEBUG)
     main()

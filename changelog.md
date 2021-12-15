@@ -4,6 +4,7 @@
 ### PIPython 2.7.0
 - add GCSCommands.qIPR()
 - add GCSCommands.RES()
+- add PILogger
 
 
 ### PIPython 2.6.0
