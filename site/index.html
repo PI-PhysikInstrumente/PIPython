@@ -49,6 +49,18 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="index.html">Home</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#from-local-folder">From local folder</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-github">From GitHub</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#from-pypiorg">From pypi.org</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#feedback">Feedback</a>
+    </li>
+        </ul>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#requirements">Requirements</a>
@@ -82,12 +94,16 @@
     <li class="toctree-l3"><a class="reference internal" href="#enable-debug-logging">Enable debug logging</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#gcserror-and-error-check">GCSError and error check</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#gcs-30_2">GCS 3.0</a>
+    </li>
+        </ul>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#big-data">Big data</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#gcs-20_2">GCS 2.0</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#gcs-30_2">GCS 3.0</a>
+    <li class="toctree-l4"><a class="reference internal" href="#gcs-30_3">GCS 3.0</a>
     </li>
         </ul>
     </li>
@@ -159,6 +175,28 @@
 <p>PIPython is a collection of Python modules to access a PI device and process
 GCS data. It can be used with Python 3.6+ on Windows, Linux and OS X
 and without the GCS DLL also on any other platform.</p>
+<h2 id="installation">Installation</h2>
+<p>By using PIPython you agree to the license agreement, see the provided file:</p>
+<pre><code>eula.md
+</code></pre>
+<h3 id="from-local-folder">From local folder</h3>
+<p>Unzip the file PIPython.zip, open a command entry (Linux Console or Windows CMD window) and run:</p>
+<pre><code>python setup.py install
+</code></pre>
+<p>For further reading open the <em>index.html</em> file in your browser and see the samples in the
+<em>samples</em> folder.</p>
+<h3 id="from-github">From GitHub</h3>
+<p><a href="https://github.com/PI-PhysikInstrumente/PIPython">PIPython on GitHub</a></p>
+<pre><code>git clone git@github.com:PI-PhysikInstrumente/PIPython.git
+python setup.py install
+</code></pre>
+<h3 id="from-pypiorg">From pypi.org</h3>
+<pre><code>pip install PIPython
+</code></pre>
+<h3 id="feedback">Feedback</h3>
+<p>We appreciate your feedback at:</p>
+<pre><code>service@pi.de
+</code></pre>
 <h2 id="quickstart">Quickstart</h2>
 <p>Communicate to a PI device via <code>GCSDevice</code> which wraps the GCS DLL functions
 and provides methods to connect to the device. Call <code>GCSDevice</code> with the
@@ -290,6 +328,17 @@ with GCSDevice('C-884') as pidevice:
 raise GCSError(gcserror.E_1024_PI_MOTION_ERROR)
 &gt;&gt;&gt;GCSError: Motion error: position error too large, servo is switched off automatically (-1024)
 </code></pre>
+<h4 id="gcs-30_2">GCS 3.0</h4>
+<ul>
+<li>to reset the error state of 1 or more axes </li>
+</ul>
+<pre><code class="language-python">for axis in device.axes:
+    if axis_has_error(device):
+        while check_axis_status_bit(device, axis, AXIS_STATUS_FAULT_REACTION_ACTIVE):
+            pass
+        print('reset axis error: ', axis)
+        device.RES(axis)
+</code></pre>
 <h3 id="big-data">Big data</h3>
 <p>Commands like <code>qDRR()</code> for GCS 2.0 syntax, or <code>qREC_DAT()</code> for GCS 3.0 syntax 
 which read a large amount of GCS data return immediately with
@@ -305,7 +354,7 @@ while pidevice.bufstate is not True:
     sleep(0.1)
 data = pidevice.bufdata
 </code></pre>
-<h4 id="gcs-30_2">GCS 3.0</h4>
+<h4 id="gcs-30_3">GCS 3.0</h4>
 <pre><code class="language-python">header = pidevice.qREC_DAT('REC_1', 'ASCII', 1, 1, 8192)
 while pidevice.bufstate is not True:
     print('read data {:.1f}%...'.format(pidevice.bufstate * 100))
@@ -382,5 +431,5 @@ pidevice.GcsCommandset('MOV X 1.23')
 
 <!--
 MkDocs version : 1.2.2
-Build Date UTC : 2022-01-13 08:35:44.720400+00:00
+Build Date UTC : 2022-02-10 09:13:11.965442+00:00
 -->
