@@ -16,7 +16,7 @@
 #                 Germany
 #
 #**********************************************************************************************************
-#  Version:	1.0.1
+#  Version:	1.0.2
 #**********************************************************************************************************
 
 
@@ -333,7 +333,7 @@ PiPythonInstall()
 	echo "in the default linux python directories '/usr/bin/' and '/usr/local/bin/'."
 	echo "If you want to install ${PI_PRODUCT_NAME} to an python which is not in one of those directories,"
 	echo "or in an virtual env. You have to install ${PI_PRODUCT_NAME} manually"
-	echo "To install ${PI_PRODUCT_NAME} manually please see ${PI_PRODUCT_NAME}-${PI_PIPYTHION_VERSION}/readme.rst."
+	echo "To install ${PI_PRODUCT_NAME} manually please see ${PI_PRODUCT_NAME}-${PI_PIPYTHION_VERSION}/readme.md."
 	echo ""
 	echo "The following python versions have been found on your System:"
 	for i in $PI_PYTHON_BIN_REAL_PATHS; do

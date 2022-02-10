@@ -4,8 +4,7 @@
 *                                                                          *
 ****************************************************************************
 *                                                                          *
-*  Description:	  Howto update, install and remove the access rights to	   *
-*                 use the FTDI virtual com port with PI controllers        *
+*  Description:	  Howto update, install PIPython                    	   *
 *                                                                          *
 *  Author:        Jens Kapp (JKa)                                          *
 *                 SW Engineer                                              *
@@ -23,14 +22,14 @@ First, login as superuser
 >> Password:
 >> [root@]#
 
-To update an already existing access rights to use the FTDI virtual com port with PI controllers type:
->> [root@]# ./INSTALL.pi_ftdi_usb -u
+To update an already existing PIPython:
+>> [root@]# ./INSTALL.PIPython-u
 
-To install the access rights to use the FTDI virtual com port with PI controllers type:
->> [root@]# ./INSTALL.pi_ftdi_usb
+To install PIPython:
+>> [root@]# ./INSTALL.PIPython
 
-To remove an already existing access rights to use the FTDI virtual com port with PI controllers type:
->> [root@]# ./INSTALL.pi_ftdi_usb -r
+To remove PIPython:
+>> [root@]# ./INSTALL.PIPython -r
 
 
 
