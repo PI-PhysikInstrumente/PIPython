@@ -18,7 +18,7 @@ from time import sleep
 
 from pipython import GCSDevice, pitools
 
-__signature__ = 0xa3a66a73421a07d3ea6324fe72b9e4fd
+__signature__ = 0x513629ebfd60b52395a45f1177a79cc0
 
 CONTROLLERNAME = 'C-887' # This sample ist only valid vor C-887 controller
 STAGES = None  # set something like ('M-122.2DD', 'M-122.2DD') if your stages need CST

@@ -16,7 +16,7 @@
 
 from pipython import GCSDevice, pitools
 
-__signature__ = 0xd910cbe29557203d93d42a48cf4e67a1
+__signature__ = 0x1b6d41dceee52002e1073d1948e56fc1
 
 CONTROLLERNAME = 'C-884.DB'  # 'C-884' will also work
 STAGES = ['M-111.1DG', 'M-122.2DD', 'NOSTAGE', 'NOSTAGE']

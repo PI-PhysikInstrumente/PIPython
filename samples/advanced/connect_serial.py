@@ -20,7 +20,7 @@ from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.piserial import PISerial
 
-__signature__ = 0x46d87cad175abd907f6d9936826e2916
+__signature__ = 0xe5184c9a60a0c98663347f677824582a
 
 
 def main():

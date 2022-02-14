@@ -25,7 +25,7 @@ except ImportError:
 
 
 
-__signature__ = 0x1276c0fcaba5712e1dacde6f62834be8
+__signature__ = 0xbc1d31ca43e9aa91b96b2c590ed448df
 
 CONTROLLERNAME = 'E-880'  # 'C-884' will also work
 STAGES = None

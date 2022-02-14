@@ -16,7 +16,7 @@
 
 from pipython import GCSDevice
 
-__signature__ = 0x757f86ad5b1a4d98f6f34bcb70f348a1
+__signature__ = 0xba77bea3bbc2b13e551595dec1db77cb
 
 # C-863 controller with device ID 3, this is the master device
 # E-861 controller with device ID 7

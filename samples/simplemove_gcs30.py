@@ -18,7 +18,7 @@
 from pipython import GCSDevice, pitools
 from collections import OrderedDict
 
-__signature__ = 0x841e0e3f73a95b36a0b3d270f2133294
+__signature__ = 0xb671bf2a5a1eabe944760cc24217f817
 
 CONTROLLERNAME = 'E-880'  # 'C-884' will also work
 STAGES = None

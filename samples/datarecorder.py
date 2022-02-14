@@ -22,7 +22,7 @@ except ImportError:
 
 from pipython import GCSDevice, datarectools, pitools
 
-__signature__ = 0x71af67147b3f6545c1bedcd9aa58f723
+__signature__ = 0x35ba4672d5abc717f68a7c8ecfb9bafa
 
 CONTROLLERNAME = 'C-884'
 STAGES = ['M-111.1DG', ]  # connect stages to axes

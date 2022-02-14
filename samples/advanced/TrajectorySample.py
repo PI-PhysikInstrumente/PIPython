@@ -1,3 +1,4 @@
+__signature__ = 0x9c8d857a9bceb6de1c59bb3366f41728
 #!/usr/bin python
 # -*- coding: utf-8 -*-
 """This example shows how to realize a cyclic circular motion with trajectories."""
