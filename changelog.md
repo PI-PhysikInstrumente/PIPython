@@ -1,5 +1,8 @@
 # Feature Version History
 
+### PIPython 2.8.0
+- add pitools.getmaxtravelrange()
+- add pitools.getmintravelrange()
 
 ### PIPython 2.7.0
 - add GCSCommands.qIPR()

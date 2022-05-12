@@ -59,7 +59,7 @@ if __name__ == '__main__':
     # two hashtags. Then debug messages are shown. This can be helpful if
     # there are any issues.
 
-    # from pipython import PIlogger, DEBUG, INFO, WARNING, ERROR, CRITICAL
-    # PIlogger.setLevel(DEBUG)
+    # from pipython import PILogger, DEBUG, INFO, WARNING, ERROR, CRITICAL
+    # PILogger.setLevel(DEBUG)
 
     main()

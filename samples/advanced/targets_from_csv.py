@@ -59,6 +59,6 @@ def movetotargets(pidevice):
 
 
 if __name__ == '__main__':
-    # from pipython import PIlogger, DEBUG, INFO, WARNING, ERROR, CRITICAL
-    # PIlogger.setLevel(DEBUG)
+    # from pipython import PILogger, DEBUG, INFO, WARNING, ERROR, CRITICAL
+    # PILogger.setLevel(DEBUG)
     main()

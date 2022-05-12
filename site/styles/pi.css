@@ -1,0 +1,116 @@
+:root > * {
+	--md-primary-fg-color: #0051a0;
+	--md-default-fg-color--light: #0051a0;
+	--md-primary-fg-color--light: #86b1db;
+	--md-primary-fg-color--dark: #003970;
+
+	--md-accent-fg-color: #001d3a;
+	--md-code-hl-color: #c2def9;
+
+
+	--md-text-font-family: "Roboto";
+	--md-code-font-family: "Roboto Mono";
+}
+
+/* Schrift Fließtext */
+@font-face {
+	font-family: "Roboto";
+	src: url("./fonts/Roboto/Roboto-Regular.ttf");
+	font-style: normal;
+	font-weight: normal;
+}
+@font-face {
+	font-family: "Roboto";
+	src: url("./fonts/Roboto/Roboto-Bold.ttf");
+	font-style: normal;
+	font-weight: bold;
+}
+
+/* Schrift Code */
+@font-face {
+	font-family: "Roboto Mono";
+	src: url("./fonts/Roboto_Mono/RobotoMono-Regular.ttf");
+	font-style: normal;
+	font-weight: normal;
+}
+
+/* Schrift Überschriften */
+@font-face {
+	font-family: "Roboto Slab";
+	src: url("./fonts/Roboto_Slab/RobotoSlab-Regular.ttf");
+	font-style: normal;
+	font-weight: normal;
+}
+
+a . {
+	font-weight: bold;
+}
+
+.md-typeset h1, .md-typeset h2, .md-typeset h3 {
+	font-family: "Roboto Slab", Calibri, sans-serif;
+}
+
+.md-typeset h1 {
+	font-size: 2.5em;
+	margin: 0 0 0.75em
+}
+
+.md-typeset h2 {
+	font-size: 1.6em;
+	margin: 1.45em 0 0.5em;
+}
+
+html {
+	font-size: 120% !important;
+}
+
+li.md-nav__item > a {
+	font-weight: normal !important;
+}
+
+nav {
+	padding-top: 0.5rem;
+}
+
+th {
+	font-weight: bold;
+}
+
+.admonition {
+	font-size: 0.8rem !important;
+	box-shadow: 0 0.2rem 0.5rem rgb(0 0 0 / 15%), 0 0.025rem 0.05rem rgb(0 0 0 / 5%) !important;
+}
+
+.highlighttable .linenodiv pre {
+	line-height: 1.05rem;
+	position: relative;
+	top: 0.1rem;
+}
+
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+	width: 3rem;
+}
+
+.md-header__title {
+	font-family: "Roboto Slab";
+}
+
+.md-typeset .md-button--primary {
+	background-color: var(--md-primary-fg-color);
+	background-image: linear-gradient(to top, rgba(0,0,0,0.05), rgba(255,255,255,0.07));
+	border-radius: 3px;
+	font-weight: normal;
+}
+
+.md-typeset code {
+	font-size: 0.95em !important;
+}
+
+.md-typeset table:not([class]) {
+	font-size: 0.8rem !important;
+}
+
+.md-typeset .tabbed-set>label {
+	font-size: 0.8rem !important;
+	padding: .6em 1em;
+}

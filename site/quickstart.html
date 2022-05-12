@@ -1,0 +1,698 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+    
+    
+      
+        <title>Quick Start - PIPython</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.3de6f41f.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.cc9b2e1e.min.css">
+        
+      
+    
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="styles/pi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#quick-start" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="PIPython" class="md-header__button md-logo" aria-label="PIPython" data-md-component="logo">
+      
+  <img src="files/pi.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PIPython
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Quick Start
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="PIPython" class="md-nav__button md-logo" aria-label="PIPython" data-md-component="logo">
+      
+  <img src="files/pi.svg" alt="logo">
+
+    </a>
+    PIPython
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Quick Start
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="quickstart.html" class="md-nav__link md-nav__link--active">
+        Quick Start
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#establishing-communication" class="md-nav__link">
+    Establishing communication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arguments" class="md-nav__link">
+    Arguments
+  </a>
+  
+    <nav class="md-nav" aria-label="Arguments">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setter-functions" class="md-nav__link">
+    Setter functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#getter-functions" class="md-nav__link">
+    Getter functions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#return-values" class="md-nav__link">
+    Return values
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#some-useful-information" class="md-nav__link">
+    Some useful information
+  </a>
+  
+    <nav class="md-nav" aria-label="Some useful information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#helper-functions" class="md-nav__link">
+    Helper functions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debug-logging" class="md-nav__link">
+    Debug logging
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gcserror-and-error-check" class="md-nav__link">
+    GCSError and error check
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#big-data" class="md-nav__link">
+    Big data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#textual-interface" class="md-nav__link">
+    Textual interface
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connect.html" class="md-nav__link">
+        Device Connection
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datarecorder20.html" class="md-nav__link">
+        Data Recorder GCS 2.0
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datarecorder30.html" class="md-nav__link">
+        Data Recorder GCS 3.0
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="history.html" class="md-nav__link">
+        History
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="eula.html" class="md-nav__link">
+        EULA
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+
+
+<h1 id="quick-start">Quick Start</h1>
+<h2 id="requirements">Requirements</h2>
+<p>Download these python packages with pip install: </p>
+<ul>
+<li>PyUSB</li>
+<li>PySocket</li>
+<li>PySerial</li>
+</ul>
+<p>Using <code>pipython.interfaces.piusb</code>, you can connect to a USB device without needing the GCS DLL. This only works on Linux and requires libusb, which comes with most Linux distributions.</p>
+<h2 id="establishing-communication">Establishing communication</h2>
+<p>Communication with a PI device can be established via the <code>GCSDevice</code> class which wraps the GCS DLL functions and provides methods to connect to the device. Instantiate <code>GCSDevice</code> with the controller's product code up to the period as a string type argument (e.g., <code>'C-884'</code>).</p>
+<p>See <a href="connect.html">Device Connection</a> for further information.</p>
+<p>The following example connects to a C-884 series controller, queries its identification string using the <code>qIDN()</code> function and closes the connection.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">(</span><span class="s1">&#39;C-884&#39;</span><span class="p">)</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">CloseConnection</span><span class="p">()</span>
+</code></pre></div></p>
+<p><code>GCSDevice</code> is a context manager which closes the connection if an exception is raised inside the <code>with</code> statement. Thus the example above should rather be written this way:
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span>
+<span class="hll"><span class="k">with</span> <span class="n">GCSDevice</span><span class="p">(</span><span class="s1">&#39;C-884&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
+</span>    <span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">CloseConnection</span><span class="p">()</span>
+</code></pre></div></p>
+<p>See also <code>quickstart.py</code>, as well as the other examples in the <code>samples</code> subdirectory.</p>
+<h2 id="arguments">Arguments</h2>
+<h3 id="setter-functions">Setter functions</h3>
+<p><strong>GCS 2.0</strong></p>
+<p>Setter functions can be called with the following argument structures:</p>
+<ul>
+<li>a comma-separated dictionary of axes/channels and values</li>
+<li>a comma-separated list of axes/channels and a list of the corresponding values</li>
+<li>a single axis/channel and a single value</li>
+</ul>
+<p><div class="highlight"><pre><span></span><code><span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">({</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="mf">2.34</span><span class="p">})</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">([</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.23</span><span class="p">,</span> <span class="mf">2.34</span><span class="p">])</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">)</span>
+</code></pre></div>
+For numeric axis or channel identifiers, the quotes may be omitted.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">({</span><span class="mi">1</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mf">2.34</span><span class="p">})</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.23</span><span class="p">,</span> <span class="mf">2.34</span><span class="p">])</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">)</span>
+</code></pre></div>
+<p><strong>GCS 3.0</strong></p>
+<p>Setter functions can be called with the following argument structures:</p>
+<ul>
+<li>a comma-separated dictionary of axes and values</li>
+<li>a comma-separated list of axes and a list of the corresponding values</li>
+<li>a single axis and a single value</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">({</span><span class="s1">&#39;AXIS_1&#39;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s1">&#39;AXIS_2&#39;</span><span class="p">:</span> <span class="mf">2.34</span><span class="p">})</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">([</span><span class="s1">&#39;AXIS_1&#39;</span><span class="p">,</span> <span class="s1">&#39;AXIS_2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.23</span><span class="p">,</span> <span class="mf">2.34</span><span class="p">])</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">(</span><span class="s1">&#39;AXIS_1&#39;</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="getter-functions">Getter functions</h3>
+<p>Getter functions can be called with the following argument structures:</p>
+<p><strong>GCS 2.0</strong></p>
+<ul>
+<li>a comma-separated list of axes/channels</li>
+<li>a single axis/channel</li>
+<li>no arguments, which will return the answer for all available axes/channels</li>
+</ul>
+<p>For numeric axis or channel identifiers, the quotes may be omitted.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">([</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">])</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">)</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">()</span>  
+</code></pre></div>
+<p><strong>GCS 3.0</strong></p>
+<ul>
+<li>a single axis</li>
+<li>no arguments, which will return the answer for all available axes or channels</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">(</span><span class="s1">&#39;AXIS_1&#39;</span><span class="p">)</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">()</span>
+</code></pre></div>
+<h2 id="return-values">Return values</h2>
+<p><strong>GCS 2.0</strong></p>
+<p>Axes or channel related answers are returned as (ordered) dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;X&#39;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">,</span> <span class="s1">&#39;Y&#39;</span><span class="p">:</span> <span class="mf">2.34</span><span class="p">}</span>
+</code></pre></div>
+<p>If a getter function is called with arguments, the data types of the arguments are preserved and can be used as keys.
+<div class="highlight"><pre><span></span><code><span class="n">pos</span> <span class="o">=</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+</code></pre></div></p>
+<p><strong>GCS 3.0</strong></p>
+<p>Axes or channel related answers are returned as (ordered) dictionary.</p>
+<div class="highlight"><pre><span></span><code><span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="p">{</span><span class="s1">&#39;AXis_1&#39;</span><span class="p">:</span> <span class="mf">1.23</span><span class="p">}</span>
+</code></pre></div>
+<p>If a getter function is called with arguments, the data types of the arguments are preserved and can be used as keys.
+<div class="highlight"><pre><span></span><code><span class="n">pos</span> <span class="o">=</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">qPOS</span><span class="p">(</span><span class="s1">&#39;AXIS_1&#39;</span><span class="p">)</span> <span class="c1"># only one axis is possible</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pos</span><span class="p">[</span><span class="s1">&#39;AXIS_1&#39;</span><span class="p">])</span>
+</code></pre></div></p>
+<p><strong>GCS 2.0 / GCS 3.0</strong></p>
+<p>The following example moves all <code>axes</code> to their respective <code>targets</code> and waits until each motion has finished. It shows how to use only the values from the returned dictionary.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="c1"># [...]</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qONT</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())):</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div></p>
+<h2 id="some-useful-information">Some useful information</h2>
+<h3 id="helper-functions">Helper functions</h3>
+<p>With <code>pipython.pitools</code> you have some helper functions at hand that make coding more convenient. With <code>waitontarget()</code> for instance, the example above can be written like this:</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+<span class="c1"># [...]</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">(</span><span class="n">axes</span><span class="p">,</span> <span class="n">targets</span><span class="p">)</span>
+<span class="n">pitools</span><span class="o">.</span><span class="n">waitontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+</code></pre></div>
+See also the examples in the <code>samples</code> subdirectory.</p>
+<h3 id="debug-logging">Debug logging</h3>
+<p>To log debug messages on the console just enter these lines prior to calling <code>GCSDevice</code>.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">PILogger</span><span class="p">,</span> <span class="n">DEBUG</span><span class="p">,</span> <span class="n">INFO</span><span class="p">,</span> <span class="n">WARNING</span><span class="p">,</span> <span class="n">ERROR</span><span class="p">,</span> <span class="n">CRITICAL</span>
+<span class="n">PILogger</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">DEBUG</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="gcserror-and-error-check">GCSError and error check</h3>
+<p>By default an "ERR?" command is sent after each command to query if an error occurred on the device which then will be raised as <code>GCSError</code> exception. If communication speed is an issue you can disable error checking:
+<div class="highlight"><pre><span></span><code><span class="n">pidevice</span><span class="o">.</span><span class="n">errcheck</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+For the handling of <code>GCSError</code> exceptions you can use the defines provided by <code>gcserror</code> instead of pure numeric values. The difference between the two is:</p>
+<ul>
+<li><code>GCSError</code>: exception class</li>
+<li><code>gcserror</code>: corresponding module
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">GCSError</span><span class="p">,</span> <span class="n">gcserror</span>
+<span class="k">with</span> <span class="n">GCSDevice</span><span class="p">(</span><span class="s1">&#39;C-884&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">pidevice</span><span class="o">.</span><span class="n">MOV</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">,</span> <span class="mf">1.23</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">GCSError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">exc</span> <span class="o">==</span> <span class="n">gcserror</span><span class="o">.</span><span class="n">E_1024_PI_MOTION_ERROR</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;There was a motion error, please check the mechanics.&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span>
+</code></pre></div>
+The exception class <code>GCSError</code> translates the error code in a readable message.
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSError</span><span class="p">,</span> <span class="n">gcserror</span>
+<span class="k">raise</span> <span class="n">GCSError</span><span class="p">(</span><span class="n">gcserror</span><span class="o">.</span><span class="n">E_1024_PI_MOTION_ERROR</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">GCSError</span><span class="p">:</span> <span class="n">Motion</span> <span class="n">error</span><span class="p">:</span> <span class="n">position</span> <span class="n">error</span> <span class="n">too</span> <span class="n">large</span><span class="p">,</span> <span class="n">servo</span> <span class="ow">is</span> <span class="n">switched</span> <span class="n">off</span> <span class="n">automatically</span> <span class="p">(</span><span class="o">-</span><span class="mi">1024</span><span class="p">)</span>
+</code></pre></div></li>
+</ul>
+<p><strong>GCS 3.0</strong>
+You can reset the error state of one or more axes like this:
+<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="n">axis</span> <span class="ow">in</span> <span class="n">device</span><span class="o">.</span><span class="n">axes</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">axis_has_error</span><span class="p">(</span><span class="n">device</span><span class="p">):</span>
+        <span class="k">while</span> <span class="n">check_axis_status_bit</span><span class="p">(</span><span class="n">device</span><span class="p">,</span> <span class="n">axis</span><span class="p">,</span> <span class="n">AXIS_STATUS_FAULT_REACTION_ACTIVE</span><span class="p">):</span>
+            <span class="k">pass</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;reset axis error: &#39;</span><span class="p">,</span> <span class="n">axis</span><span class="p">)</span>
+        <span class="n">device</span><span class="o">.</span><span class="n">RES</span><span class="p">(</span><span class="n">axis</span><span class="p">)</span>
+</code></pre></div></p>
+<h3 id="big-data">Big data</h3>
+<p>Commands like <code>qDRR()</code> (GCS 2.0) or <code>qREC_DAT()</code> (GCS 3.0) which read a large amount of GCS data, return immediately with the header dictionary containing information about the data. Then they start a background task that carries on reading data from the device into an internal buffer. The <code>bufstate</code> property returns the progress of the read process as a floating point number (range 0 to 1) and becomes <code>True</code> when reading has finished. Hence, when using it in a loop, check for <code>is not True</code>. (Remember, this is not the same as <code>!= True</code>.)</p>
+<ul>
+<li>
+<p>GCS 2.0
+<div class="highlight"><pre><span></span><code><span class="n">header</span> <span class="o">=</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">qDRR</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8192</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">bufstate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read data </span><span class="si">{:.1f}</span><span class="s1">%...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">bufstate</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">bufdata</span>
+</code></pre></div></p>
+</li>
+<li>
+<p>GCS 3.0
+<div class="highlight"><pre><span></span><code><span class="n">header</span> <span class="o">=</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">qREC_DAT</span><span class="p">(</span><span class="s1">&#39;REC_1&#39;</span><span class="p">,</span> <span class="s1">&#39;ASCII&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">8192</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">bufstate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;read data </span><span class="si">{:.1f}</span><span class="s1">%...&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">bufstate</span> <span class="o">*</span> <span class="mi">100</span><span class="p">))</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">bufdata</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="textual-interface">Textual interface</h3>
+<p>In addition to using the functions implemented in <code>GCSCommands</code> you can send GCS commands as strings to the controller. Use</p>
+<ul>
+<li><code>read()</code> for commands returning a response</li>
+<li><code>read_gcsdata()</code> for commands returning GCS data</li>
+<li><code>send()</code> for non-responding commands
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;POS?&#39;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">read_gcsdata</span><span class="p">(</span><span class="s1">&#39;DRR? 1 100 1&#39;</span><span class="p">))</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;MOV X 1.23&#39;</span><span class="p">)</span>
+</code></pre></div>
+The commands return the raw string or GCS data from the controller. If <code>errorcheck</code> is activated the device is automatically queried for its error state. We recommend to use the provided functions instead of sending raw strings.</li>
+</ul>
+<p>In line with the C++ GCS DLL the functions <code>ReadGCSCommand()</code> and <code>GcsCommandset()</code> are also available. They don't query the device for errors.
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">ReadGCSCommand</span><span class="p">(</span><span class="s1">&#39;POS?&#39;</span><span class="p">))</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">GcsCommandset</span><span class="p">(</span><span class="s1">&#39;MOV X 1.23&#39;</span><span class="p">)</span>
+</code></pre></div></p>
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="index.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Home" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Home
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="connect.html" class="md-footer__link md-footer__link--next" aria-label="Next: Device Connection" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Device Connection
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    <a href="https://physikinstrumente.com" target="_blank" rel="noopener" title="PI home page" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144l-7.5-6.363z"/></svg>
+    </a>
+  
+    
+    
+    <a href="https://www.physikinstrumente.com/en/about-pi/legal-information/" target="_blank" rel="noopener" title="Legal information" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3.75a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v4.25h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75V12h-.75a.75.75 0 0 1-.75-.75z"/><path fill-rule="evenodd" d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zM2.5 12a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.integrate"], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.c2e1ee47.min.js"></script>
+      
+    
+  </body>
+</html>
