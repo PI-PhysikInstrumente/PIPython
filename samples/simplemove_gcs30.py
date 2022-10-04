@@ -75,13 +75,13 @@ def main():
 
         print('initialize connected stages...')
         pitools.startup(pidevice, stages=STAGES, refmodes=REFMODES)
-        # Now we query the allowed motion range and current position of all
-        # connected stages. GCS commands often return an (ordered) dictionary
+
+        # Now we query the allowed motion range of all connected stages.
+        # GCS commands often return an (ordered) dictionary
         # with axes/channels as "keys" and the according values as "values".
 
         rangemin = getminpos(pidevice)
         rangemax = getmaxpos(pidevice)
-        curpos = pidevice.qMOV()
 
         # The GCS commands qTMN() and qTMX() used above are query commands.
         # They don't need an argument and will then return all available
@@ -91,7 +91,7 @@ def main():
         # So lets move our stages...
 
         for axis in pidevice.axes:
-            for target in (rangemin[axis], rangemax[axis], curpos[axis]):
+            for target in (rangemin[axis], rangemax[axis]):
                 print('move axis {} to {:.2f}'.format(axis, target))
                 pidevice.MOV(axis, target)
 

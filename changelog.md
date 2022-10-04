@@ -1,5 +1,9 @@
 # Feature Version History
 
+### PIPython 2.9.0
+- add support for open loop control mode in pitools
+- fix bug in simplemove sample.
+
 ### PIPython 2.8.0
 - add pitools.getmaxtravelrange()
 - add pitools.getmintravelrange()
