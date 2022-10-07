@@ -17,7 +17,7 @@
 
 from pipython import GCSDevice
 
-__signature__ = 0x9c9ad51a4ebb1a135ec4e6d63937ca3
+__signature__ = 0x25ce29daf01c16560076e151708db74b
 
 def readparametervalue(device, memtype, cont_unit, func_unit, parameter_id):
     return device.qSPV(memtype, cont_unit, func_unit, parameter_id)[memtype][cont_unit][func_unit][parameter_id]

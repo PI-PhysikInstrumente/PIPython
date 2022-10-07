@@ -16,7 +16,7 @@
 
 from pipython import GCSDevice, pitools
 
-__signature__ = 0x1b6d41dceee52002e1073d1948e56fc1
+__signature__ = 0x986c0f898592ce476e1c88820b09bf94
 
 CONTROLLERNAME = 'C-884.DB'  # 'C-884' will also work
 STAGES = ['M-111.1DG', 'M-122.2DD', 'NOSTAGE', 'NOSTAGE']
@@ -32,12 +32,12 @@ REFMODES = ['FNL', 'FRF']
 # REFMODES = 'FRF'
 
 # CONTROLLERNAME = 'Hydra'
-# STAGES = ('6233-9-2203', 'NOSTAGE')
-# REFMODES = ('FNL',)
+# STAGES = ['6233-9-2203', 'NOSTAGE']
+# REFMODES = ['FNL',]
 
 # CONTROLLERNAME = 'C-863.11'
-# STAGES = ('M-111.1DG',)  # connect stages to axes
-# REFMODES = ('FNL',)  # reference the connected stages
+# STAGES = ['M-111.1DG',]  # connect stages to axes
+# REFMODES = ['FNL',]  # reference the connected stages
 
 
 def main():

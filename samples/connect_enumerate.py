@@ -16,7 +16,7 @@
 
 from pipython import GCSDevice
 
-__signature__ = 0x5ee8a396c01e7eb320cad702522494ab
+__signature__ = 0xcc5f7acd62f49355711f59f582013bc5
 
 def main():
     """Search controllers on interface, show dialog and connect a controller."""

@@ -18,7 +18,7 @@ from time import sleep
 
 from pipython import GCSDevice, pitools
 
-__signature__ = 0x544ecdac060374e1ac098e78c6995cc1
+__signature__ = 0x40283f3630b438e8a728570e3e36082f
 
 CONTROLLERNAME = 'C-884'
 STAGES = ['M-110K078', ]  # connect stages to axes

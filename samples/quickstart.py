@@ -16,7 +16,7 @@
 
 from pipython import GCSDevice
 
-__signature__ = 0xdd4ba763b303c0f7562b08fd884ca11e
+__signature__ = 0x8b193828fd914ccc87e2198cb8a30417
 
 def main():
     """Connect to a PIPython device."""

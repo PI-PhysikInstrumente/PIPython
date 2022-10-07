@@ -18,7 +18,7 @@ from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.pisocket import PISocket
 
-__signature__ = 0xe3d86f8254f995996b5d31420e3b6818
+__signature__ = 0xf49173b6fad3f6f6408920135a4bd131
 
 IPADDR = '192.168.90.166'
 
