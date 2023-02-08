@@ -1,5 +1,9 @@
 # Feature Version History
 
+### PIPython 2.10.0
+- add GCSCommands.STF()
+- add new status bits returned by GCSCommands.STV().
+
 ### PIPython 2.9.0
 - add support for open loop control mode in pitools
 - fix bug in simplemove sample.
