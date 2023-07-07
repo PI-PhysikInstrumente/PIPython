@@ -1,0 +1,530 @@
+{
+    "title": "UMF Error Json",
+    "fieldStartBits": {
+        "ReservedBits": 22,
+        "Classes": 14,
+        "IDs": 0
+    },
+    "classes": {
+        "None": {
+            "id": 0,
+            "alias": "",
+            "description": "No error and PI errors predating UMF"
+        },
+        "Debug": {
+            "id": 255,
+            "alias": "DBG",
+            "description": "Debug messages for internal PI usage."
+        },
+        "Info": {
+            "id": 1,
+            "alias": "INFO",
+            "description": "Information. No further action required."
+        },
+        "Warning": {
+            "id": 2,
+            "alias": "WARN",
+            "description": "Warning. Action/inspection recommended."
+        },
+        "Command": {
+            "id": 3,
+            "alias": "CMD",
+            "description": "Command input error. Caused due to improper GCS-commands. Only triggered on the current interface"
+        },
+        "Critical": {
+            "id": 4,
+            "alias": "CRIT",
+            "description": "Runtime error that wasn't triggered by an improper command input or by a motion error in the Drive State Machine. Action required."
+        },
+        "Motion": {
+            "id": 5,
+            "alias": "MOT",
+            "description": "Motion error of axis. Triggers the error handling in the Drive State Machine (Transition: operation enabled -> fault reaction -> fault)"
+        }
+    },
+    "modules": {
+        "Zero": {
+            "id": 0,
+            "alias": "",
+            "description": "Reserved for old Error Sets and No Error"
+        },
+        "One": {
+            "id": 1,
+            "alias": "",
+            "description": "Reserved for old Error Sets"
+        },
+        "Command": {
+            "id": 2,
+            "alias": "CMD",
+            "description": "Command Module"
+        },
+        "Macro": {
+            "id": 3,
+            "alias": "MACRO",
+            "description": "Macro Module"
+        },
+        "Parameter": {
+            "id": 4,
+            "alias": "PARAM",
+            "description": "Parameter Module"
+        },
+        "Motion": {
+            "id": 5,
+            "alias": "MOT",
+            "description": "Motion Module"
+        },
+        "DataRecorder": {
+            "id": 6,
+            "alias": "REC",
+            "description": "Data Recorder Module"
+        },
+        "Sensor": {
+            "id": 7,
+            "alias": "SENS",
+            "description": "Sensor Module"
+        },
+        "Com": {
+            "id": 8,
+            "alias": "COM",
+            "description": "Com Module"
+        },
+        "System": {
+            "id": 9,
+            "alias": "SYS",
+            "description": "System Module"
+        },
+        "Trigger": {
+            "id": 10,
+            "alias": "TRG",
+            "description": "Trigger Module"
+        }
+    },
+    "errors": {
+        "PI_ERROR_NO_ERROR": {
+            "id": 0,
+            "module": "Zero",
+            "class": ["None"],
+            "description": "No error"
+        },
+        "2:NUMBER_OF_ARGUMENTS": {
+            "module": "Command",
+            "class": ["Command"],
+            "description": "Wrong number of arguments"
+        },
+        "3:UNKNOWN_COMMAND": {
+            "module": "Command",
+            "class": ["Command"],
+            "description": "Unknown command"
+        },
+        "4:COMMAND_LEVEL_TOO_LOW_FOR_COMMAND_ACCESS": {
+            "module": "Command",
+            "class": ["Command"],
+            "description": "User command level too low for command access"
+        },
+        "5:INVALID_PWD": {
+            "module": "Command",
+            "class": ["Command"],
+            "description": "Invalid password"
+        },
+        "6:UNKNOWN_SECTION_COMMAND": {
+            "module": "Command",
+            "class": ["Command"],
+            "description": "Unknown section command"
+        },
+        "7:INVALID_CHAR": {
+            "module": "Command",
+            "class": ["Command"],
+            "description": "Received invalid ASCII character"
+        },
+        "8:STP": {
+            "module": "Command",
+            "class": ["Motion"],
+            "description": "Stop command"
+        },
+        "9:WRONG_DATA_TYPE": {
+            "module": "Parameter",
+            "class": ["Debug","Command"],
+            "description": "Wrong data type"
+        },
+        "10:UNKNOWN_PARAMETER_ID": {
+            "module": "Parameter",
+            "class": ["Command"],
+            "description": "Unknown parameter ID"
+        },
+        "11:COMMAND_LEVEL_TOO_LOW_FOR_PARAMETER_ACCESS": {
+            "module": "Parameter",
+            "class": ["Command"],
+            "description": "User command level too low for parameter access"
+        },
+        "12:INVALID_VALUE": {
+            "module": "Parameter",
+            "class": ["Command"],
+            "description": "Argument value not valid"
+        },
+        "13:WRONG_PARAMETER_TYPE": {
+            "module": "Parameter",
+            "class": ["Command"],
+            "description": "Wrong parameter type"
+        },
+        "14:VALUE_OUT_OF_RANGE": {
+            "module": "Parameter",
+            "class": ["Command"],
+            "description": "Argument value out of range"
+        },
+        "15:UNKNOWN_AXIS_ID": {
+            "module": "Motion",
+            "class": ["Command"],
+            "description": "Unknown Axis ID"
+        },
+        "16:ON_LIMIT_SWITCH": {
+            "module": "Motion",
+            "class": ["Command"],
+            "description": "Motion not possible due to active limit switch"
+        },
+        "17:INVALID_MODE_OF_OPERATION": {
+            "module": "Motion",
+            "class": ["Command"],
+            "description": "Invalid mode of operation"
+        },
+        "18:AXIS_NOT_REF": {
+            "module": "Motion",
+            "class": ["Command","Motion"],
+            "description": "Axis not referenced"
+        },
+        "19:INVALID_AXIS_STATE": {
+            "module": "Motion",
+            "class": ["Command"],
+            "description": "Invalid state of axis state machine"
+        },
+        "20:TARGET_OUT_OF_RANGE": {
+            "module": "Motion",
+            "class": ["Command"],
+            "description": "Target out of range"
+        },
+        "21:AXIS_DISABLED": {
+            "module": "Motion",
+            "class": ["Command"],
+            "description": "Axis is disabled"
+        },
+        "22:FAULT_REACTION_ACTIVE": {
+            "module": "Motion",
+            "class": ["Command"],
+            "description": "Fault reaction active on axis"
+        },
+        "23:LIMIT_SWITCH_ACTIVATED": {
+            "module": "Motion",
+            "class": ["Motion"],
+            "description": "Axis has activated a limit switch"
+        },
+        "24:OVER_CURRENT_PROTECTION": {
+            "module": "Motion",
+            "class": ["Motion"],
+            "description": "Overheating protection: motor current is too high"
+        },
+        "25:OUTPUT_LIMIT": {
+            "module": "Motion",
+            "class": ["Warning"],
+            "description": "Motor output is limited"
+        },
+        "26:POSITION_ERROR_TOO_LARGE": {
+            "module": "Motion",
+            "class": ["Motion"],
+            "description": "Position error too large, servo is switched off automatically"
+        },
+        "27:STOP": {
+            "module": "Motion",
+            "class": ["Motion"],
+            "description": "Stop triggered by command or by error on another axis"
+        },
+        "28:MAX_DATA_RECORDER_NUMBER_REACHED": {
+            "module": "DataRecorder",
+            "class": ["Debug"],
+            "description": "The max number of storable data recorders has been reached"
+        },
+        "29:ALREADY_REGISTERED": {
+            "module": "DataRecorder",
+            "class": ["Debug"],
+            "description": "The given data recorder has already been registered"
+        },
+        "30:WRONG_FORMAT": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Wrong recorder format"
+        },
+        "31:UNKNOWN_RECORDER_ID": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Unknown recorder ID"
+        },
+        "32:NOT_IN_CONFIG_MODE": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Data recorder is not in configuration mode"
+        },
+        "33:WRONG_RECORDER_TRIGGER": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Wrong recorder trigger"
+        },
+        "34:WRONG_STARTPOINT": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Wrong start point"
+        },
+        "35:WRONG_NUMPOINT": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Wrong number of points"
+        },
+        "36:ALREADY_RUNNING": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Data recorder is already running"
+        },
+        "37:TRACE_DOES_NOT_EXIST": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Specified data recorder trace does not exist"
+        },
+        "38:NOT_ENOUGH_RECORDED_DATA": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Not enough recorded data in at least one data recorder trace"
+        },
+        "39:TRACES_NOT_CONFIGURED": {
+            "module": "DataRecorder",
+            "class": ["Command"],
+            "description": "Data recorder traces are not configured"
+        },
+        "40:COMMUNICATION_ERROR": {
+            "module": "Com",
+            "class": ["Warning"],
+            "description": "Controller detected communication error"
+        },
+        "41:FW_INDEX_UNKNOWN": {
+            "module": "Com",
+            "class": ["Command"],
+            "description": "Firmware index unknown"
+        },
+        "42:TIMEOUT": {
+            "module": "Com",
+            "class": ["Critical"],
+            "description": "Communication timeout occurred"
+        },
+        "43:INVALID_SOCKET": {
+            "module": "Com",
+            "class": ["Critical"],
+            "description": "Invalid Socket"
+        },
+        "44:WRONG_UNIT_ID_FORMAT": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Wrong unit ID format given"
+        },
+        "45:UNIT_NOT_INITIALIZED": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Unit not initialized"
+        },
+        "46:MAX_CONNECTION_NUMBER_REACHED": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "The max number of storable connections has been reached"
+        },
+        "47:CONNECTION_OUTPUT_WRONG_ARGUMENTS": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Wrong arguments when setting a connection output"
+        },
+        "48:CONNECTION_INPUT_WRONG_ARGUMENTS": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Wrong arguments when setting a connection input"
+        },
+        "49:WRONG_DEVICE_ID": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Wrong device ID"
+        },
+        "50:WRONG_FUNCTION_ID": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Wrong function ID"
+        },
+        "51:WRONG_PROXY_ID": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Wrong proxy ID"
+        },
+        "52:CONNECTION_OUTPUT_INDEX_OUT_OF_RANGE": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Connection output index is out of range"
+        },
+        "53:INTERFACE_REGISTRATION_FAILED": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Failed to register an interface in the bus gateway"
+        },
+        "54:DEVICE_REGISTRATION_FAILED": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Failed to register a device in the bus gateway"
+        },
+        "55:PROXY_REGISTRATION_FAILED": {
+            "module": "System",
+            "class": ["Debug"],
+            "description": "Failed to register a proxy in the bus gateway"
+        },
+        "56:INPUT_PORT_ALREADY_CONNECTED": {
+            "module": "System",
+            "class": ["Info","Command"],
+            "description": "The given input port has already been registered in another connection"
+        },
+        "57:UNIT_ALREADY_REGISTERED": {
+            "module": "System",
+            "class": ["Info"],
+            "description": "The given unit has already been registered to the broker"
+        },
+        "58:CONNECTION_HAS_NO_INPUT": {
+            "module": "System",
+            "class": ["Info","Command"],
+            "description": "The connection has no input"
+        },
+        "59:CONNECTION_HAS_NO_OUTPUT": {
+            "module": "System",
+            "class": ["Info","Command"],
+            "description": "The connection has no output"
+        },
+        "60:CONNECTION_NOT_FOUND": {
+            "module": "System",
+            "class": ["Info","Command"],
+            "description": "The sought connection is not registered"
+        },
+        "61:INPUT_PORT_NOT_CONNECTED": {
+            "module": "System",
+            "class": ["Info"],
+            "description": "The input port is not connected"
+        },
+        "62:DATA_CORRUPT": {
+            "module": "System",
+            "class": ["Warning"],
+            "description": "Data corrupted"
+        },
+        "63:UNIT_TYPE_NOT_SUPPORTED": {
+            "module": "System",
+            "class": ["Command","Critical"],
+            "description": "Unit type not supported"
+        },
+        "64:FW_UPDATE_ERROR": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Firmware update failed"
+        },
+        "65:UNIT_NOT_FOUND": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Unit could not be found"
+        },
+        "66:CUNIT_NOT_FOUND": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Container unit could not be found"
+        },
+        "67:FUNIT_NOT_FOUND": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Function unit could not be found"
+        },
+        "68:NOT_ENOUGH_MEMORY": {
+            "module": "System",
+            "class": ["Critical"],
+            "description": "Not enough memory"
+        },
+        "69:FLASH_READ_FAILED": {
+            "module": "System",
+            "class": ["Critical"],
+            "description": "Flash read failed"
+        },
+        "70:NO_DATA_AVAILABLE": {
+            "module": "System",
+            "class": ["Critical"],
+            "description": "No data available"
+        },
+        "71:FATAL_ERROR": {
+            "module": "System",
+            "class": ["Critical"],
+            "description": "Fatal system error occurred"
+        },
+        "72:AXIS_IN_FAULT": {
+            "module": "Motion",
+            "class": ["Command"],
+            "description": "Motion axis in fault state"
+        },
+        "73:REF_SIGNAL_NOT_FOUND": {
+            "module": "Motion",
+            "class": ["Motion"],
+            "description": "No reference signal detected"
+        },
+        "74:TIMEOUT": {
+            "module": "System",
+            "class": ["Critical"],
+            "description": "Timeout occurred"
+        },
+        "75:ON_IPR": {
+            "module": "Motion",
+            "class": ["Command","Info"],
+            "description": "Action not possible due to internal process running"
+        },
+        "76:HALT_WAS_COMMANDED": {
+            "module": "Motion",
+            "class": ["Debug"],
+            "description": "HALT was triggered by command"
+        },
+        "77:EXPR_INVALID": {
+            "module": "Parameter",
+            "class": ["Command"],
+            "description": "Invalid expression"
+        },
+        "78:EXPR_TOO_COMPLEX": {
+            "module": "Parameter",
+            "class": ["Command"],
+            "description": "Expression is too complex"
+        },
+        "79:LNK_ALREADY_SET": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Link already set"
+        },
+        "80:LNK_WRONG_INDEX": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "The link index is wrong"
+        },
+        "81:CUNIT_INPUT_NOT_FOUND": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Container unit input could not be found"
+        },
+        "82:FUNIT_INPUT_NOT_FOUND": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Function unit input could not be found"
+        },
+        "83:CUNIT_OUTPUT_NOT_FOUND": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Container unit output could not be found"
+        },
+        "84:FUNIT_OUTPUT_NOT_FOUND": {
+            "module": "System",
+            "class": ["Command"],
+            "description": "Function unit output could not be found"
+        },
+        "85:UNKNOWN_TRIGGER_ID": {
+            "module": "Trigger",
+            "class": ["Command"],
+            "description": "Unknown trigger ID"
+        }
+    }
+}
