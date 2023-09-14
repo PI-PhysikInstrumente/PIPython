@@ -30,11 +30,13 @@ For further reading open the *index.html* file in your browser and see the sampl
 
     pip install PIPython    
 
-### Feedback 
+### Feedback and support requests
 
 We appreciate your feedback at:
 
     service@pi.de
+
+For support requests please also add information regarding the used stage(s).
 
 ## Quickstart
 
