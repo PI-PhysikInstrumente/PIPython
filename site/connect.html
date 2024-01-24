@@ -544,8 +544,8 @@
 <span class="kn">from</span> <span class="nn">pipython.pidevice.interfaces.piserial</span> <span class="kn">import</span> <span class="n">PISerial</span>
 <span class="hll"><span class="k">with</span> <span class="n">PISerial</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span> <span class="k">as</span> <span class="n">gateway</span><span class="p">:</span>
 </span>    <span class="n">messages</span> <span class="o">=</span> <span class="n">GCSMessages</span><span class="p">(</span><span class="n">gateway</span><span class="p">)</span>
-    <span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
+    <span class="k">with</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -556,8 +556,8 @@
 <span class="hll"><span class="k">with</span> <span class="n">PIUSB</span><span class="p">()</span> <span class="k">as</span> <span class="n">gateway</span><span class="p">:</span>
 </span>    <span class="n">gateway</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">serialnumber</span><span class="o">=</span><span class="s1">&#39;1234567890&#39;</span><span class="p">,</span> <span class="n">pid</span><span class="o">=</span><span class="mh">0x1234</span><span class="p">)</span>
     <span class="n">messages</span> <span class="o">=</span> <span class="n">GCSMessages</span><span class="p">(</span><span class="n">gateway</span><span class="p">)</span>
-    <span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
+    <span class="k">with</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
 </code></pre></div></p>
 </li>
 <li>
@@ -567,8 +567,8 @@
 <span class="kn">from</span> <span class="nn">pipython.pidevice.interfaces.pisocket</span> <span class="kn">import</span> <span class="n">PISocket</span>
 <span class="hll"><span class="k">with</span> <span class="n">PISocket</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;192.168.178.42&#39;</span><span class="p">,</span> <span class="n">port</span><span class="o">=</span><span class="mi">50000</span><span class="p">)</span> <span class="k">as</span> <span class="n">gateway</span><span class="p">:</span>
 </span>    <span class="n">messages</span> <span class="o">=</span> <span class="n">GCSMessages</span><span class="p">(</span><span class="n">gateway</span><span class="p">)</span>
-    <span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
+    <span class="k">with</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
 </code></pre></div></p>
 </li>
 </ul>

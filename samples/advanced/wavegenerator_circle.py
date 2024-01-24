@@ -18,9 +18,9 @@ from time import sleep
 
 from pipython import GCSDevice, pitools
 
-__signature__ = 0x877094df64e124bbe45b0af7af4541fd
+__signature__ = 0xadc2596931d0068f159c92c682574882
 
-CONTROLLERNAME = 'C-887' # This sample ist only valid vor C-887 controller
+CONTROLLERNAME = 'C-887' # This sample is only valid for the C-887 controller
 STAGES = None  # set something like ('M-122.2DD', 'M-122.2DD') if your stages need CST
 REFMODES = ['FRF', ]  # reference first axis or hexapod
 
@@ -63,6 +63,8 @@ def runwavegen(pidevice):
         print('set wave generators {} to run for {} cycles'.format(wavegens, NUMCYLES))
         pidevice.WGC(wavegens, [NUMCYLES] * len(wavegens))
     if pidevice.HasWTR():  # you can remove this code block if your controller does not support WTR()
+        # Note that the WTR command has controller-specific implementations.
+        # Refer to the controller manual for supported parameter values.
         print('set wave table rate to {} for wave generators {}'.format(TABLERATE, wavegens))
         pidevice.WTR(wavegens, [TABLERATE] * len(wavegens), interpol=[0] * len(wavegens))
     startpos = (STARTPOS[0], STARTPOS[1] + AMPLITUDE[1] / 2.0)

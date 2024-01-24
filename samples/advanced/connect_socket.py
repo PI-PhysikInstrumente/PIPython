@@ -18,7 +18,7 @@ from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.pisocket import PISocket
 
-__signature__ = 0xf49173b6fad3f6f6408920135a4bd131
+__signature__ = 0x51d08070e3f282f9d3a42dcfedf682ff
 
 IPADDR = '192.168.90.166'
 
@@ -28,8 +28,8 @@ def main():
     with PISocket(host=IPADDR, port=50000) as gateway:
         print('interface: {}'.format(gateway))
         messages = GCSMessages(gateway)
-        pidevice = GCSCommands(messages)
-        print('connected: {}'.format(pidevice.qIDN().strip()))
+        with GCSCommands(messages) as pidevice:
+            print('connected: {}'.format(pidevice.qIDN().strip()))
 
 
 if __name__ == '__main__':

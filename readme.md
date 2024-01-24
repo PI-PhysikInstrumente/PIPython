@@ -30,13 +30,11 @@ For further reading open the *index.html* file in your browser and see the sampl
 
     pip install PIPython    
 
-### Feedback and support requests
+### Feedback 
 
 We appreciate your feedback at:
 
     service@pi.de
-
-For support requests please also add information regarding the used stage(s).
 
 ## Quickstart
 
@@ -62,11 +60,13 @@ with GCSDevice('C-884') as pidevice:
     print(pidevice.qIDN())
 ~~~
 
-See also the provided samples in the `samples` subdirectory. Start with `quickstart.py`.
+See also the provided samples in the `samples` subdirectory. Be aware that some controllers may not work with every sample and vice versa. See [Available commands](#available-commands) and look out for comments in the samples. Start with `quickstart.py`.
 
 
 
 ## Requirements
+
+### Required packages
 
 Download these python packages with pip install:
 
@@ -77,6 +77,10 @@ Download these python packages with pip install:
 With pipython.interfaces.piusb you can connect a USB device without using the GCS DLL.
 This works only with Linux and requires LibUSB which usually is provided by the OS.
 
+
+### Available commands
+
+Some GCS commands are only available for certain types of PI devices. For example, the `qPOS()` and `MOV()` commands are only available for devices working in closed-loop operation. Available GCS commands can be found in the manual or technical note of the controller. For a given device, to query for all available commands or for a specific command, use the `qHLP()` or `Has<CMD>()` commands, respectively.
 
 
 ## Arguments

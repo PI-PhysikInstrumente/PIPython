@@ -1,5 +1,8 @@
 # Feature Version History
 
+### PIPython 2.10.1
+- fix 'segmentation fault' which occurred on Linux while unloading the GCSDll class
+
 ### PIPython 2.10.0
 - add GCSCommands.STF()
 - add new status bits returned by GCSCommands.STV().

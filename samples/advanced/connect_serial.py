@@ -20,7 +20,7 @@ from pipython.pidevice.gcscommands import GCSCommands
 from pipython.pidevice.gcsmessages import GCSMessages
 from pipython.pidevice.interfaces.piserial import PISerial
 
-__signature__ = 0x73b670a3d45e1c3d2343d275e5df9ffb
+__signature__ = 0xa6380f081e64110f19558090beb8fdcd
 
 
 def main():
@@ -32,8 +32,8 @@ def main():
     with PISerial(port=port, baudrate=115200) as gateway:
         print('interface: {}'.format(gateway))
         messages = GCSMessages(gateway)
-        pidevice = GCSCommands(messages)
-        print('connected: {}'.format(pidevice.qIDN().strip()))
+        with GCSCommands(messages) as pidevice:
+            print('connected: {}'.format(pidevice.qIDN().strip()))
 
 
 if __name__ == '__main__':
