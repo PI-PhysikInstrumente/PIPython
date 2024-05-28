@@ -1,5 +1,9 @@
 # Feature Version History
 
+### PIPython 2.10.2
+- fix ubs connection error for E-816 controller
+- add "PITools" to PIPython Manual
+
 ### PIPython 2.10.1
 - fix 'segmentation fault' which occurred on Linux while unloading the GCSDll class
 
@@ -23,7 +27,7 @@
 
 ### PIPython 2.6.0
 - add support for GCS 3.0 controllers
-- add data recorder tools for controllers with GCS 3.0 syntax 
+- add data recorder tools for controllers with GCS 3.0 syntax
 
 
 ### PIPython 2.5.1
@@ -77,9 +81,9 @@
 
 
 ### PIPython 2.1.0
-- pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number 
+- pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number
   of data recorder points from the 'HDR?' answer.
-- fix pipython.pitools.pitoopls.itemstostr. If 'data' is an integer of 0 or a float of 0.0 
+- fix pipython.pitools.pitoopls.itemstostr. If 'data' is an integer of 0 or a float of 0.0
   'itemstostr' now returns the string '0' or '0.0' instead of 'None'
 
 
