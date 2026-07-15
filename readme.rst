@@ -25,9 +25,9 @@ controller name as argument::
 Installation
 ------------
 
-By using PIPython you agree to the license agreement, see the provided file::
+By using PIPython you agree to the license agreement, see::
 
-    eula.md
+    http://www.physikinstrumente.com/download/EULA_PhysikInstrumenteGmbH_Co_KG.pdf
 
 Unzip the file PIPython.zip, open a command entry (Linux Console or Windows CMD window) and run::
 

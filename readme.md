@@ -6,35 +6,17 @@ and without the GCS DLL also on any other platform.
 
 ## Installation
 
-By using PIPython you agree to the license agreement, see the provided file:
+By using PIPython you agree to the license agreement, see:
 
-    eula.md
+    http://www.physikinstrumente.com/download/EULA_PhysikInstrumenteGmbH_Co_KG.pdf
 
-### From local folder 
+In the command window of the PC, enter the following command: `pip install PIPython`
 
-Unzip the file PIPython.zip, open a command entry (Linux Console or Windows CMD window) and run:
+Additionally, a *samples* folder is provided in the source distribution or can be downloaded from [GitHub](https://github.com/PI-PhysikInstrumente/PIPython).
 
-    python setup.py install
-
-For further reading open the *index.html* file in your browser and see the samples in the
-*samples* folder.
-
-### From GitHub
-
-[PIPython on GitHub](https://github.com/PI-PhysikInstrumente/PIPython)
-
-    git clone git@github.com:PI-PhysikInstrumente/PIPython.git
-    python setup.py install
-
-### From pypi.org
-
-    pip install PIPython    
-
-### Feedback 
-
-We appreciate your feedback at:
-
-    service@pi.de
+> **Any questions?**
+> 
+> If you have any questions, don't hesitate – just send an e-mail to `service@pi.de`. We also appreciate your feedback.
 
 ## Quickstart
 

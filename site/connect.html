@@ -7,11 +7,18 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
+        <meta name="author" content="Physik Instrumente (PI) SE & Co. KG">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+      
+        <link rel="prev" href="quickstart.html">
+      
+      
+        <link rel="next" href="datarecorder20.html">
+      
+      
+      <link rel="icon" href="files/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
     
     
       
@@ -19,13 +26,14 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3de6f41f.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
       
-        
-        <link rel="stylesheet" href="assets/stylesheets/palette.cc9b2e1e.min.css">
-        
       
+
+
     
+    
+      
     
     
       
@@ -33,23 +41,18 @@
     
       <link rel="stylesheet" href="styles/pi.css">
     
-    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
+    
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr">
   
-    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -69,7 +72,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="index.html" title="PIPython" class="md-header__button md-logo" aria-label="PIPython" data-md-component="logo">
       
@@ -77,7 +82,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -97,9 +103,13 @@
     </div>
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -107,24 +117,27 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -154,6 +167,7 @@
                     
 
 
+
   
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
@@ -170,14 +184,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
-        Home
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
       </a>
     </li>
   
@@ -185,14 +204,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="quickstart.html" class="md-nav__link">
-        Quick Start
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
       </a>
     </li>
   
@@ -200,28 +224,39 @@
     
       
       
-      
-
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Device Connection
+          
+  
+  <span class="md-ellipsis">
+    Device Connection
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="connect.html" class="md-nav__link md-nav__link--active">
-        Device Connection
+        
+  
+  <span class="md-ellipsis">
+    Device Connection
+  </span>
+  
+
       </a>
       
         
@@ -241,7 +276,9 @@
       
         <li class="md-nav__item">
   <a href="#connecting-to-a-single-device-with-the-gcs-dll" class="md-nav__link">
-    Connecting to a single device with the GCS DLL
+    <span class="md-ellipsis">
+      Connecting to a single device with the GCS DLL
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Connecting to a single device with the GCS DLL">
@@ -249,21 +286,27 @@
         
           <li class="md-nav__item">
   <a href="#via-dialog" class="md-nav__link">
-    Via dialog
+    <span class="md-ellipsis">
+      Via dialog
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#via-device-identification" class="md-nav__link">
-    Via device identification
+    <span class="md-ellipsis">
+      Via device identification
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#via-dedicated-interface" class="md-nav__link">
-    Via dedicated interface
+    <span class="md-ellipsis">
+      Via dedicated interface
+    </span>
   </a>
   
 </li>
@@ -275,21 +318,60 @@
       
         <li class="md-nav__item">
   <a href="#connecting-to-devices-in-a-daisy-chain-network" class="md-nav__link">
-    Connecting to devices in a daisy chain network
+    <span class="md-ellipsis">
+      Connecting to devices in a daisy chain network
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#connecting-via-low-level-interface" class="md-nav__link">
-    Connecting via low-level interface
+    <span class="md-ellipsis">
+      Connecting via low-level interface
+    </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Connecting via low-level interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#piserial" class="md-nav__link">
+    <span class="md-ellipsis">
+      PISerial
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#piusb" class="md-nav__link">
+    <span class="md-ellipsis">
+      PIUSB
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pisocket" class="md-nav__link">
+    <span class="md-ellipsis">
+      PISocket
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#connecting-to-unknown-devices" class="md-nav__link">
-    Connecting to unknown devices
+    <span class="md-ellipsis">
+      Connecting to unknown devices
+    </span>
   </a>
   
 </li>
@@ -304,14 +386,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="datarecorder20.html" class="md-nav__link">
-        Data Recorder GCS 2.0
+        
+  
+  <span class="md-ellipsis">
+    Data Recorder GCS 2.0
+  </span>
+  
+
       </a>
     </li>
   
@@ -319,14 +406,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="datarecorder30.html" class="md-nav__link">
-        Data Recorder GCS 3.0
+        
+  
+  <span class="md-ellipsis">
+    Data Recorder GCS 3.0
+  </span>
+  
+
       </a>
     </li>
   
@@ -334,29 +426,39 @@
     
       
       
-      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pitools.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PI Tools
+  </span>
+  
 
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
   
   
   
     <li class="md-nav__item">
       <a href="history.html" class="md-nav__link">
-        History
-      </a>
-    </li>
+        
+  
+  <span class="md-ellipsis">
+    History
+  </span>
   
 
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="eula.html" class="md-nav__link">
-        EULA
       </a>
     </li>
   
@@ -370,16 +472,17 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="device-connection">Device Connection</h1>
 <h2 id="connecting-to-a-single-device-with-the-gcs-dll">Connecting to a single device with the GCS DLL</h2>
 <h3 id="via-dialog">Via dialog</h3>
-<p>On Windows systems the GCS DLL provides a graphical user interface to select the connection parameters.
+<p>On Windows systems, the GCS DLL provides a graphical user interface to select the connection parameters.
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span>
 <span class="k">with</span> <span class="n">GCSDevice</span><span class="p">()</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
     <span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
@@ -396,22 +499,22 @@
 <table>
 <thead>
 <tr>
-<th align="left">Interface</th>
-<th align="left">Function</th>
+<th style="text-align: left;">Interface</th>
+<th style="text-align: left;">Function</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">USB</td>
-<td align="left"><code>EnumerateUSB(mask='')</code></td>
+<td style="text-align: left;">USB</td>
+<td style="text-align: left;"><code>EnumerateUSB(mask='')</code></td>
 </tr>
 <tr>
-<td align="left">TCP/IP</td>
-<td align="left"><code>EnumerateTCPIPDevices(mask='')</code></td>
+<td style="text-align: left;">TCP/IP</td>
+<td style="text-align: left;"><code>EnumerateTCPIPDevices(mask='')</code></td>
 </tr>
 </tbody>
 </table>
-<p>Use <code>mask</code> (= string) to limit the number of devices to be found. If it is contained in the device identification, the device is found - see <code>qIDN</code>.
+<p>Use <code>mask</code> (= string) to limit the number of devices to be found. If it is contained in the device identification, the device is found (see <code>qIDN</code>).
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span>
 <span class="k">with</span> <span class="n">GCSDevice</span><span class="p">()</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
     <span class="n">devices</span> <span class="o">=</span> <span class="n">pidevice</span><span class="o">.</span><span class="n">EnumerateTCPIPDevices</span><span class="p">(</span><span class="n">mask</span><span class="o">=</span><span class="s1">&#39;C-884.4DB&#39;</span><span class="p">)</span>
@@ -426,40 +529,55 @@
 <table>
 <thead>
 <tr>
-<th align="left">Interface</th>
-<th align="left">Method</th>
+<th style="text-align: left;">Interface</th>
+<th style="text-align: left;">Method</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">RS-232</td>
-<td align="left"><code>ConnectRS232(comport, baudrate)</code></td>
+<td style="text-align: left;">RS-232</td>
+<td style="text-align: left;"><code>ConnectRS232(comport, baudrate)</code></td>
 </tr>
 <tr>
-<td align="left">USB</td>
-<td align="left"><code>ConnectUSB(serialnum)</code><br /><code>serialnum</code> = the device's serial number as a string or the device identification returned by the <code>EnumerateUSB</code> method</td>
+<td style="text-align: left;">USB</td>
+<td style="text-align: left;"><code>ConnectUSB(serialnum)</code><br /><code>serialnum</code> = the serial number of the device as a string or the device identification returned by the <code>EnumerateUSB</code> method</td>
 </tr>
 <tr>
-<td align="left">TCP/IP</td>
-<td align="left"><code>ConnectTCPIP(ipaddress, ipport=50000)</code></td>
+<td style="text-align: left;">USB via virtual COM port</td>
+<td style="text-align: left;"><code>ConnectRS232(comport, baudrate)</code></td>
 </tr>
 <tr>
-<td align="left">TCP/IP</td>
-<td align="left"><code>ConnectTCPIPByDescription(description)</code><br /><code>description</code> = string returned by the <code>EnumerateTCPIPDevices</code> method</td>
+<td style="text-align: left;">TCP/IP</td>
+<td style="text-align: left;"><code>ConnectTCPIP(ipaddress, ipport=50000)</code></td>
 </tr>
 <tr>
-<td align="left">NI GPIB</td>
-<td align="left"><code>ConnectNIgpib(board, device)</code></td>
+<td style="text-align: left;">TCP/IP</td>
+<td style="text-align: left;"><code>ConnectTCPIPByDescription(description)</code><br /><code>description</code> = string returned by the <code>EnumerateTCPIPDevices</code> method</td>
 </tr>
 <tr>
-<td align="left">PCI board</td>
-<td align="left"><code>ConnectPciBoard(board)</code></td>
+<td style="text-align: left;">NI GPIB</td>
+<td style="text-align: left;"><code>ConnectNIgpib(board, device)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">PCI board</td>
+<td style="text-align: left;"><code>ConnectPciBoard(board)</code></td>
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">USB connection on Windows</p>
+<p>All PI USB controllers support a native USB connection using the <code>ConnectUSB()</code> function.<br/>
+Some PI USB controllers support also a connection via a virtual COM port using the <code>ConnectRS232()</code> function.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">USB connection on Linux</p>
+<p>Some PI USB controllers only support a native USB connection using the <code>ConnectUSB()</code> function.<br/>
+For information about which controllers only support a native USB connection, call the <code>EnumerateUSB()</code> function.
+Some PI USB controllers only support a connection via a virtual COM port using the <code>ConnectRS232()</code> function (for example, with <code>/dev/ttyUSB0</code> as <code>comport</code>). The <code>EnumerateUSB()</code> function does <strong>not</strong> return these controllers.</p>
+</div>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span>
 <span class="k">with</span> <span class="n">GCSDevice</span><span class="p">()</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
-<span class="hll">    <span class="n">pidevice</span><span class="o">.</span><span class="n">ConnectTCPIP</span><span class="p">(</span><span class="s1">&#39;192.168.178.42&#39;</span><span class="p">)</span> <span class="c1"># Use the default port</span>
+<span class="hll">    <span class="n">pidevice</span><span class="o">.</span><span class="n">ConnectUSB</span><span class="p">(</span><span class="n">serialnum</span> <span class="o">=</span> <span class="s1">&#39;123456789&#39;</span><span class="p">)</span>
 </span>    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;connected: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()))</span>
 </code></pre></div>
 <h2 id="connecting-to-devices-in-a-daisy-chain-network">Connecting to devices in a daisy chain network</h2>
@@ -472,26 +590,26 @@
 <table>
 <thead>
 <tr>
-<th align="left">Interface</th>
-<th align="left">Method</th>
+<th style="text-align: left;">Interface</th>
+<th style="text-align: left;">Method</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">RS-232</td>
-<td align="left"><code>OpenRS232DaisyChain(comport, baudrate)</code></td>
+<td style="text-align: left;">RS-232</td>
+<td style="text-align: left;"><code>OpenRS232DaisyChain(comport, baudrate)</code></td>
 </tr>
 <tr>
-<td align="left">USB</td>
-<td align="left"><code>OpenUSBDaisyChain(serialnum)</code></td>
+<td style="text-align: left;">USB</td>
+<td style="text-align: left;"><code>OpenUSBDaisyChain(serialnum)</code></td>
 </tr>
 <tr>
-<td align="left">TCP/IP</td>
-<td align="left"><code>OpenTCPIPDaisyChain(ipaddress, ipport=50000)</code></td>
+<td style="text-align: left;">TCP/IP</td>
+<td style="text-align: left;"><code>OpenTCPIPDaisyChain(ipaddress, ipport=50000)</code></td>
 </tr>
 </tbody>
 </table>
-<p>In the following example, three controllers are being connected:</p>
+<p>In the following example, three controllers are connected:</p>
 <ul>
 <li>C-863 controller as the master device, address 3</li>
 <li>E-861 controller, address 7</li>
@@ -513,43 +631,72 @@
 </code></pre></div></li>
 </ul>
 <h2 id="connecting-via-low-level-interface">Connecting via low-level interface</h2>
-<p>The preferred method for connecting to devices is <code>GCSDevice</code> using the GCS DLL. However, on platforms where the GCS DLL is not available, low-level functions of the PIPython package can be used instead.</p>
+<p>The preferred method to connect to devices is <code>GCSDevice</code> using the GCS DLL. On platforms where the GCS DLL is not available, low-level functions of the PIPython package can be used instead.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Interface</th>
-<th align="left">Method</th>
+<th style="text-align: left;">Interface</th>
+<th style="text-align: left;">Method</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">RS-232</td>
-<td align="left"><code>PISerial(comport, baudrate)</code></td>
+<td style="text-align: left;">RS-232</td>
+<td style="text-align: left;"><code>PISerial(comport, baudrate)</code></td>
 </tr>
 <tr>
-<td align="left">USB</td>
-<td align="left"><code>PIUSB(serialnum)</code></td>
+<td style="text-align: left;">USB</td>
+<td style="text-align: left;"><code>PIUSB(serialnum)</code></td>
 </tr>
 <tr>
-<td align="left">TCP/IP</td>
-<td align="left"><code>PISocket(ipaddress, ipport=50000)</code></td>
+<td style="text-align: left;">USB via virtual COM port</td>
+<td style="text-align: left;"><code>PISerial(virtual_comport, baudrate)</code></td>
+</tr>
+<tr>
+<td style="text-align: left;">TCP/IP</td>
+<td style="text-align: left;"><code>PISocket(ipaddress, ipport=50000)</code></td>
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">USB connection on Windows</p>
+<p>A USB connection using <code>PIUSB()</code> is <strong>not</strong> supported on Windows.<br />
+Some PI USB controllers support a connection via a virtual COM port using the <code>PISerial()</code> function. Only these controllers are supported on Windows.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">USB connection on Linux</p>
+<p>Some PI USB controllers only support a native USB connection using <code>PIUSB()</code> and some PI USB controllers only support a connection via a virtual COM port using <code>PISerial()</code> (e.g., with <code>/dev/ttyUSB0</code> as <code>comport</code>).<br />
+If one method does not work, please try the other method.</p>
+</div>
+<h3 id="piserial">PISerial</h3>
 <ul>
 <li>
-<p>PISerial
+<p>Windows
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython.pidevice.gcscommands</span> <span class="kn">import</span> <span class="n">GCSCommands</span>
 <span class="kn">from</span> <span class="nn">pipython.pidevice.gcsmessages</span> <span class="kn">import</span> <span class="n">GCSMessages</span>
 <span class="kn">from</span> <span class="nn">pipython.pidevice.interfaces.piserial</span> <span class="kn">import</span> <span class="n">PISerial</span>
-<span class="hll"><span class="k">with</span> <span class="n">PISerial</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span> <span class="k">as</span> <span class="n">gateway</span><span class="p">:</span>
+<span class="hll"><span class="k">with</span> <span class="n">PISerial</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="s1">&#39;COM1&#39;</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span> <span class="k">as</span> <span class="n">gateway</span><span class="p">:</span>
 </span>    <span class="n">messages</span> <span class="o">=</span> <span class="n">GCSMessages</span><span class="p">(</span><span class="n">gateway</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
 </code></pre></div></p>
 </li>
 <li>
-<p>PIUSB
+<p>Linux
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython.pidevice.gcscommands</span> <span class="kn">import</span> <span class="n">GCSCommands</span>
+<span class="kn">from</span> <span class="nn">pipython.pidevice.gcsmessages</span> <span class="kn">import</span> <span class="n">GCSMessages</span>
+<span class="kn">from</span> <span class="nn">pipython.pidevice.interfaces.piserial</span> <span class="kn">import</span> <span class="n">PISerial</span>
+<span class="hll"><span class="k">with</span> <span class="n">PISerial</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="s1">&#39;/dev/ttyS0&#39;</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span> <span class="k">as</span> <span class="n">gateway</span><span class="p">:</span>
+</span>    <span class="n">messages</span> <span class="o">=</span> <span class="n">GCSMessages</span><span class="p">(</span><span class="n">gateway</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
+</code></pre></div></p>
+</li>
+</ul>
+<h3 id="piusb">PIUSB</h3>
+<ul>
+<li>Windows: <code>PIUSB()</code> is <strong>not</strong> supported on Windows.</li>
+<li>Linux:
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython.pidevice.gcscommands</span> <span class="kn">import</span> <span class="n">GCSCommands</span>
 <span class="kn">from</span> <span class="nn">pipython.pidevice.gcsmessages</span> <span class="kn">import</span> <span class="n">GCSMessages</span>
 <span class="kn">from</span> <span class="nn">pipython.pidevice.interfaces.piusb</span> <span class="kn">import</span> <span class="n">PIUSB</span>
@@ -558,10 +705,9 @@
     <span class="n">messages</span> <span class="o">=</span> <span class="n">GCSMessages</span><span class="p">(</span><span class="n">gateway</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
-</code></pre></div></p>
-</li>
-<li>
-<p>PISocket
+</code></pre></div></li>
+</ul>
+<h3 id="pisocket">PISocket</h3>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython.pidevice.gcscommands</span> <span class="kn">import</span> <span class="n">GCSCommands</span>
 <span class="kn">from</span> <span class="nn">pipython.pidevice.gcsmessages</span> <span class="kn">import</span> <span class="n">GCSMessages</span>
 <span class="kn">from</span> <span class="nn">pipython.pidevice.interfaces.pisocket</span> <span class="kn">import</span> <span class="n">PISocket</span>
@@ -569,9 +715,7 @@
 </span>    <span class="n">messages</span> <span class="o">=</span> <span class="n">GCSMessages</span><span class="p">(</span><span class="n">gateway</span><span class="p">)</span>
     <span class="k">with</span> <span class="n">GCSCommands</span><span class="p">(</span><span class="n">messages</span><span class="p">)</span> <span class="k">as</span> <span class="n">pidevice</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">pidevice</span><span class="o">.</span><span class="n">qIDN</span><span class="p">())</span>
-</code></pre></div></p>
-</li>
-</ul>
+</code></pre></div>
 <h2 id="connecting-to-unknown-devices">Connecting to unknown devices</h2>
 <p>If <code>GCSDevice</code> is called with the controller name, the corresponding GCS DLL is chosen automatically. For unknown devices, a dedicated GCS DLL can be used instead.
 <div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span>
@@ -579,49 +723,28 @@
     <span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
 </code></pre></div></p>
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="quickstart.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Quick Start" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Quick Start
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="datarecorder20.html" class="md-footer__link md-footer__link--next" aria-label="Next: Data Recorder GCS 2.0" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Data Recorder GCS 2.0
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -639,14 +762,18 @@
   
     
     
-    <a href="https://physikinstrumente.com" target="_blank" rel="noopener" title="PI home page" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144l-7.5-6.363z"/></svg>
+    
+    
+    <a href="https://www.physikinstrumente.com/en/" target="_blank" rel="noopener" title="Website Physik Instrumente (PI)" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144z"/></svg>
     </a>
   
     
     
+    
+    
     <a href="https://www.physikinstrumente.com/en/about-pi/legal-information/" target="_blank" rel="noopener" title="Legal information" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3.75a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v4.25h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75V12h-.75a.75.75 0 0 1-.75-.75z"/><path fill-rule="evenodd" d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zM2.5 12a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-3 3.75a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v4.25h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75V12h-.75a.75.75 0 0 1-.75-.75"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1M2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12"/></svg>
     </a>
   
 </div>
@@ -659,10 +786,12 @@
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["toc.integrate"], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c2e1ee47.min.js"></script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.integrate"], "search": "assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>

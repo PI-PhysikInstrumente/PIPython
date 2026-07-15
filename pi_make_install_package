@@ -6,8 +6,6 @@
 # pi_make_install_package 1.0.0
 #
 
-mv PIPython-*-INSTALL.tar.bz2 ./OldVersions/
-
 ./pi_set_install_file_settings
-tar -cjf PIPython-$1-INSTALL.tar.bz2 PIPython
+tar --exclude PIPython.zip -cjf PIPython-$1-INSTALL.tar.bz2 PIPython
 

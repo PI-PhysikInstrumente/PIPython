@@ -7,11 +7,18 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <meta name="author" content="Physik Instrumente (PI) GmbH & Co. KG">
+        <meta name="author" content="Physik Instrumente (PI) SE & Co. KG">
       
       
-      <link rel="icon" href="assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.14">
+      
+        <link rel="prev" href="connect.html">
+      
+      
+        <link rel="next" href="datarecorder30.html">
+      
+      
+      <link rel="icon" href="files/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
     
     
       
@@ -19,13 +26,14 @@
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.3de6f41f.min.css">
+      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
       
-        
-        <link rel="stylesheet" href="assets/stylesheets/palette.cc9b2e1e.min.css">
-        
       
+
+
     
+    
+      
     
     
       
@@ -33,23 +41,18 @@
     
       <link rel="stylesheet" href="styles/pi.css">
     
-    <script>__md_scope=new URL(".",location),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
+    
   </head>
   
   
-    
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+    <body dir="ltr">
   
-    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -69,7 +72,9 @@
     
       
 
-<header class="md-header" data-md-component="header">
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
     <a href="index.html" title="PIPython" class="md-header__button md-logo" aria-label="PIPython" data-md-component="logo">
       
@@ -77,7 +82,8 @@
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -97,9 +103,13 @@
     </div>
     
     
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
     
       <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
       </label>
       <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
@@ -107,24 +117,27 @@
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
-        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list"></ol>
+          <ol class="md-search-result__list" role="presentation"></ol>
         </div>
       </div>
     </div>
@@ -154,6 +167,7 @@
                     
 
 
+
   
 
 <nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
@@ -170,14 +184,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="index.html" class="md-nav__link">
-        Home
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
       </a>
     </li>
   
@@ -185,14 +204,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="quickstart.html" class="md-nav__link">
-        Quick Start
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
       </a>
     </li>
   
@@ -200,14 +224,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="connect.html" class="md-nav__link">
-        Device Connection
+        
+  
+  <span class="md-ellipsis">
+    Device Connection
+  </span>
+  
+
       </a>
     </li>
   
@@ -215,28 +244,39 @@
     
       
       
-      
-
   
   
     
   
   
+  
     <li class="md-nav__item md-nav__item--active">
       
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
         
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Data Recorder GCS 2.0
+          
+  
+  <span class="md-ellipsis">
+    Data Recorder GCS 2.0
+  </span>
+  
+
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="datarecorder20.html" class="md-nav__link md-nav__link--active">
-        Data Recorder GCS 2.0
+        
+  
+  <span class="md-ellipsis">
+    Data Recorder GCS 2.0
+  </span>
+  
+
       </a>
       
         
@@ -256,7 +296,9 @@
       
         <li class="md-nav__item">
   <a href="#preparing-the-data-recorder" class="md-nav__link">
-    Preparing the data recorder
+    <span class="md-ellipsis">
+      Preparing the data recorder
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Preparing the data recorder">
@@ -264,28 +306,36 @@
         
           <li class="md-nav__item">
   <a href="#setting-the-record-rate" class="md-nav__link">
-    Setting the record rate
+    <span class="md-ellipsis">
+      Setting the record rate
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#setting-the-record-time" class="md-nav__link">
-    Setting the record time
+    <span class="md-ellipsis">
+      Setting the record time
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#setting-the-record-source-and-options" class="md-nav__link">
-    Setting the record source and options
+    <span class="md-ellipsis">
+      Setting the record source and options
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#setting-the-trigger-event" class="md-nav__link">
-    Setting the trigger event
+    <span class="md-ellipsis">
+      Setting the trigger event
+    </span>
   </a>
   
 </li>
@@ -297,7 +347,9 @@
       
         <li class="md-nav__item">
   <a href="#recording-data" class="md-nav__link">
-    Recording data
+    <span class="md-ellipsis">
+      Recording data
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Recording data">
@@ -305,14 +357,18 @@
         
           <li class="md-nav__item">
   <a href="#starting-the-recording" class="md-nav__link">
-    Starting the recording
+    <span class="md-ellipsis">
+      Starting the recording
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#waiting-for-the-recording-to-finish" class="md-nav__link">
-    Waiting for the recording to finish
+    <span class="md-ellipsis">
+      Waiting for the recording to finish
+    </span>
   </a>
   
 </li>
@@ -324,14 +380,18 @@
       
         <li class="md-nav__item">
   <a href="#reading-out-the-recorded-data" class="md-nav__link">
-    Reading out the recorded data
+    <span class="md-ellipsis">
+      Reading out the recorded data
+    </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#processing-the-recorded-data" class="md-nav__link">
-    Processing the recorded data
+    <span class="md-ellipsis">
+      Processing the recorded data
+    </span>
   </a>
   
     <nav class="md-nav" aria-label="Processing the recorded data">
@@ -339,14 +399,18 @@
         
           <li class="md-nav__item">
   <a href="#displaying-the-data-with-matplotlib" class="md-nav__link">
-    Displaying the data with matplotlib
+    <span class="md-ellipsis">
+      Displaying the data with matplotlib
+    </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#converting-the-data-into-a-numpy-array" class="md-nav__link">
-    Converting the data into a NumPy array
+    <span class="md-ellipsis">
+      Converting the data into a NumPy array
+    </span>
   </a>
   
 </li>
@@ -366,14 +430,19 @@
     
       
       
-      
-
+  
   
   
   
     <li class="md-nav__item">
       <a href="datarecorder30.html" class="md-nav__link">
-        Data Recorder GCS 3.0
+        
+  
+  <span class="md-ellipsis">
+    Data Recorder GCS 3.0
+  </span>
+  
+
       </a>
     </li>
   
@@ -381,29 +450,39 @@
     
       
       
-      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="pitools.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PI Tools
+  </span>
+  
 
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
   
   
   
     <li class="md-nav__item">
       <a href="history.html" class="md-nav__link">
-        History
-      </a>
-    </li>
+        
+  
+  <span class="md-ellipsis">
+    History
+  </span>
   
 
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="eula.html" class="md-nav__link">
-        EULA
       </a>
     </li>
   
@@ -417,10 +496,11 @@
             
             
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
+                  
 
 
 <h1 id="data-recorder-gcs-20">Data Recorder GCS 2.0</h1>
@@ -527,8 +607,9 @@ The <code>Datarecorder</code> class offers two properties to limit the data to b
 </ul>
 <p>If no trigger event is specified, <code>TriggerSources.NEXT_COMMAND_WITH_RESET_2</code> is used. Using this event deactivates the error check.</p>
 <div class="admonition info">
-<p class="admonition-title">Note<p>Please note that not all controllers support a record table dependent trigger source. Such controllers only support one trigger source for all record tables. See the controller's user manual to find out which is the appropriate way for your device.</p>
-</p>
+<p class="admonition-title">Note</p>
+<div class="highlight"><pre><span></span><code>Please note that not all controllers support a record table dependent trigger source. Such controllers only support one trigger source for all record tables. See the controller&#39;s user manual to find out which is the appropriate way for your device.
+</code></pre></div>
 </div>
 <p>Examples:</p>
 <ul>
@@ -550,13 +631,15 @@ The <code>Datarecorder</code> class offers two properties to limit the data to b
 <span class="o">...</span>
 </code></pre></div>
 <div class="admonition info">
-<p class="admonition-title">Useful helper functions<p>The helper functions <code>getrecopt()</code> and <code>gettrigsources()</code> enable converting a descriptive string, e.g., from an INI file, into the corresponding option value.    <br />
-These functions split the string argument by the underscore delimiter ("_") and return the first option that matches all elements of the string. Matches are not case-sensitive and may be abbreviated. Abbreviations must start with the first letter of the option name element, e.g., "pos_chg_cmd" for "POSITION_CHANGING_COMMAND_1".
-The following example sets the trigger source to "POSITION_CHANGING_COMMAND_1" using a descriptive string.
-<div class="highlight"><pre><span></span><code><span class="n">desc</span> <span class="o">=</span> <span class="s1">&#39;pos_chg_cmd&#39;</span> <span class="c1"># descriptive string, e.g. from INI file</span>
-<span class="n">drec</span><span class="o">.</span><span class="n">trigsources</span> <span class="o">=</span> <span class="n">datarectools</span><span class="o">.</span><span class="n">gettrigsources</span><span class="p">(</span><span class="n">readout</span><span class="p">)</span>
-</code></pre></div></p>
-</p>
+<p class="admonition-title">Useful helper functions</p>
+<div class="highlight"><pre><span></span><code>The helper functions `getrecopt()` and `gettrigsources()` enable converting a descriptive string, e.g., from an INI file, into the corresponding option value.      
+These functions split the string argument by the underscore delimiter (&quot;\_&quot;) and return the first option that matches all elements of the string. Matches are not case-sensitive and may be abbreviated. Abbreviations must start with the first letter of the option name element, e.g., &quot;pos_chg_cmd&quot; for &quot;POSITION_CHANGING_COMMAND_1&quot;.
+The following example sets the trigger source to &quot;POSITION_CHANGING_COMMAND_1&quot; using a descriptive string.
+```python
+desc = &#39;pos_chg_cmd&#39; # descriptive string, e.g. from INI file
+drec.trigsources = datarectools.gettrigsources(readout)
+```
+</code></pre></div>
 </div>
 <h2 id="recording-data">Recording data</h2>
 <h3 id="starting-the-recording">Starting the recording</h3>
@@ -624,49 +707,28 @@ The following example sets the trigger source to "POSITION_CHANGING_COMMAND_1" u
 <span class="n">npdata</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div></p>
 
-              
-            </article>
-          </div>
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
         </div>
         
       </main>
       
         <footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
-        
-        <a href="connect.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Device Connection" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              Device Connection
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="datarecorder30.html" class="md-footer__link md-footer__link--next" aria-label="Next: Data Recorder GCS 3.0" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Data Recorder GCS 3.0
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -684,14 +746,18 @@ The following example sets the trigger source to "POSITION_CHANGING_COMMAND_1" u
   
     
     
-    <a href="https://physikinstrumente.com" target="_blank" rel="noopener" title="PI home page" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144l-7.5-6.363z"/></svg>
+    
+    
+    <a href="https://www.physikinstrumente.com/en/" target="_blank" rel="noopener" title="Website Physik Instrumente (PI)" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144z"/></svg>
     </a>
   
     
     
+    
+    
     <a href="https://www.physikinstrumente.com/en/about-pi/legal-information/" target="_blank" rel="noopener" title="Legal information" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm-3 3.75a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v4.25h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75V12h-.75a.75.75 0 0 1-.75-.75z"/><path fill-rule="evenodd" d="M12 1C5.925 1 1 5.925 1 12s4.925 11 11 11 11-4.925 11-11S18.075 1 12 1zM2.5 12a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-3 3.75a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v4.25h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75V12h-.75a.75.75 0 0 1-.75-.75"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1M2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12"/></svg>
     </a>
   
 </div>
@@ -704,10 +770,12 @@ The following example sets the trigger source to "POSITION_CHANGING_COMMAND_1" u
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": ".", "features": ["toc.integrate"], "search": "assets/javascripts/workers/search.2a1c317c.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
     
     
-      <script src="assets/javascripts/bundle.c2e1ee47.min.js"></script>
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.integrate"], "search": "assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
       
     
   </body>

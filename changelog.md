@@ -1,9 +1,5 @@
 # Feature Version History
 
-### PIPython 2.10.2
-- fix ubs connection error for E-816 controller
-- add "PITools" to PIPython Manual
-
 ### PIPython 2.10.1
 - fix 'segmentation fault' which occurred on Linux while unloading the GCSDll class
 
@@ -24,19 +20,15 @@
 - add GCSCommands.RES()
 - add PILogger
 
-
 ### PIPython 2.6.0
 - add support for GCS 3.0 controllers
-- add data recorder tools for controllers with GCS 3.0 syntax
-
+- add data recorder tools for controllers with GCS 3.0 syntax 
 
 ### PIPython 2.5.1
 - fix missing files in pitools
 
-
 ### PIPython 2.5.0
 - Support for GCS30 UMF Controllers
-
 
 ### PIPython 2.4.0
 - add GCSCommands.qUSG()
@@ -59,46 +51,36 @@
 - add GCSCommands.qREC_DAT()
 - add GCSCommands.qLOG()
 
-
 ### PIPython 2.3.0
 - Internal refactoring
-
 
 ### PIPython 2.2.2
 - fix: No module named gcs30.gcs30commands_helpers
 
-
 ### PIPython 2.2.1
 - fix missing argument in isgcs30
-
 
 ### PIPython 2.2.0
 - Support for PI_SetConnectTimeout() and PI_EnableBaudRateScan()
 
-
 ### PIPython 2.1.1
 - fix timing probles while reading the data recorder with pythom3
 
-
 ### PIPython 2.1.0
-- pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number
+- pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number 
   of data recorder points from the 'HDR?' answer.
-- fix pipython.pitools.pitoopls.itemstostr. If 'data' is an integer of 0 or a float of 0.0
+- fix pipython.pitools.pitoopls.itemstostr. If 'data' is an integer of 0 or a float of 0.0 
   'itemstostr' now returns the string '0' or '0.0' instead of 'None'
-
 
 ### PIPython 2.0.0
 - New package structure
 - support for WriteConfigurationFromDatabaseToControllerAndSave()
 
-
 ### PIPython 1.5.2
 - Linux: fix string decoding in piusb
 
-
 ### PIPython 1.5.1
 - fix parameter value conversion of hex parameter values
-
 
 ### PIPython 1.5.0
 - add GCSCommands.POL()
@@ -108,9 +90,7 @@
 - add GCSCommands.qLST()
 - add GCSCommands.DTL()
 
-
 ### PIPython 1.4.0
-
 - fix string decoding in GCSDll()
 - add pitools.getservo()
 - pitools.waitonreferencing() does not call waitontarget()
@@ -126,9 +106,7 @@
 - add Datarecorder.trigopts property
 - all timeout default values are set to 300 seconds
 
-
 ### PIPython 1.3.9
-
 - add pitools.waitonmacro()
 - catch GCS error 2 (unknown command) after EAX during startup
 - GCS commands arguments can be sets, too
@@ -137,9 +115,7 @@
 - convert parameter values according to types in qHPA answer
 - fix signature of GCSCommands.qJLT()
 
-
 ### PIPython 1.3.8
-
 - add interfaces.piusb
 - add pitools.readgcsarray()
 - add pitools.waitonwavegen()
@@ -156,24 +132,18 @@
 - add pitools.setservo()
 - controller specific startup sequence
 
-
 ### PIPython 1.3.7
-
 - add pitools.movetomiddle()
 - add pipython.fastaligntools
 - PI_GCS2_DLL is used by default
 - add pitools.savegcsarray()
 - add pitools.itemstostr()
 
-
 ### PIPython 1.3.6
-
 - add controller C-886, E-872
 - GCSDevice supports external Gateway
 
-
 ### PIPython 1.3.5
-
 - add DLL functions for PIStages3
 - "wait on" functions support polldelay times
 - fix GCSCommands.SGA()
@@ -184,9 +154,7 @@
 - add pitools.waitonautozero()
 - add GCS Error codes
 
-
 ### PIPython 1.3.4
-
 - add pipython.interfaces.piserial
 - "wait on" functions support predelay and postdelay times
 - add GCSCommands.TSP()
@@ -200,9 +168,7 @@
 - add GCS Error codes
 - bugfixing
 
-
 ### PIPython 1.3.3
-
 - add GCSCommands.SGP()
 - add GCSCommands.qSGP()
 - add GCSCommands.WAV_SIN()
@@ -216,9 +182,7 @@
 - fix for handling unicode in Python 3
 - bugfixing of some GCS commands
 
-
 ### PIPython 1.3.2
-
 - add GCSCommands.FSF()
 - add GCSCommands.qFSF()
 - add GCSCommands.qFSR()

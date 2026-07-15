@@ -1,0 +1,2136 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Physik Instrumente (PI) SE & Co. KG">
+      
+      
+      
+        <link rel="prev" href="datarecorder30.html">
+      
+      
+        <link rel="next" href="history.html">
+      
+      
+      <link rel="icon" href="files/favicon-32x32.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.34">
+    
+    
+      
+        <title>PI Tools - PIPython</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.35f28582.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+    
+    
+      <link rel="stylesheet" href="styles/pi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#pi-tools" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="PIPython" class="md-header__button md-logo" aria-label="PIPython" data-md-component="logo">
+      
+  <img src="files/pi.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            PIPython
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              PI Tools
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="PIPython" class="md-nav__button md-logo" aria-label="PIPython" data-md-component="logo">
+      
+  <img src="files/pi.svg" alt="logo">
+
+    </a>
+    PIPython
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Home
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="quickstart.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quick Start
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="connect.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Device Connection
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datarecorder20.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Recorder GCS 2.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="datarecorder30.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Data Recorder GCS 3.0
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    PI Tools
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="pitools.html" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    PI Tools
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#enableaxes" class="md-nav__link">
+    <span class="md-ellipsis">
+      enableaxes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#startup" class="md-nav__link">
+    <span class="md-ellipsis">
+      startup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#setservo" class="md-nav__link">
+    <span class="md-ellipsis">
+      setservo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getservo" class="md-nav__link">
+    <span class="md-ellipsis">
+      getservo
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#moveandwait" class="md-nav__link">
+    <span class="md-ellipsis">
+      moveandwait
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#movetomiddle" class="md-nav__link">
+    <span class="md-ellipsis">
+      movetomiddle
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ontarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      ontarget
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#stopall" class="md-nav__link">
+    <span class="md-ellipsis">
+      stopall
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getaxeslist" class="md-nav__link">
+    <span class="md-ellipsis">
+      getaxeslist
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonready" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonready
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitontarget" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitontarget
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonreferencing" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonreferencing
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getmaxtravelrange" class="md-nav__link">
+    <span class="md-ellipsis">
+      getmaxtravelrange
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getmintravelrange" class="md-nav__link">
+    <span class="md-ellipsis">
+      getmintravelrange
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writewavepoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      writewavepoints
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonfastalign" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonfastalign
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonwavegen" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonwavegen
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonautozero" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonautozero
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonphase" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonphase
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonwalk" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonwalk
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonoma" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonoma
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitontrajectory" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitontrajectory
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#waitonmacro" class="md-nav__link">
+    <span class="md-ellipsis">
+      waitonmacro
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#savegcsarray" class="md-nav__link">
+    <span class="md-ellipsis">
+      savegcsarray
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#readgcsarray" class="md-nav__link">
+    <span class="md-ellipsis">
+      readgcsarray
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="history.html" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    History
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="pi-tools">PI Tools</h1>
+<p>The PIPython pitools is a collection of high-level functions which simplify the work with PI controllers.
+These functions take into account different controller behaviors, so that you don't have to adjust anything
+to a specific controller. If specific options are needed for a function, this is explicitely stated in the
+function's help text.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>In the examples on this page, <code>pidevice</code> refers to an instance of <code>pipython.GCSDevice</code>.</p>
+</div>
+<h2 id="enableaxes">enableaxes</h2>
+<p>Calling 'enableaxes' sets all specified axes to an enabled state.
+If a specified axis is already enabled, nothing is done with this axis.
+The same applies if an axis cannot be enabled, e.g. because the device does not support enabling axes.
+The caller doesn't have to worry about what specific options to set for axis enablement, because this
+is done by the function.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">enableaxes</span><span class="p">)</span>
+
+<span class="n">enableaxes</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">Enable</span> <span class="nb">all</span> <span class="s1">&#39;axes&#39;</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="n">to</span> <span class="n">enable</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Optional</span> <span class="n">arguments</span> <span class="k">with</span> <span class="n">keywords</span> <span class="n">that</span> <span class="n">are</span> <span class="n">passed</span> <span class="n">to</span> <span class="n">sub</span><span class="o">-</span><span class="n">functions</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Enable axis &#39;Axis_1&#39;</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">enableaxes</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Enable the axes &#39;Axis_1&#39; and &#39;Axis_2&#39;</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">enableaxes</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="startup">startup</h2>
+<p>Calling 'startup' sets a stage into a specific working condition.
+The function enables the axes and performs further actions, if defined, like writing parameters
+from the PIStages3 database to the controller, making a reference move or running an auto zero procedure,
+setting the servo state, or switching to a specific control mode (only for controllers wit GCS 3.0 syntax).</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The axes are always enabled after a successfull 'startup' call. Further actions are optional.</p>
+</div>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">startup</span><span class="p">)</span>
+
+<span class="n">startup</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">stages</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">refmodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">servostates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">controlmodes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">Define</span> <span class="s1">&#39;stages&#39;</span><span class="p">,</span> <span class="n">stop</span> <span class="nb">all</span><span class="p">,</span> <span class="n">enable</span> <span class="n">servo</span> <span class="n">on</span> <span class="nb">all</span> <span class="n">connected</span> <span class="n">axes</span> <span class="ow">and</span> <span class="n">reference</span> <span class="n">the</span> <span class="n">axes</span> <span class="k">with</span> <span class="s1">&#39;refmodes&#39;</span><span class="o">.</span>
+    <span class="n">Defining</span> <span class="n">stages</span> <span class="ow">and</span> <span class="n">homing</span> <span class="n">them</span> <span class="ow">is</span> <span class="n">done</span> <span class="n">only</span> <span class="k">if</span> <span class="n">necessary</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">stages</span><span class="p">:</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">stage</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">to</span> <span class="n">initialize</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">tuple</span><span class="err">!</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="n">to</span> <span class="n">skip</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">refmodes</span><span class="p">:</span> <span class="n">Referencing</span> <span class="n">command</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">as</span> <span class="n">string</span> <span class="p">(</span><span class="k">for</span> <span class="nb">all</span> <span class="n">stages</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">list</span> <span class="p">(</span><span class="ow">not</span> <span class="nb">tuple</span><span class="err">!</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="n">to</span> <span class="n">skip</span><span class="o">.</span>
+                     <span class="n">Please</span> <span class="n">see</span> <span class="n">the</span> <span class="n">manual</span> <span class="n">of</span> <span class="n">the</span> <span class="n">controller</span> <span class="k">for</span> <span class="n">the</span> <span class="n">valid</span> <span class="n">reference</span> <span class="n">procedure</span><span class="o">.</span>
+                     <span class="s1">&#39;refmodes&#39;</span> <span class="n">can</span> <span class="n">be</span><span class="p">:</span>
+                         <span class="s1">&#39;FRF&#39;</span><span class="p">:</span> <span class="n">References</span> <span class="n">the</span> <span class="n">stage</span> <span class="n">using</span> <span class="n">the</span> <span class="n">reference</span> <span class="n">position</span><span class="o">.</span>
+                         <span class="s1">&#39;FNL&#39;</span><span class="p">:</span> <span class="n">References</span> <span class="n">the</span> <span class="n">stage</span> <span class="n">using</span> <span class="n">the</span> <span class="n">negative</span> <span class="n">limit</span> <span class="n">switch</span><span class="o">.</span>
+                         <span class="s1">&#39;FPL&#39;</span><span class="p">:</span> <span class="n">References</span> <span class="n">the</span> <span class="n">stage</span> <span class="n">using</span> <span class="n">the</span> <span class="n">positive</span> <span class="n">limit</span> <span class="n">switch</span><span class="o">.</span>
+                         <span class="s1">&#39;POS&#39;</span><span class="p">:</span> <span class="n">Sets</span> <span class="n">the</span> <span class="n">current</span> <span class="n">position</span> <span class="n">of</span> <span class="n">the</span> <span class="n">stage</span> <span class="n">to</span> <span class="mf">0.0</span><span class="o">.</span>
+                         <span class="s1">&#39;ATZ&#39;</span><span class="p">:</span> <span class="n">Runs</span> <span class="n">an</span> <span class="n">auto</span> <span class="n">zero</span> <span class="n">procedure</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">servostates</span><span class="p">:</span> <span class="n">Desired</span> <span class="n">servo</span> <span class="n">state</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">as</span> <span class="n">Boolean</span> <span class="p">(</span><span class="k">for</span> <span class="nb">all</span> <span class="n">stages</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">dict</span> <span class="p">{</span><span class="n">axis</span> <span class="p">:</span> <span class="n">state</span><span class="p">}</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="n">to</span> <span class="n">skip</span><span class="o">.</span>
+                        <span class="n">For</span> <span class="n">controllers</span> <span class="k">with</span> <span class="n">GCS</span> <span class="mf">3.0</span> <span class="n">syntax</span><span class="p">:</span>
+                            <span class="n">If</span> <span class="kc">True</span> <span class="n">the</span> <span class="n">axis</span> <span class="ow">is</span> <span class="n">switched</span> <span class="n">to</span> <span class="n">control</span> <span class="n">mode</span> <span class="mh">0x2</span><span class="o">.</span>
+                            <span class="n">If</span> <span class="kc">False</span> <span class="n">the</span> <span class="n">axis</span> <span class="ow">is</span> <span class="n">switched</span> <span class="n">to</span> <span class="n">control</span> <span class="n">mode</span> <span class="mh">0x1</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">controlmodes</span><span class="p">:</span> <span class="n">Only</span> <span class="n">valid</span> <span class="k">for</span> <span class="n">controllers</span> <span class="k">with</span> <span class="n">GCS</span> <span class="mf">3.0</span> <span class="n">syntax</span><span class="err">!</span>
+                         <span class="n">Switch</span> <span class="n">the</span> <span class="n">axis</span> <span class="n">to</span> <span class="n">the</span> <span class="n">given</span> <span class="n">control</span> <span class="n">mode</span><span class="p">:</span>
+                             <span class="nb">int</span> <span class="p">(</span><span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">dict</span> <span class="p">{</span><span class="n">axis</span> <span class="p">:</span> <span class="n">controlmode</span><span class="p">}</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="n">to</span> <span class="n">skip</span><span class="o">.</span>
+                         <span class="n">To</span> <span class="n">skip</span> <span class="nb">any</span> <span class="n">control</span> <span class="n">mode</span> <span class="n">switch</span> <span class="n">make</span> <span class="n">sure</span> <span class="n">the</span> <span class="n">servostate</span> <span class="ow">is</span> <span class="n">also</span> <span class="s1">&#39;None&#39;</span><span class="err">!</span>
+                         <span class="n">If</span> <span class="s1">&#39;controlmodes&#39;</span> <span class="ow">is</span> <span class="nb">set</span> <span class="p">(</span><span class="ow">not</span> <span class="s1">&#39;None&#39;</span><span class="p">)</span> <span class="n">the</span> <span class="n">parameter</span> <span class="s1">&#39;servostates&#39;</span> <span class="ow">is</span> <span class="n">ignored</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Optional</span> <span class="n">arguments</span> <span class="k">with</span> <span class="n">keywords</span> <span class="n">that</span> <span class="n">are</span> <span class="n">passed</span> <span class="n">to</span> <span class="n">sub</span><span class="o">-</span><span class="n">functions</span><span class="o">.</span>   
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">GCS 2.0 example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the stage parameters fom the stage &#39;M-111.1DG&#39; out of the PIStages3 database and write</span>
+<span class="c1"># them to the first two axes of the controller. Don&#39;t write any parameters to the third axis.</span>
+<span class="c1"># Make a reference move for the first axis using the &#39;FNL&#39; command, dont reference the second axis,</span>
+<span class="c1"># and make a reference move for the third axis unsing the &#39;FPL&#39; command.</span>
+<span class="c1"># Doing this switches on the servo for the first two axes and turns it off for the third axis.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">startup</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;M-111.1DG&#39;</span><span class="p">,</span> <span class="s1">&#39;M-111.1DG&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;FNL&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;FPL&#39;</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">GCS 2.0 example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Don&#39;t get any stage parameters fom the PIStages3 database (e.g. because they are already stored </span>
+<span class="c1"># on the controller). Make reference moves for all axes using the &#39;FRF&#39; command.</span>
+<span class="c1"># Turn on the servo for the first axis, don&#39;t change the servo state of the second axis,</span>
+<span class="c1"># and turn off the servo for the third axis. Don&#39;t change the servo state of any other axis</span>
+<span class="c1"># (if the controller has more than three axes).</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">startup</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;FRF&#39;</span><span class="p">,</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">GCS 3.0 example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Don&#39;t get any stage parameters fom the PIStages3 database (e.g. because they are already stored </span>
+<span class="c1"># on the controller). Make reference moves for all axes using the &#39;FRF&#39; command.</span>
+<span class="c1"># Switch the control mode for the first two axes to 0x2 (Closed Loop Position), and for the</span>
+<span class="c1"># third axis to 0x4 (Closed Loop Velocity). Don&#39;t change the control mode for any other axis</span>
+<span class="c1"># (if the controller has more than three axes).</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">startup</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;FRF&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">[</span><span class="mh">0x2</span><span class="p">,</span> <span class="mh">0x2</span><span class="p">,</span> <span class="mh">0x4</span><span class="p">,</span> <span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Detailed examples</p>
+<p>See the samples datarecorder.py, datarecorder_gcs30.py, TrajectorySample.py, targets_from_cvs.py,
+wavegenerator_circle.py, wavegenerator_pnt.py, simplemove.py, and simplemove_gcs30.py.</p>
+</div>
+<h2 id="setservo">setservo</h2>
+<p>Calling 'setservo' sets the servo state of the given axes to ON (closed loop) or OFF (open loop).
+If any preparatory actions are necessary, the function performs them before running 'setservo', e.g.:
+In the case of open-loop Nexline axes the function relaxes the piezo and waits for the servo operation
+to finish; if the servo is to be switched on for disabled axes, the function enables them first
+(see section 'enableaxes').</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">setservo</span><span class="p">)</span>
+
+<span class="n">setservo</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">states</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">toignore</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">Set</span> <span class="n">servo</span> <span class="n">of</span> <span class="s1">&#39;axes&#39;</span> <span class="n">to</span> <span class="s1">&#39;states&#39;</span><span class="o">.</span> <span class="n">Calls</span> <span class="n">preparatory</span> <span class="n">functions</span> <span class="k">if</span> <span class="n">necessary</span><span class="p">,</span>
+    <span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">,</span> <span class="k">for</span> <span class="n">enabling</span> <span class="n">disabled</span> <span class="n">axes</span> <span class="ow">or</span> <span class="k">for</span> <span class="n">relaxing</span> <span class="n">the</span> <span class="n">piezo</span> <span class="k">with</span> <span class="nb">open</span><span class="o">-</span><span class="n">loop</span> <span class="n">Nexline</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="n">dictionary</span> <span class="p">{</span><span class="n">axis</span> <span class="p">:</span> <span class="n">value</span><span class="p">,</span> <span class="p">}</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">states</span><span class="p">:</span> <span class="n">Boolean</span> <span class="ow">or</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">Booleans</span><span class="p">,</span> <span class="s1">&#39;None&#39;</span> <span class="k">if</span> <span class="s1">&#39;axes&#39;</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">dictionary</span><span class="o">.</span>
+                   <span class="n">For</span> <span class="n">controllers</span> <span class="k">with</span> <span class="n">GCS</span> <span class="mf">3.0</span> <span class="n">syntax</span><span class="p">:</span>
+                       <span class="n">If</span> <span class="kc">True</span> <span class="n">the</span> <span class="n">axis</span> <span class="ow">is</span> <span class="n">switched</span> <span class="n">to</span> <span class="n">control</span> <span class="n">mode</span> <span class="mh">0x2</span><span class="o">.</span>
+                       <span class="n">If</span> <span class="kc">False</span> <span class="n">the</span> <span class="n">axis</span> <span class="ow">is</span> <span class="n">switched</span> <span class="n">to</span> <span class="n">control</span> <span class="n">mode</span> <span class="mh">0x1</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">toignore</span><span class="p">:</span> <span class="n">GCS</span> <span class="n">error</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">to</span> <span class="n">ignore</span> <span class="k">as</span> <span class="n">integer</span> <span class="ow">or</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">integers</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Optional</span> <span class="n">arguments</span> <span class="k">with</span> <span class="n">keywords</span> <span class="n">that</span> <span class="n">are</span> <span class="n">passed</span> <span class="n">to</span> <span class="n">sub</span><span class="o">-</span><span class="n">functions</span><span class="o">.</span>
+    <span class="nd">@return</span><span class="p">:</span> <span class="kc">False</span> <span class="k">if</span> <span class="n">setting</span> <span class="n">the</span> <span class="n">servo</span> <span class="n">failed</span><span class="o">.</span> 
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Turn the servo on for &#39;Axis_1&#39;.</span>
+<span class="hll"><span class="n">success</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">setservo</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">success</span><span class="p">)</span>
+
+<span class="kc">True</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Turn the servo on for &#39;Axis_1&#39; and off for&#39;Axis_2&#39;.</span>
+<span class="hll"><span class="n">success</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">setservo</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">success</span><span class="p">)</span>
+
+<span class="kc">True</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Turn the servo on for &#39;Axis_1&#39; and off for&#39;Axis_2&#39;.</span>
+<span class="hll"><span class="n">success</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">setservo</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">success</span><span class="p">)</span>
+
+<span class="kc">True</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="getservo">getservo</h2>
+<p>Calling 'getservo' gets the servo state of the given axes. If no servo state is available for an axis,
+False ist returned for this axis.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">getservo</span><span class="p">)</span>
+
+<span class="n">getservo</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+    <span class="n">Return</span> <span class="n">dictionary</span> <span class="n">of</span> <span class="n">servo</span> <span class="n">states</span> <span class="ow">or</span> <span class="s2">&quot;False&quot;</span> <span class="k">if</span> <span class="n">the</span> <span class="n">qSVO</span> <span class="n">command</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">supported</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="n">to</span> <span class="n">get</span> <span class="n">values</span> <span class="k">for</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@return</span><span class="p">:</span> <span class="n">Dictionary</span> <span class="n">of</span> <span class="n">servo</span> <span class="n">states</span> <span class="n">of</span> <span class="s1">&#39;axes&#39;</span> <span class="k">as</span> <span class="n">Booleans</span><span class="o">.</span>  
+             <span class="n">For</span> <span class="n">controllers</span> <span class="k">with</span> <span class="n">GCS</span> <span class="mf">3.0</span> <span class="n">syntax</span><span class="p">:</span>
+                 <span class="n">If</span> <span class="kc">True</span> <span class="n">the</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">in</span> <span class="n">control</span> <span class="n">mode</span> <span class="mh">0x2</span><span class="o">.</span>
+                 <span class="n">If</span> <span class="kc">False</span> <span class="n">the</span> <span class="n">axis</span> <span class="ow">is</span> <span class="ow">in</span> <span class="nb">any</span> <span class="n">other</span> <span class="n">control</span> <span class="n">mode</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get servo state of axis &#39;Axis_1&#39;.</span>
+<span class="hll"><span class="n">servostates</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getservo</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">servostates</span><span class="p">)</span>
+
+<span class="c1"># The servo state of &#39;Axis_1&#39; is ON (closed loop).</span>
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get servo states of axes &#39;Axis_1&#39; and &#39;Axis_2&#39;.</span>
+<span class="hll"><span class="n">servostates</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getservo</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">servostates</span><span class="p">)</span>
+
+<span class="c1"># The servo state of &#39;Axis_1&#39; is ON (closed loop) and for &#39;Axis_2&#39; OFF (open loop).</span>
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get servo states of all axes.</span>
+<span class="hll"><span class="n">servostates</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getservo</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">servostates</span><span class="p">)</span>
+
+<span class="c1"># Example for a controller with three axes:</span>
+<span class="c1"># The servo state of &#39;Axis_1&#39; and &#39;Axis_2&#39; is ON (closed loop) and for &#39;Axis_3&#39; OFF (open loop).</span>
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Axis_3&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="moveandwait">moveandwait</h2>
+<p>Calling 'moveandwait' moves all specified axes to the specified positions and waits until all axes
+have reached their target positions. Depending on the device and axis types, this can take a while.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">moveandwait</span><span class="p">)</span>
+
+<span class="n">moveandwait</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">,</span> <span class="n">values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="n">Call</span> <span class="n">MOV</span> <span class="k">with</span> <span class="s1">&#39;axes&#39;</span> <span class="ow">and</span> <span class="s1">&#39;values&#39;</span> <span class="ow">and</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">motion</span> <span class="n">to</span> <span class="n">finish</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="n">dictionary</span> <span class="n">of</span> <span class="p">{</span><span class="n">axis</span> <span class="p">:</span> <span class="n">target</span><span class="p">,</span> <span class="p">}</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">values</span><span class="p">:</span> <span class="n">Optional</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">values</span> <span class="ow">or</span> <span class="n">value</span><span class="o">.</span>    
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Move &#39;Axis_1&#39; to the position 1.1 and wait </span>
+<span class="c1"># until the axis has reached its target position.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">moveandwait</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Move &#39;Axis_1&#39; to the position 1.1 and &#39;Axis_2&#39; to 2.5 and wait </span>
+<span class="c1"># until both axes have reached their target positions.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">moveandwait</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Move &#39;Axis_1&#39; to the position 1.1 and &#39;Axis_2&#39; to 2.5 and wait </span>
+<span class="c1"># until both axes have reached their target positions.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">moveandwait</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">},</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="movetomiddle">movetomiddle</h2>
+<p>Calling 'movetomiddle' moves all specified axes to the middle position but does not wait
+until the target positions are reached.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">movetomiddle</span><span class="p">)</span>
+
+<span class="n">movetomiddle</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">Move</span> <span class="s1">&#39;axes&#39;</span> <span class="n">to</span> <span class="n">their</span> <span class="n">middle</span> <span class="n">positions</span> <span class="n">but</span> <span class="n">do</span> <span class="ow">not</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">they</span> <span class="n">are</span> <span class="n">on</span> <span class="n">target</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Move &#39;Axis_1&#39; to its middle position,</span>
+<span class="c1"># don&#39;t wait until the target position is reached.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">movetomiddle</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Move &#39;Axis_1&#39; and &#39;Axis_1&#39; to their middle positions,</span>
+<span class="c1"># don&#39;t wait until the target positions are reached.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">movetomiddle</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Move all axes to their middle positions,</span>
+<span class="c1"># don&#39;t wait until the target position is reached.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">movetomiddle</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Detailed examples</p>
+<p>See the sample datarecorder_gcs30.py.</p>
+</div>
+<h2 id="ontarget">ontarget</h2>
+<p>Calling 'ontarget' gets the 'on-target' state of the specified open-loop or closed-loop axes.
+For open-loop axes which support open-loop step motion and the commnad 'OSN?' to get the
+remaining number of open-loop steps to execute, there is also an 'on-targt' state availabe.
+For all other open-loop axes True is returned.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">ontarget</span><span class="p">)</span>
+
+<span class="n">ontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+    <span class="n">Return</span> <span class="n">dictionary</span> <span class="n">of</span> <span class="n">on</span><span class="o">-</span><span class="n">target</span> <span class="n">states</span> <span class="k">for</span> <span class="nb">open</span><span class="o">-</span> <span class="ow">or</span> <span class="n">closed</span><span class="o">-</span><span class="n">loop</span> <span class="s1">&#39;axes&#39;</span><span class="o">.</span>
+    <span class="n">If</span> <span class="n">qOSN</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">supported</span><span class="p">,</span> <span class="nb">open</span><span class="o">-</span><span class="n">loop</span> <span class="n">axes</span> <span class="n">will</span> <span class="k">return</span> <span class="kc">True</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@return</span><span class="p">:</span> <span class="n">Dictionary</span> <span class="n">of</span> <span class="n">on</span><span class="o">-</span><span class="n">target</span> <span class="n">states</span> <span class="n">of</span> <span class="s1">&#39;axes&#39;</span> <span class="k">as</span> <span class="n">Booleans</span> <span class="p">{</span><span class="n">axis</span> <span class="p">:</span> <span class="n">on</span><span class="o">-</span><span class="n">target</span><span class="o">-</span><span class="n">state</span><span class="p">,</span> <span class="p">}</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the &#39;on-target&#39; state of axis &#39;Axis_1&#39;.</span>
+<span class="hll"><span class="n">ontargetstate</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">ontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="nb">print</span> <span class="p">(</span><span class="n">ontargetstate</span><span class="p">)</span>
+
+<span class="c1"># The axis &#39;Axis_1&#39; is on target.</span>
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the &#39;on-target&#39; states of axes &#39;Axis_1&#39; and &#39;Axis_2&#39;.</span>
+<span class="hll"><span class="n">ontargetstate</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">ontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="nb">print</span> <span class="p">(</span><span class="n">ontargetstate</span><span class="p">)</span>
+
+<span class="c1"># The axis &#39;Axis_1&#39; is on target, &#39;Axis_2&#39; is not on target.</span>
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the &#39;on-target&#39; state of all axes&#39;.</span>
+<span class="hll"><span class="n">ontargetstate</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">ontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">ontargetstate</span><span class="p">)</span>
+
+<span class="c1"># Example for a controller with three axes:</span>
+<span class="c1"># The axes &#39;Axis_1&#39; and &#39;Axis_2&#39; are on target, &#39;Axis_3&#39; is not on target.</span>
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span> <span class="s1">&#39;Axis_3&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="stopall">stopall</h2>
+<p>Calling 'stopall' stops all axes.
+For GCS 3.0 controllers: Waits until the affected axes have finished their stop procedures.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">stopall</span><span class="p">)</span>
+
+<span class="n">stopall</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">For</span> <span class="n">GCS</span> <span class="mf">2.0</span> <span class="n">controllers</span><span class="p">:</span> <span class="n">Stop</span> <span class="n">motion</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">axes</span> <span class="ow">and</span> <span class="n">give</span> <span class="s2">&quot;error 10&quot;</span> <span class="n">warning</span><span class="o">.</span>
+    <span class="n">For</span> <span class="n">GCS</span> <span class="mf">3.0</span> <span class="n">controllers</span><span class="p">:</span> <span class="n">Stop</span> <span class="nb">all</span> <span class="n">axes</span> <span class="ow">and</span> <span class="n">wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">affected</span> <span class="n">axes</span> <span class="n">have</span> <span class="n">finished</span> <span class="n">their</span> <span class="n">stop</span> <span class="n">procedures</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">kwargs</span><span class="p">:</span> <span class="n">Optional</span> <span class="n">arguments</span> <span class="k">with</span> <span class="n">keywords</span> <span class="n">that</span> <span class="n">are</span> <span class="n">passed</span> <span class="n">to</span> <span class="n">sub</span><span class="o">-</span><span class="n">functions</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Stop all axes and return the affected axes in case of a GCS 3.0 controller.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">stopall</span><span class="p">(</span><span class="n">pidevice</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="getaxeslist">getaxeslist</h2>
+<p>Calling 'getaxeslist' returns a list of all axes of the controller or converts different axes formats into a list.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">getaxeslist</span><span class="p">)</span>
+
+<span class="n">getaxeslist</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+    <span class="n">Return</span> <span class="nb">list</span> <span class="n">of</span> <span class="s1">&#39;axes&#39;</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@return</span><span class="p">:</span> <span class="n">List</span> <span class="n">of</span> <span class="n">axes</span> <span class="kn">from</span> <span class="s1">&#39;axes&#39;</span> <span class="ow">or</span> <span class="nb">all</span> <span class="n">axes</span> <span class="ow">or</span> <span class="n">empty</span> <span class="nb">list</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Convert the axis string to an axis list.</span>
+<span class="hll"><span class="n">axes</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getaxeslist</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="p">[</span><span class="s1">&#39;AXIS_1&#39;</span><span class="p">]</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Convert the specified axes to an axis list.</span>
+<span class="hll"><span class="n">axes</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getaxeslist</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2))</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">]</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Convert the axes dictionary to an axis list.</span>
+<span class="hll"><span class="n">axes</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getaxeslist</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="mf">2.5</span><span class="p">})</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">]</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 4</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get a list of all axes of the controller (here: a controller with three axes).</span>
+<span class="hll"><span class="n">axes</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getaxeslist</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="nb">print</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span>
+
+<span class="p">[</span><span class="s1">&#39;AXIS_1&#39;</span><span class="p">,</span> <span class="s1">&#39;AXIS_2&#39;</span><span class="p">,</span> <span class="s1">&#39;AXIS_3&#39;</span><span class="p">]</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="waitonready">waitonready</h2>
+<p>Calling 'waitonready' waits until the controller is ready.
+Some controllers don't react while executing long-lasting commands. 'waitonready' waits
+until the controller is ready for new commands.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonready</span><span class="p">)</span>
+
+<span class="n">waitonready</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="n">controller</span> <span class="ow">is</span> <span class="ow">in</span> <span class="s2">&quot;ready&quot;</span> <span class="n">state</span><span class="p">,</span> <span class="n">then</span> <span class="n">query</span> <span class="ow">and</span> <span class="k">raise</span> <span class="n">controller</span> <span class="n">error</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until the controller is ready.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonready</span><span class="p">(</span><span class="n">pidevice</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Detailed examples</p>
+<p>See the sample wavegenerator_circle.py.</p>
+</div>
+<h2 id="waitontarget">waitontarget</h2>
+<p>Calling 'waitontarget' waits until all specified closed-loop axes are on target.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitontarget</span><span class="p">)</span>
+
+<span class="n">waitontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">postdelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="nb">all</span> <span class="n">closed</span><span class="o">-</span><span class="n">loop</span> <span class="s1">&#39;axes&#39;</span> <span class="n">are</span> <span class="n">on</span> <span class="n">target</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">postdelay</span><span class="p">:</span> <span class="n">Additional</span> <span class="n">delay</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">after</span> <span class="n">reaching</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">state</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until the axis &#39;Axis_1&#39; is on target.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until the axes &#39;Axis_1&#39; and &#39;Axis_2 are on target.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until all axes are on target.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitontarget</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Detailed examples</p>
+<p>See the samples TrajectorySample.py, targets_from_cvs.py, wavegenerator_circle.py,
+wavegenerator_pnt.py, simplemove.py, and simplemove_gcs30.py.</p>
+</div>
+<h2 id="waitonreferencing">waitonreferencing</h2>
+<p>Calling 'waitonreferencing' waits until referencing of all specified axes has finished.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonreferencing</span><span class="p">)</span>
+
+<span class="n">waitonreferencing</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">postdelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="n">referencing</span> <span class="n">of</span> <span class="s1">&#39;axes&#39;</span> <span class="n">has</span> <span class="n">finished</span> <span class="ow">or</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="n">reached</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">postdelay</span><span class="p">:</span> <span class="n">Additional</span> <span class="n">delay</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">after</span> <span class="n">reaching</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">state</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until referencing of axis &#39;Axis_1&#39; is finished.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonreferencing</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until referencing of axes &#39;Axis_1&#39; and &#39;Axis_2 is finished.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonreferencing</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until referencing of all axes is finished.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonreferencing</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="getmaxtravelrange">getmaxtravelrange</h2>
+<p>Calling 'getmaxtravelrange' gets the maximum travel ranges in positive direction for the specified axes.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">getmaxtravelrange</span><span class="p">)</span>
+
+<span class="n">getmaxtravelrange</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@return</span><span class="p">:</span> <span class="n">Dictionary</span> <span class="n">of</span> <span class="p">{</span><span class="n">axis</span> <span class="p">:</span> <span class="n">maximum</span> <span class="n">_travelrange</span><span class="p">,</span> <span class="p">}</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the maximum travel range for &#39;Axis_1&#39;.</span>
+<span class="hll"><span class="n">maxrange</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getmaxtravelrange</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="nb">print</span> <span class="p">(</span><span class="n">maxrange</span><span class="p">)</span>
+
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the maximum travel ranges for &#39;Axis_1&#39; and &#39;Axis_2&#39;.</span>
+<span class="hll"><span class="n">maxrange</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getmaxtravelrange</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="nb">print</span> <span class="p">(</span><span class="n">maxrange</span><span class="p">)</span>
+
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the maximum travel ranges for all axes.</span>
+<span class="hll"><span class="n">maxrange</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getmaxtravelrange</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="nb">print</span> <span class="p">(</span><span class="n">maxrange</span><span class="p">)</span>
+
+<span class="c1"># For a controller with three axes:</span>
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="mf">5.0</span><span class="p">,</span> <span class="s1">&#39;Axis_3&#39;</span><span class="p">:</span> <span class="mf">10.0</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="getmintravelrange">getmintravelrange</h2>
+<p>Calling 'getmintravelrange' gets the maximum travel ranges in negative direction for the specified axes.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">getmintravelrange</span><span class="p">)</span>
+
+<span class="n">getmintravelrange</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="p">)</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="ow">or</span> <span class="n">GCS30Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@return</span><span class="p">:</span> <span class="n">Dictionary</span> <span class="n">of</span> <span class="p">{</span><span class="n">axis</span> <span class="p">:</span> <span class="n">minimum</span> <span class="n">_travelrange</span><span class="p">,</span> <span class="p">}</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the minimum travel range for &#39;Axis_1&#39;.</span>
+<span class="hll"><span class="n">minrange</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getmintravelrange</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="nb">print</span> <span class="p">(</span><span class="n">minrange</span><span class="p">)</span>
+
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the minimum travel ranges for &#39;Axis_1&#39; and &#39;Axis_2&#39;.</span>
+<span class="hll"><span class="n">minrange</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getmintravelrange</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="nb">print</span> <span class="p">(</span><span class="n">minrange</span><span class="p">)</span>
+
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Get the minimum travel ranges for all axes.</span>
+<span class="hll"><span class="n">minrange</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">getmintravelrange</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="nb">print</span> <span class="p">(</span><span class="n">minrange</span><span class="p">)</span>
+
+<span class="c1"># For a controller with three axes:</span>
+<span class="p">{</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">5.0</span><span class="p">,</span> <span class="s1">&#39;Axis_3&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mf">10.0</span><span class="p">}</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="writewavepoints">writewavepoints</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'writewavepoints' sends wave points to a wave table on the controller.
+Normally, it is not possible to send all wave points that are needed to the controller
+at once. Therefore, they have to be sent in smaller bunches. See the manual of your
+controller for the allowed bunch size.
+The 'writewavepoints' function hides this from you: 'wavepoints' can include all needed
+wave points, the splitting-up is done automatically.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">writewavepoints</span><span class="p">)</span>
+
+<span class="n">writewavepoints</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">wavetable</span><span class="p">,</span> <span class="n">wavepoints</span><span class="p">,</span> <span class="n">bunchsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">Write</span> <span class="s1">&#39;wavepoints&#39;</span> <span class="k">for</span> <span class="s1">&#39;wavetable&#39;</span> <span class="ow">in</span> <span class="n">bunches</span> <span class="n">of</span> <span class="s1">&#39;bunchsize&#39;</span><span class="o">.</span>
+    <span class="n">The</span> <span class="s1">&#39;bunchsize&#39;</span> <span class="ow">is</span> <span class="n">device</span> <span class="n">specific</span><span class="o">.</span> <span class="n">Please</span> <span class="n">refer</span> <span class="n">to</span> <span class="n">the</span> <span class="n">controller</span> <span class="n">manual</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">wavetable</span><span class="p">:</span> <span class="n">Wave</span> <span class="n">table</span> <span class="n">ID</span> <span class="k">as</span> <span class="n">integer</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">wavepoints</span><span class="p">:</span> <span class="n">Single</span> <span class="n">wavepoint</span> <span class="k">as</span> <span class="nb">float</span> <span class="n">convertible</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">them</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">bunchsize</span><span class="p">:</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">wavepoints</span> <span class="n">per</span> <span class="n">bunch</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="n">to</span> <span class="n">send</span> <span class="nb">all</span> <span class="s1">&#39;wavepoints&#39;</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">single</span> <span class="n">bunch</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Write the wave points in WAVEPOINTS_AS_ARRAY to the wave table with id 1. Write them in</span>
+<span class="c1"># bunches of 10 values. If e.g. the WAVEPOINTS_AS_ARRAY has the size 100, the function sends</span>
+<span class="c1"># 10 bunches of 10 wave points each: first points 1-10, then 11-20, ..., 99-100.</span>
+<span class="n">pitools</span><span class="o">.</span><span class="n">writewavepoints</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">WAVEPOINTS_AS_ARRAY</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Detailed examples</p>
+<p>See the sample wavegenerator_pnt.py.</p>
+</div>
+<h2 id="waitonfastalign">waitonfastalign</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'waitonfastalign' waits until the specified fast alignment processes have finished.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonfastalign</span><span class="p">)</span>
+
+<span class="n">waitonfastalign</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">postdelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="n">the</span> <span class="n">fast</span> <span class="n">alignment</span> <span class="n">process</span> <span class="n">has</span> <span class="n">finished</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">name</span><span class="p">:</span> <span class="n">Name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">process</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">processes</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">postdelay</span><span class="p">:</span> <span class="n">Additional</span> <span class="n">delay</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">after</span> <span class="n">reaching</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">state</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until the process &#39;TestProcess_1&#39; is finished.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonfastalign</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;TestProcess_1&#39;</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until the processes &#39;TestProcess_1&#39; and &#39;TestProcess_2&#39; are finished.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonfastalign</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;TestProcess_1&#39;</span><span class="p">,</span> <span class="s1">&#39;TestProcess_2&#39;</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="waitonwavegen">waitonwavegen</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'waitonwavegen' waits until all the specified wave generators have stopped running.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonwavegen</span><span class="p">)</span>
+
+<span class="n">waitonwavegen</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">wavegens</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">postdelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="nb">all</span> <span class="s1">&#39;wavegens&#39;</span> <span class="n">have</span> <span class="n">stopped</span> <span class="n">running</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">wavegens</span><span class="p">:</span> <span class="n">Integer</span> <span class="n">convertible</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">them</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">wave</span> <span class="n">generators</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">postdelay</span><span class="p">:</span> <span class="n">Additional</span> <span class="n">delay</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">after</span> <span class="n">reaching</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">state</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait while wave generator 1 is running.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonwavegen</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait while wave generators 1 and 2 are running.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonwavegen</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until all wave generators have stopped running.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonwavegen</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="waitonautozero">waitonautozero</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'waitonautozero' waits until the auto zero procedure has finished on all specified axes.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonautozero</span><span class="p">)</span>
+
+<span class="n">waitonautozero</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">postdelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="nb">all</span> <span class="s1">&#39;axes&#39;</span> <span class="n">have</span> <span class="n">finished</span> <span class="n">their</span> <span class="n">auto</span> <span class="n">zero</span> <span class="n">procedure</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">postdelay</span><span class="p">:</span> <span class="n">Additional</span> <span class="n">delay</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">after</span> <span class="n">reaching</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">state</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait while axis &#39;Axis_1&#39; is running an auto zero procedure.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonautozero</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait while axes &#39;Axis_1&#39; and &#39;Axis_2&#39; are running an auto zero procedure.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonautozero</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until all axes have finished their auto zero procedure.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonautozero</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="waitonphase">waitonphase</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'waitonphase' waits until a find phase procedure has finished for the specified axes.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonphase</span><span class="p">)</span>
+
+<span class="n">waitonphase</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">postdelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="nb">all</span> <span class="s1">&#39;axes&#39;</span> <span class="n">are</span> <span class="n">on</span> <span class="n">phase</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">postdelay</span><span class="p">:</span> <span class="n">Additional</span> <span class="n">delay</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">after</span> <span class="n">reaching</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">state</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until axis &#39;Axis_1&#39; is on phase.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonphase</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until axes &#39;Axis_1&#39; and &#39;Axis_2&#39; are on phase.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonphase</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until all axes are on phase.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonphase</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="waitonwalk">waitonwalk</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'waitonwalk' waits until the remaining number of steps for the specified piezo walk channels
+in an open-loop step move is zero. To move an open-loop piezo walk channel you tell the channel
+the number of steps to do. Once the remaining number of steps is 0, the motion is complete.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonwalk</span><span class="p">)</span>
+
+<span class="n">waitonwalk</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">postdelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="n">qOSN</span> <span class="k">for</span> <span class="n">channels</span> <span class="ow">is</span> <span class="n">zero</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">channels</span><span class="p">:</span> <span class="n">Channel</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">channels</span> <span class="n">to</span> <span class="n">wait</span> <span class="k">for</span> <span class="n">motion</span> <span class="n">to</span> <span class="n">finish</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">postdelay</span><span class="p">:</span> <span class="n">Additional</span> <span class="n">delay</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">after</span> <span class="n">reaching</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">state</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until the remaining number of steps for piezo walk channel 1 is zero.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonwalk</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until the remaining number of steps for piezo walk channels 1 and 2 is zero.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonwalk</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="waitonoma">waitonoma</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'waitonoma' waits until the absolute open-loop motion for the specified axes has finished.
+Please see the manual of the controller to find out if absolute open-loop motion is possible
+(GSC commands 'OMA' and 'OMA?').</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonoma</span><span class="p">)</span>
+
+<span class="n">waitonoma</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="nb">open</span><span class="o">-</span><span class="n">loop</span> <span class="n">motion</span> <span class="n">of</span> <span class="s1">&#39;axes&#39;</span> <span class="n">has</span> <span class="n">finished</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">axes</span><span class="p">:</span> <span class="n">Axis</span> <span class="k">as</span> <span class="n">string</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">axes</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">axes</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until axis &#39;Axis_1&#39; has finished open-loop motion.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonoma</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="s1">&#39;Axis_1&#39;</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until axes &#39;Axis_1&#39; and &#39;Axis_2&#39; have finished open-loop motion.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonoma</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Axis_1&#39;</span><span class="p">,</span> <span class="s1">&#39;Axis_2&#39;</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until all axes have finished open-loop motion.</span>
+<span class="n">pitools</span><span class="o">.</span><span class="n">waitonoma</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span class="hll"><span class="o">...</span>
+</span></code></pre></div>
+</div>
+<h2 id="waitontrajectory">waitontrajectory</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'waitontrajectory' waits until the specified trajectories have been completed.
+(GSC commands starting with 'TG', e.g. 'TGL?')</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitontrajectory</span><span class="p">)</span>
+
+<span class="n">waitontrajectory</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">trajectories</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">postdelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="nb">all</span> <span class="s1">&#39;trajectories&#39;</span> <span class="n">are</span> <span class="n">done</span> <span class="ow">and</span> <span class="nb">all</span> <span class="n">axes</span> <span class="n">are</span> <span class="n">on</span> <span class="n">target</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">trajectories</span><span class="p">:</span> <span class="n">Integer</span> <span class="n">convertible</span> <span class="ow">or</span> <span class="nb">list</span><span class="o">/</span><span class="nb">tuple</span> <span class="n">of</span> <span class="n">them</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span> <span class="k">for</span> <span class="nb">all</span> <span class="n">trajectories</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="k">for</span> <span class="n">trajectory</span> <span class="ow">and</span> <span class="n">motion</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">postdelay</span><span class="p">:</span> <span class="n">Additional</span> <span class="n">delay</span> <span class="n">time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">after</span> <span class="n">reaching</span> <span class="n">the</span> <span class="n">desired</span> <span class="n">state</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 1</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until trajectory 1 is done.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitontrajectory</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 2</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until trajectories 1 and 2 are done.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitontrajectory</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example 3</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until all trajectories are done.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitontrajectory</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Detailed examples</p>
+<p>See the sample TrajectorySample.py.</p>
+</div>
+<h2 id="waitonmacro">waitonmacro</h2>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This function is not supported for controllers with GCS 3.0 syntax.</p>
+</div>
+<p>Calling 'waitonmacro' waits until all macros on the device have finished running.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">waitonmacro</span><span class="p">)</span>
+
+<span class="n">waitonmacro</span><span class="p">(</span><span class="n">pidevice</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">predelay</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">polldelay</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+    <span class="n">Wait</span> <span class="n">until</span> <span class="nb">all</span> <span class="n">macros</span> <span class="n">are</span> <span class="n">finished</span><span class="p">,</span> <span class="n">then</span> <span class="n">query</span> <span class="ow">and</span> <span class="k">raise</span> <span class="n">macro</span> <span class="n">error</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">pidevice</span><span class="p">:</span> <span class="n">instance</span> <span class="n">of</span> <span class="n">a</span> <span class="n">GCS2Commands</span> <span class="nb">object</span>
+    <span class="nd">@param</span> <span class="n">timeout</span><span class="p">:</span> <span class="n">Timeout</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">predelay</span><span class="p">:</span> <span class="n">Time</span> <span class="ow">in</span> <span class="n">seconds</span> <span class="n">until</span> <span class="n">querying</span> <span class="nb">any</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">controller</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">polldelay</span><span class="p">:</span> <span class="n">Delay</span> <span class="n">time</span> <span class="n">between</span> <span class="n">polls</span> <span class="ow">in</span> <span class="n">seconds</span><span class="p">,</span> <span class="k">as</span> <span class="nb">float</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="n">pidevice</span> <span class="o">=</span> <span class="n">GCSDevice</span><span class="p">()</span>
+<span class="n">pidevice</span><span class="o">.</span><span class="n">InterfaceSetupDlg</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="c1"># Wait until macros have finished.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">waitonmacro</span><span class="p">(</span><span class="n">pidevice</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<h2 id="savegcsarray">savegcsarray</h2>
+<p>Calling 'savegcsarray' saves datasets and their header information in a PI GCS array file.
+The PI GCS array file format is a PI specific file format to store datasets, such as values
+recorded with the data recorder (e.g. actual and target position of an axis), and their header
+information. Please see the data recorder sections to find out how to read recorded values
+from the controller and how to retrieve the dataset and header.
+After the retrieval of the data you can store them in a PI GCS array file with 'savegcsarray'.
+The PI GCS array file format is a human-readable file format which is understood by all
+PI programs (such as e.g. PIMikroMove), so you can use it to e.g. display the data in a graph.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">savegcsarray</span><span class="p">)</span>
+
+<span class="n">savegcsarray</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">Save</span> <span class="n">data</span> <span class="n">recorder</span> <span class="n">output</span> <span class="n">to</span> <span class="n">a</span> <span class="n">GCS</span> <span class="n">array</span> <span class="n">file</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">filepath</span><span class="p">:</span> <span class="n">Full</span> <span class="n">path</span> <span class="n">to</span> <span class="n">target</span> <span class="n">file</span> <span class="k">as</span> <span class="n">string</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">header</span><span class="p">:</span> <span class="n">Header</span> <span class="n">information</span> <span class="kn">from</span> <span class="nn">qDRR</span><span class="p">()</span> <span class="k">as</span> <span class="n">dictionary</span> <span class="ow">or</span> <span class="s1">&#39;None&#39;</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dataset</span> <span class="k">as</span> <span class="n">one</span><span class="o">-</span> <span class="ow">or</span> <span class="n">two</span><span class="o">-</span><span class="n">dimensional</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">floats</span> <span class="ow">or</span> <span class="n">NumPy</span> <span class="n">array</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;TYPE&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>                    <span class="c1"># The dataset is a two-dimensional table</span>
+          <span class="s1">&#39;SEPARATOR&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>               <span class="c1"># Seperator between the data tables as ASCII value</span>
+          <span class="s1">&#39;DIM&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>                     <span class="c1"># Number of data tables in the dataset</span>
+          <span class="s1">&#39;SAMPLE_TIME&#39;</span><span class="p">:</span> <span class="mf">9.999999e-05</span><span class="p">,</span>  <span class="c1"># Sample time</span>
+          <span class="s1">&#39;NDATA&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>                   <span class="c1"># Number of values in each data table</span>
+          <span class="s1">&#39;NAME0&#39;</span><span class="p">:</span> <span class="s1">&#39;Real Position&#39;</span><span class="p">,</span>     <span class="c1"># Name of the first data table (table 0)</span>
+          <span class="s1">&#39;NAME1&#39;</span><span class="p">:</span> <span class="s1">&#39;Target Position&#39;</span><span class="p">}</span>   <span class="c1"># Name of the second data table (table 1)</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>   <span class="c1"># Data table 0 with actual positions</span>
+        <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">]]</span>   <span class="c1"># Data table 1 with target positions</span>
+<span class="o">...</span>
+<span class="c1"># Save the header and data to the file &#39;testfile.dat&#39;.</span>
+<span class="hll"><span class="n">pitools</span><span class="o">.</span><span class="n">savegcsarray</span><span class="p">(</span><span class="s1">&#39;testfile.dat&#39;</span><span class="p">,</span> <span class="n">header</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+</span><span class="o">...</span>
+</code></pre></div>
+</div>
+<p>The so created file looks like this:</p>
+<div class="admonition file">
+<p class="admonition-title">testfile.dat</p>
+<div class="highlight"><pre><span></span><code># TYPE = 1 
+# SEPARATOR = 9 
+# DIM = 2 
+# SAMPLE_TIME = 9.999999e-05 
+# NDATA = 5 
+# NAME0 = Real Position 
+# NAME1 = Target Position 
+# 
+# END_HEADER 
+0.000000    0.100000 
+1.000000    1.100000 
+2.000000    2.100000 
+3.000000    3.100000 
+4.000000    4.100000 
+5.000000    5.100000
+</code></pre></div>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Detailed examples</p>
+<p>See the samples datarecorde.py, datarecorder_gcs30.py.</p>
+</div>
+<h2 id="readgcsarray">readgcsarray</h2>
+<p>Calling 'readgcsarray' reads datasets and header information from a PI GCS array file.
+The PI GCS array file format is a PI specific file format to store datasets, such as values
+recorded with the data recorder (e.g. actual and target position of an axis), and their header
+information.
+The PI GCS array file format is a human-readable file format which is understood by all
+PI programs (such as e.g. PIMikroMove), so you can use it to e.g. display the data in a graph.</p>
+<div class="admonition help">
+<p class="admonition-title">Getting help</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">pitools</span>
+
+<span class="n">help</span><span class="p">(</span><span class="n">pipython</span><span class="o">.</span><span class="n">pitools</span><span class="o">.</span><span class="n">readgcsarray</span><span class="p">)</span>
+
+<span class="n">readgcsarray</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+    <span class="n">Read</span> <span class="n">a</span> <span class="n">GCS</span> <span class="n">array</span> <span class="n">file</span> <span class="ow">and</span> <span class="k">return</span> <span class="n">header</span> <span class="ow">and</span> <span class="n">data</span><span class="o">.</span>
+    <span class="n">Scan</span> <span class="n">the</span> <span class="n">file</span> <span class="n">until</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">the</span> <span class="n">data</span> <span class="ow">is</span> <span class="n">found</span> <span class="n">to</span> <span class="n">account</span>
+    <span class="k">for</span> <span class="n">additional</span> <span class="n">information</span> <span class="n">at</span> <span class="n">the</span> <span class="n">start</span> <span class="n">of</span> <span class="n">the</span> <span class="n">file</span><span class="o">.</span>
+    <span class="nd">@param</span> <span class="n">filepath</span><span class="p">:</span> <span class="n">Full</span> <span class="n">path</span> <span class="n">to</span> <span class="n">file</span> <span class="k">as</span> <span class="n">string</span><span class="o">.</span>
+    <span class="nd">@return</span> <span class="n">header</span><span class="p">:</span> <span class="n">Header</span> <span class="n">information</span> <span class="kn">from</span> <span class="nn">qDRR</span><span class="p">()</span> <span class="k">as</span> <span class="n">dictionary</span><span class="o">.</span>
+    <span class="nd">@return</span> <span class="n">data</span><span class="p">:</span> <span class="n">Dataset</span> <span class="k">as</span> <span class="n">two</span> <span class="n">column</span> <span class="nb">list</span> <span class="n">of</span> <span class="n">floats</span><span class="o">.</span>
+</code></pre></div>
+</div>
+<p>For the example below, let's assume the following file exists:</p>
+<div class="admonition file">
+<p class="admonition-title">testfile.dat</p>
+<div class="highlight"><pre><span></span><code># TYPE = 1 
+# SEPARATOR = 9 
+# DIM = 2 
+# SAMPLE_TIME = 9.999999e-05 
+# NDATA = 5 
+# NAME0 = Real Position 
+# NAME1 = Target Position 
+# 
+# END_HEADER 
+0.000000    0.100000 
+1.000000    1.100000 
+2.000000    2.100000 
+3.000000    3.100000 
+4.000000    4.100000 
+5.000000    5.100000
+</code></pre></div>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">pipython</span>
+<span class="kn">from</span> <span class="nn">pipython</span> <span class="kn">import</span> <span class="n">GCSDevice</span><span class="p">,</span> <span class="n">pitools</span>
+<span class="o">...</span>
+<span class="c1"># Read the header and data from the file &#39;testfile.dat&#39;.</span>
+<span class="hll"><span class="n">header</span><span class="p">,</span> <span class="n">data</span> <span class="o">=</span> <span class="n">pitools</span><span class="o">.</span><span class="n">readgcsarray</span><span class="p">(</span><span class="s1">&#39;testfile.dat&#39;</span><span class="p">)</span>
+</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">header</span><span class="p">)</span>   
+<span class="p">{</span><span class="s1">&#39;TYPE&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>                     <span class="c1"># The dataset is a two-dimensional table</span>
+  <span class="s1">&#39;SEPARATOR&#39;</span><span class="p">:</span> <span class="mi">9</span><span class="p">,</span>               <span class="c1"># Seperator between the data tables as ASCII value</span>
+  <span class="s1">&#39;DIM&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>                     <span class="c1"># Number of data tables in the dataset</span>
+  <span class="s1">&#39;SAMPLE_TIME&#39;</span><span class="p">:</span> <span class="mf">9.999999e-05</span><span class="p">,</span>  <span class="c1"># Sample time</span>
+  <span class="s1">&#39;NDATA&#39;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>                   <span class="c1"># Number of values in each data table</span>
+  <span class="s1">&#39;NAME0&#39;</span><span class="p">:</span> <span class="s1">&#39;Real Position&#39;</span><span class="p">,</span>     <span class="c1"># Name of the first data table (table 0)</span>
+  <span class="s1">&#39;NAME1&#39;</span><span class="p">:</span> <span class="s1">&#39;Target Position&#39;</span><span class="p">}</span>   <span class="c1"># Name of the second data table (table 1)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span>   <span class="c1"># Data table 0 with actual positions</span>
+ <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="mf">3.1</span><span class="p">,</span> <span class="mf">4.1</span><span class="p">,</span> <span class="mf">5.1</span><span class="p">]]</span>   <span class="c1"># Data table 1 with target positions</span>
+<span class="o">...</span>
+</code></pre></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://www.physikinstrumente.com/en/" target="_blank" rel="noopener" title="Website Physik Instrumente (PI)" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12.97 2.59a1.5 1.5 0 0 0-1.94 0l-7.5 6.363A1.5 1.5 0 0 0 3 10.097V19.5A1.5 1.5 0 0 0 4.5 21h4.75a.75.75 0 0 0 .75-.75V14h4v6.25c0 .414.336.75.75.75h4.75a1.5 1.5 0 0 0 1.5-1.5v-9.403a1.5 1.5 0 0 0-.53-1.144z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.physikinstrumente.com/en/about-pi/legal-information/" target="_blank" rel="noopener" title="Legal information" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 7.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0m-3 3.75a.75.75 0 0 1 .75-.75h1.5a.75.75 0 0 1 .75.75v4.25h.75a.75.75 0 0 1 0 1.5h-3a.75.75 0 0 1 0-1.5h.75V12h-.75a.75.75 0 0 1-.75-.75"/><path d="M12 1c6.075 0 11 4.925 11 11s-4.925 11-11 11S1 18.075 1 12 5.925 1 12 1M2.5 12a9.5 9.5 0 0 0 9.5 9.5 9.5 9.5 0 0 0 9.5-9.5A9.5 9.5 0 0 0 12 2.5 9.5 9.5 0 0 0 2.5 12"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": ".", "features": ["toc.integrate"], "search": "assets/javascripts/workers/search.07f07601.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="assets/javascripts/bundle.56dfad97.min.js"></script>
+      
+    
+  </body>
+</html>
