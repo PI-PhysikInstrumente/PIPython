@@ -53,7 +53,6 @@ See also the provided samples in the `samples` subdirectory. Be aware that some 
 Download these python packages with pip install:
 
 - PyUSB
-- PySocket
 - PySerial
 
 With pipython.interfaces.piusb you can connect a USB device without using the GCS DLL.
