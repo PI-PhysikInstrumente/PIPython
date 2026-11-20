@@ -1,5 +1,58 @@
 # Feature Version History
 
+### PIPython 2.14.0
+
+* Added support for controllers based on GCS 3.0
+
+* Added the following functions:
+
+  * *GCSCommands.PRX_AZPA()*
+
+  * *GCSCommands.qPRX_AZPA()*
+
+  * *GCSCommands.PRX_REF()*
+
+  * *GCSCommands.qPRX_REF()*
+
+* Added the following functions as well as a corresponding sample:
+
+  * *GCSCommands.SQC_HALT()*
+  * *GCSCommands.SQC_OUTPUTS()*
+  * *GCSCommands.SQC_READY()*
+  * *GCSCommands.SQC_START()*
+  * *GCSCommands.SQC_STOP()*
+  * *GCSCommands.qSQC_STATE()*
+  * *GCSCommands.SQE_DEL()*
+  * *GCSCommands.SQE_NEW()*
+  * *GCSCommands.SQE_VALUE()*
+  * *GCSCommands.qSQE_LIST()*
+  * *GCSCommands.qSQE_VALUE()*
+  * *GCSCommands.SQP_DEL()*
+  * *GCSCommands.SQP_ITEM()*
+  * *GCSCommands.SQP_OFFSET()*
+  * *GCSCommands.qSQP_ITEM()*
+  * *GCSCommands.qSQP_PREVIEW()*
+
+* Changed *PIUSB.enumerate()*: PID and VID that are returned by the function are integers.
+
+* Fixed: The default setting for recording data on controllers based on GCS 3.0 leads to an error.
+
+### PIPython 2.13.0
+- fix call of 'STF' instead of 'STP' in StopAll of GCS30
+- fix bug for controllers with even number of bytes for the USB interface.
+
+### PIPython 2.12.0
+- add GCSCommands.LNK_USR()
+- add GCSCommands.qLNK_USER()
+- add GCSCommands.LNK_UDEL()
+- add GCSCommands.qLNK_PRE()
+- add GCSCommands.TRG_ENABLE()
+- add GCSCommands.TRG_DISABLE()
+- add GCSCommands.qTRG_STATE()
+
+### PIPython 2.11.0
+- add GCSCommands.FDL()
+
 ### PIPython 2.10.1
 - fix 'segmentation fault' which occurred on Linux while unloading the GCSDll class
 
@@ -22,7 +75,7 @@
 
 ### PIPython 2.6.0
 - add support for GCS 3.0 controllers
-- add data recorder tools for controllers with GCS 3.0 syntax 
+- add data recorder tools for controllers with GCS 3.0 syntax
 
 ### PIPython 2.5.1
 - fix missing files in pitools
@@ -64,12 +117,12 @@
 - Support for PI_SetConnectTimeout() and PI_EnableBaudRateScan()
 
 ### PIPython 2.1.1
-- fix timing probles while reading the data recorder with pythom3
+- fix timing problems while reading the data recorder with python3
 
 ### PIPython 2.1.0
-- pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number 
+- pipython.datarectools.Datarecorder: maxnumvalues now also reads the maximum number
   of data recorder points from the 'HDR?' answer.
-- fix pipython.pitools.pitoopls.itemstostr. If 'data' is an integer of 0 or a float of 0.0 
+- fix pipython.pitools.pitoopls.itemstostr. If 'data' is an integer of 0 or a float of 0.0
   'itemstostr' now returns the string '0' or '0.0' instead of 'None'
 
 ### PIPython 2.0.0
@@ -166,7 +219,7 @@
 - add controller C-663.12
 - add parameters for E-873.3QTU, C-663.10C885
 - add GCS Error codes
-- bugfixing
+- bugfix
 
 ### PIPython 1.3.3
 - add GCSCommands.SGP()
@@ -179,8 +232,8 @@
 - add GCSCommands.DEL()
 - add new controllers
 - add controller parameters
-- fix for handling unicode in Python 3
-- bugfixing of some GCS commands
+- fix for handling Unicode in Python 3
+- bugfix of some GCS commands
 
 ### PIPython 1.3.2
 - add GCSCommands.FSF()
